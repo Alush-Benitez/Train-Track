@@ -1,0 +1,550 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4AAA371922AFF30E0098C6CC /* PopUpAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAA371822AFF30E0098C6CC /* PopUpAnimation.swift */; };
+		4AAA371B22AFF35D0098C6CC /* FollowTrainAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAA371A22AFF35D0098C6CC /* FollowTrainAlertView.swift */; };
+		4AB7D084229EFB9B00A5EDFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7D083229EFB9B00A5EDFD /* AppDelegate.swift */; };
+		4AB7D086229EFB9B00A5EDFD /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7D085229EFB9B00A5EDFD /* HomeScreen.swift */; };
+		4AB7D08B229EFB9B00A5EDFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB7D089229EFB9B00A5EDFD /* Main.storyboard */; };
+		4AB7D08D229EFB9D00A5EDFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB7D08C229EFB9D00A5EDFD /* Assets.xcassets */; };
+		4AB7D090229EFB9D00A5EDFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB7D08E229EFB9D00A5EDFD /* LaunchScreen.storyboard */; };
+		4AB7D09B229EFB9D00A5EDFD /* Chi_TransitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7D09A229EFB9D00A5EDFD /* Chi_TransitTests.swift */; };
+		4AB7D0A822A6D5AC00A5EDFD /* NearbyDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7D0A722A6D5AC00A5EDFD /* NearbyDataCollectionViewCell.swift */; };
+		4AB7D0AC22A6DCFF00A5EDFD /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AB7D0AB22A6DCFF00A5EDFD /* Montserrat-Regular.ttf */; };
+		4AB7D0AE22A6DD0B00A5EDFD /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AB7D0AD22A6DD0B00A5EDFD /* Montserrat-SemiBold.ttf */; };
+		4AB7D0B422A6DD4A00A5EDFD /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AB7D0B322A6DD4A00A5EDFD /* Montserrat-Bold.ttf */; };
+		4AB7D0B622A6DD5700A5EDFD /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AB7D0B522A6DD5700A5EDFD /* Montserrat-Thin.ttf */; };
+		4AB7D0B822A6DD6E00A5EDFD /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AB7D0B722A6DD6E00A5EDFD /* Montserrat-Medium.ttf */; };
+		4AB7D0BA22A6DD7C00A5EDFD /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AB7D0B922A6DD7C00A5EDFD /* Montserrat-ExtraBold.ttf */; };
+		4AB7D0BC22A6DDB500A5EDFD /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AB7D0BB22A6DDB500A5EDFD /* Montserrat-Light.ttf */; };
+		4AB7D0BE22A6DEC500A5EDFD /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7D0BD22A6DEC500A5EDFD /* Color.swift */; };
+		4AB7D0C022A968C300A5EDFD /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7D0BF22A968C200A5EDFD /* SwiftyJSON.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4AB7D097229EFB9D00A5EDFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AB7D078229EFB9B00A5EDFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AB7D07F229EFB9B00A5EDFD;
+			remoteInfo = "Chi Transit";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4AAA371822AFF30E0098C6CC /* PopUpAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAnimation.swift; sourceTree = "<group>"; };
+		4AAA371A22AFF35D0098C6CC /* FollowTrainAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowTrainAlertView.swift; sourceTree = "<group>"; };
+		4AB7D080229EFB9B00A5EDFD /* Chi Transit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chi Transit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AB7D083229EFB9B00A5EDFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4AB7D085229EFB9B00A5EDFD /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		4AB7D08A229EFB9B00A5EDFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4AB7D08C229EFB9D00A5EDFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4AB7D08F229EFB9D00A5EDFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4AB7D091229EFB9D00A5EDFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AB7D096229EFB9D00A5EDFD /* Chi TransitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chi TransitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AB7D09A229EFB9D00A5EDFD /* Chi_TransitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chi_TransitTests.swift; sourceTree = "<group>"; };
+		4AB7D09C229EFB9D00A5EDFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AB7D0A722A6D5AC00A5EDFD /* NearbyDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyDataCollectionViewCell.swift; sourceTree = "<group>"; };
+		4AB7D0AB22A6DCFF00A5EDFD /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		4AB7D0AD22A6DD0B00A5EDFD /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		4AB7D0B322A6DD4A00A5EDFD /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		4AB7D0B522A6DD5700A5EDFD /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
+		4AB7D0B722A6DD6E00A5EDFD /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		4AB7D0B922A6DD7C00A5EDFD /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
+		4AB7D0BB22A6DDB500A5EDFD /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		4AB7D0BD22A6DEC500A5EDFD /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		4AB7D0BF22A968C200A5EDFD /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4AB7D07D229EFB9B00A5EDFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AB7D093229EFB9D00A5EDFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4AAA371522AB2EA80098C6CC /* Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				4AB7D0AA22A6DCD500A5EDFD /* Montserrat */,
+				4AB7D083229EFB9B00A5EDFD /* AppDelegate.swift */,
+				4AB7D08E229EFB9D00A5EDFD /* LaunchScreen.storyboard */,
+				4AB7D08C229EFB9D00A5EDFD /* Assets.xcassets */,
+				4AB7D0BF22A968C200A5EDFD /* SwiftyJSON.swift */,
+			);
+			path = Stuff;
+			sourceTree = "<group>";
+		};
+		4AAA371622AB2F620098C6CC /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4AB7D085229EFB9B00A5EDFD /* HomeScreen.swift */,
+				4AB7D0A722A6D5AC00A5EDFD /* NearbyDataCollectionViewCell.swift */,
+				4AAA372222B1828C0098C6CC /* Follow Train */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		4AAA372222B1828C0098C6CC /* Follow Train */ = {
+			isa = PBXGroup;
+			children = (
+				4AAA371822AFF30E0098C6CC /* PopUpAnimation.swift */,
+				4AAA371A22AFF35D0098C6CC /* FollowTrainAlertView.swift */,
+			);
+			path = "Follow Train";
+			sourceTree = "<group>";
+		};
+		4AB7D077229EFB9B00A5EDFD = {
+			isa = PBXGroup;
+			children = (
+				4AB7D082229EFB9B00A5EDFD /* Train Track */,
+				4AB7D099229EFB9D00A5EDFD /* Chi TransitTests */,
+				4AB7D081229EFB9B00A5EDFD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4AB7D081229EFB9B00A5EDFD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4AB7D080229EFB9B00A5EDFD /* Chi Transit.app */,
+				4AB7D096229EFB9D00A5EDFD /* Chi TransitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4AB7D082229EFB9B00A5EDFD /* Train Track */ = {
+			isa = PBXGroup;
+			children = (
+				4AB7D089229EFB9B00A5EDFD /* Main.storyboard */,
+				4AB7D0BD22A6DEC500A5EDFD /* Color.swift */,
+				4AB7D091229EFB9D00A5EDFD /* Info.plist */,
+				4AAA371622AB2F620098C6CC /* HomeScreen */,
+				4AAA371522AB2EA80098C6CC /* Stuff */,
+			);
+			path = "Train Track";
+			sourceTree = "<group>";
+		};
+		4AB7D099229EFB9D00A5EDFD /* Chi TransitTests */ = {
+			isa = PBXGroup;
+			children = (
+				4AB7D09A229EFB9D00A5EDFD /* Chi_TransitTests.swift */,
+				4AB7D09C229EFB9D00A5EDFD /* Info.plist */,
+			);
+			path = "Chi TransitTests";
+			sourceTree = "<group>";
+		};
+		4AB7D0AA22A6DCD500A5EDFD /* Montserrat */ = {
+			isa = PBXGroup;
+			children = (
+				4AB7D0AB22A6DCFF00A5EDFD /* Montserrat-Regular.ttf */,
+				4AB7D0AD22A6DD0B00A5EDFD /* Montserrat-SemiBold.ttf */,
+				4AB7D0B322A6DD4A00A5EDFD /* Montserrat-Bold.ttf */,
+				4AB7D0B522A6DD5700A5EDFD /* Montserrat-Thin.ttf */,
+				4AB7D0B722A6DD6E00A5EDFD /* Montserrat-Medium.ttf */,
+				4AB7D0B922A6DD7C00A5EDFD /* Montserrat-ExtraBold.ttf */,
+				4AB7D0BB22A6DDB500A5EDFD /* Montserrat-Light.ttf */,
+			);
+			path = Montserrat;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4AB7D07F229EFB9B00A5EDFD /* Chi Transit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AB7D09F229EFB9D00A5EDFD /* Build configuration list for PBXNativeTarget "Chi Transit" */;
+			buildPhases = (
+				4AB7D07C229EFB9B00A5EDFD /* Sources */,
+				4AB7D07D229EFB9B00A5EDFD /* Frameworks */,
+				4AB7D07E229EFB9B00A5EDFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Chi Transit";
+			productName = "Chi Transit";
+			productReference = 4AB7D080229EFB9B00A5EDFD /* Chi Transit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4AB7D095229EFB9D00A5EDFD /* Chi TransitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AB7D0A2229EFB9D00A5EDFD /* Build configuration list for PBXNativeTarget "Chi TransitTests" */;
+			buildPhases = (
+				4AB7D092229EFB9D00A5EDFD /* Sources */,
+				4AB7D093229EFB9D00A5EDFD /* Frameworks */,
+				4AB7D094229EFB9D00A5EDFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4AB7D098229EFB9D00A5EDFD /* PBXTargetDependency */,
+			);
+			name = "Chi TransitTests";
+			productName = "Chi TransitTests";
+			productReference = 4AB7D096229EFB9D00A5EDFD /* Chi TransitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4AB7D078229EFB9B00A5EDFD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Alush Benitez";
+				TargetAttributes = {
+					4AB7D07F229EFB9B00A5EDFD = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					4AB7D095229EFB9D00A5EDFD = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 4AB7D07F229EFB9B00A5EDFD;
+					};
+				};
+			};
+			buildConfigurationList = 4AB7D07B229EFB9B00A5EDFD /* Build configuration list for PBXProject "Train Track" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4AB7D077229EFB9B00A5EDFD;
+			productRefGroup = 4AB7D081229EFB9B00A5EDFD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4AB7D07F229EFB9B00A5EDFD /* Chi Transit */,
+				4AB7D095229EFB9D00A5EDFD /* Chi TransitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4AB7D07E229EFB9B00A5EDFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AB7D0BC22A6DDB500A5EDFD /* Montserrat-Light.ttf in Resources */,
+				4AB7D0AC22A6DCFF00A5EDFD /* Montserrat-Regular.ttf in Resources */,
+				4AB7D090229EFB9D00A5EDFD /* LaunchScreen.storyboard in Resources */,
+				4AB7D0B422A6DD4A00A5EDFD /* Montserrat-Bold.ttf in Resources */,
+				4AB7D08D229EFB9D00A5EDFD /* Assets.xcassets in Resources */,
+				4AB7D08B229EFB9B00A5EDFD /* Main.storyboard in Resources */,
+				4AB7D0AE22A6DD0B00A5EDFD /* Montserrat-SemiBold.ttf in Resources */,
+				4AB7D0B822A6DD6E00A5EDFD /* Montserrat-Medium.ttf in Resources */,
+				4AB7D0BA22A6DD7C00A5EDFD /* Montserrat-ExtraBold.ttf in Resources */,
+				4AB7D0B622A6DD5700A5EDFD /* Montserrat-Thin.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AB7D094229EFB9D00A5EDFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4AB7D07C229EFB9B00A5EDFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AB7D084229EFB9B00A5EDFD /* AppDelegate.swift in Sources */,
+				4AB7D086229EFB9B00A5EDFD /* HomeScreen.swift in Sources */,
+				4AB7D0BE22A6DEC500A5EDFD /* Color.swift in Sources */,
+				4AB7D0C022A968C300A5EDFD /* SwiftyJSON.swift in Sources */,
+				4AAA371B22AFF35D0098C6CC /* FollowTrainAlertView.swift in Sources */,
+				4AB7D0A822A6D5AC00A5EDFD /* NearbyDataCollectionViewCell.swift in Sources */,
+				4AAA371922AFF30E0098C6CC /* PopUpAnimation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AB7D092229EFB9D00A5EDFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AB7D09B229EFB9D00A5EDFD /* Chi_TransitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4AB7D098229EFB9D00A5EDFD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4AB7D07F229EFB9B00A5EDFD /* Chi Transit */;
+			targetProxy = 4AB7D097229EFB9D00A5EDFD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4AB7D089229EFB9B00A5EDFD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AB7D08A229EFB9B00A5EDFD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4AB7D08E229EFB9D00A5EDFD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AB7D08F229EFB9D00A5EDFD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4AB7D09D229EFB9D00A5EDFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4AB7D09E229EFB9D00A5EDFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4AB7D0A0229EFB9D00A5EDFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5AM4378YJ3;
+				INFOPLIST_FILE = "$(SRCROOT)/Train Track/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Chi-Transit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4AB7D0A1229EFB9D00A5EDFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5AM4378YJ3;
+				INFOPLIST_FILE = "$(SRCROOT)/Train Track/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Chi-Transit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4AB7D0A3229EFB9D00A5EDFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5AM4378YJ3;
+				INFOPLIST_FILE = "Chi TransitTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Chi-TransitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chi Transit.app/Chi Transit";
+			};
+			name = Debug;
+		};
+		4AB7D0A4229EFB9D00A5EDFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5AM4378YJ3;
+				INFOPLIST_FILE = "Chi TransitTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Chi-TransitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chi Transit.app/Chi Transit";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4AB7D07B229EFB9B00A5EDFD /* Build configuration list for PBXProject "Train Track" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AB7D09D229EFB9D00A5EDFD /* Debug */,
+				4AB7D09E229EFB9D00A5EDFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AB7D09F229EFB9D00A5EDFD /* Build configuration list for PBXNativeTarget "Chi Transit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AB7D0A0229EFB9D00A5EDFD /* Debug */,
+				4AB7D0A1229EFB9D00A5EDFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AB7D0A2229EFB9D00A5EDFD /* Build configuration list for PBXNativeTarget "Chi TransitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AB7D0A3229EFB9D00A5EDFD /* Debug */,
+				4AB7D0A4229EFB9D00A5EDFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4AB7D078229EFB9B00A5EDFD /* Project object */;
+}
