@@ -48,6 +48,10 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         super.viewDidLoad()
         dataCollectionView.delegate = self
         dataCollectionView.dataSource = self
+        dataCollectionView.register(UINib.init(nibName: "TrainTrackerCell", bundle: nil), forCellWithReuseIdentifier: "TrainTrackerCell")
+        dataCollectionView.register(UINib.init(nibName: "NearbyStationCell", bundle: nil), forCellWithReuseIdentifier: "NearbyStationCell")
+        dataCollectionView.register(UINib.init(nibName: "AlertCell", bundle: nil), forCellWithReuseIdentifier: "AlertCell")
+        
         nearbyButton.layer.cornerRadius = 7
         nearbyButton.layer.borderWidth = 2
         nearbyButton.layer.borderColor = notBlack.cgColor
@@ -60,12 +64,14 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             view.layer.cornerRadius = 15
         }
 
+        //Location
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
         }
         
+        //Refresh
         if #available(iOS 10.0, *) {
             dataCollectionView.refreshControl = refreshControl
         } else {
@@ -73,7 +79,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         }
         
         refreshControl.addTarget(self, action: #selector(reloadTrainTrackerData(_:)), for: .valueChanged)
-       // refreshControl.attributedTitle = NSAttributedString(string: "Reloading Train Tracker Data...")
     }
     
     @objc private func reloadTrainTrackerData(_ sender: Any) {
@@ -379,57 +384,104 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if !nearbyPressed {
-            return trainTrackerData.count
+            return trainTrackerData.count + 1
         } else {
             return 5
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let nearbyDataCell = collectionView.dequeueReusableCell(withReuseIdentifier: "nearbyDataCell", for: indexPath as IndexPath) as! NearbyDataCollectionViewCell
-        nearbyDataCell.layer.cornerRadius = 7
+//        let nearbyDataCell = collectionView.dequeueReusableCell(withReuseIdentifier: "nearbyDataCell", for: indexPath as IndexPath) as! NearbyDataCollectionViewCell
+//        nearbyDataCell.layer.cornerRadius = 7
+//
+//        var nearbyLineViews = [nearbyDataCell.firstLineView, nearbyDataCell.secondLineView, nearbyDataCell.thirdLineView, nearbyDataCell.fourthLineView, nearbyDataCell.fifthLineView, nearbyDataCell.sixthLineView]
+//
+//        for view in nearbyLineViews {
+//            view?.backgroundColor = .white
+//        }
+//
+//
+//        if !nearbyPressed {
+//            for view in nearbyLineViews {
+//                view?.isHidden = true
+//            }
+//            nearbyDataCell.layer.shadowColor = UIColor.white.cgColor
+//            nearbyDataCell.nearbyStationLabel.isHidden = true
+//            nearbyDataCell.destinationLabel.isHidden = false
+//            nearbyDataCell.runInfoLabel.isHidden = false
+//            nearbyDataCell.timeLabel.textColor = .white
+//
+//            nearbyDataCell.destinationLabel.isHidden = false
+//            nearbyDataCell.timeLabel.isHidden = false
+//
+//            //Train Tracker data
+//            if trainTrackerData[indexPath.row][4] as! Bool{
+//                nearbyDataCell.timeLabel.text = "Due"
+//            } else if trainTrackerData[indexPath.row][6] as! Bool{
+//                nearbyDataCell.timeLabel.text = "Delayed"
+//            } else {
+//                nearbyDataCell.timeLabel.text = (trainTrackerData[indexPath.row][3] as? String)! + " min"
+//            }
+//
+//            if trainTrackerData[indexPath.row][2] as? String == stationNameLabel.text! {
+//                nearbyDataCell.destinationLabel.text = "Terminal Arrival"
+//            } else {
+//                nearbyDataCell.destinationLabel.text = (trainTrackerData[indexPath.row][2] as? String)!
+//            }
+//
+//            nearbyDataCell.runInfoLabel.text = (trainTrackerData[indexPath.row][1] as? String)! + " Line Run # " + String(trainTrackerData[indexPath.row][7] as! Int) + " to"
+//            nearbyDataCell.backgroundColor = trainTrackerData[indexPath.row][0] as? UIColor
+//
+//
+//
+//        } else {
+//
+//            //Shadow
+//            nearbyDataCell.layer.shadowColor = UIColor.gray.cgColor
+//            nearbyDataCell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+//            nearbyDataCell.layer.shadowRadius = 2.0
+//            nearbyDataCell.layer.shadowOpacity = 1.0
+//            nearbyDataCell.layer.masksToBounds = false
+//            nearbyDataCell.layer.shadowPath = UIBezierPath(roundedRect:nearbyDataCell.bounds, cornerRadius: nearbyDataCell.contentView.layer.cornerRadius).cgPath
+//
+//
+//            nearbyDataCell.timeLabel.text = truncateDigitsAfterDecimal(number:((nearbyStationsData[indexPath.row][1] as! Double) / 1609.344), afterDecimalDigits: 2) + " mi"
+//            nearbyDataCell.backgroundColor = .white
+//            nearbyDataCell.destinationLabel.isHidden = true
+//            nearbyDataCell.runInfoLabel.isHidden = true
+//            nearbyDataCell.timeLabel.textColor = notBlack
+//
+//            nearbyDataCell.nearbyStationLabel.isHidden = false
+//            nearbyDataCell.nearbyStationLabel.text = nearbyStationsData[indexPath.row][2] as? String
+//
+//
+//
+//            for view in nearbyLineViews {
+//                view?.isHidden = false
+//                view?.layer.cornerRadius = 12
+//            }
+//
+//            var count = 0
+//            for color in nearbyStationsData[indexPath.row][3] as! [UIColor] {
+//                nearbyLineViews[count]?.backgroundColor = color
+//                count += 1
+//            }
+//        }
         
-        var nearbyLineViews = [nearbyDataCell.firstLineView, nearbyDataCell.secondLineView, nearbyDataCell.thirdLineView, nearbyDataCell.fourthLineView, nearbyDataCell.fifthLineView, nearbyDataCell.sixthLineView]
-        
-        for view in nearbyLineViews {
-            view?.backgroundColor = .white
-        }
-       
-        
-        if !nearbyPressed {
-            for view in nearbyLineViews {
-                view?.isHidden = true
+        if nearbyPressed {
+            //Show Nearby Stations
+            let nearbyDataCell = dataCollectionView.dequeueReusableCell(withReuseIdentifier: "NearbyStationCell", for: indexPath) as! NearbyStationCell
+            nearbyDataCell.nearbyStationLabel.text = nearbyStationsData[indexPath.row][2] as? String
+            nearbyDataCell.distanceLabel.text = truncateDigitsAfterDecimal(number:((nearbyStationsData[indexPath.row][1] as! Double) / 1609.344), afterDecimalDigits: 2) + " mi"
+            nearbyDataCell.layer.cornerRadius = 7
+            for view in nearbyDataCell.lineViews {
+                view.layer.cornerRadius = 13
             }
-            nearbyDataCell.layer.shadowColor = UIColor.white.cgColor
-            nearbyDataCell.nearbyStationLabel.isHidden = true
-            nearbyDataCell.destinationLabel.isHidden = false
-            nearbyDataCell.runInfoLabel.isHidden = false
-            nearbyDataCell.timeLabel.textColor = .white
-            
-            nearbyDataCell.destinationLabel.isHidden = false
-            nearbyDataCell.timeLabel.isHidden = false
-            
-            //Train Tracker data
-            if trainTrackerData[indexPath.row][4] as! Bool{
-                nearbyDataCell.timeLabel.text = "Due"
-            } else if trainTrackerData[indexPath.row][6] as! Bool{
-                nearbyDataCell.timeLabel.text = "Delayed"
-            } else {
-                nearbyDataCell.timeLabel.text = (trainTrackerData[indexPath.row][3] as? String)! + " min"
+            var count = 0
+            for color in nearbyStationsData[indexPath.row][3] as! [UIColor] {
+                nearbyDataCell.lineViews[count].backgroundColor = color
+                count += 1
             }
-            
-            if trainTrackerData[indexPath.row][2] as? String == stationNameLabel.text! {
-                nearbyDataCell.destinationLabel.text = "Terminal Arrival"
-            } else {
-                nearbyDataCell.destinationLabel.text = (trainTrackerData[indexPath.row][2] as? String)!
-            }
-            
-            nearbyDataCell.runInfoLabel.text = (trainTrackerData[indexPath.row][1] as? String)! + " Line Run # " + String(trainTrackerData[indexPath.row][7] as! Int) + " to"
-            nearbyDataCell.backgroundColor = trainTrackerData[indexPath.row][0] as? UIColor
-            
-            
-            
-        } else {
             
             //Shadow
             nearbyDataCell.layer.shadowColor = UIColor.gray.cgColor
@@ -439,31 +491,51 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             nearbyDataCell.layer.masksToBounds = false
             nearbyDataCell.layer.shadowPath = UIBezierPath(roundedRect:nearbyDataCell.bounds, cornerRadius: nearbyDataCell.contentView.layer.cornerRadius).cgPath
             
-            
-            nearbyDataCell.timeLabel.text = truncateDigitsAfterDecimal(number:((nearbyStationsData[indexPath.row][1] as! Double) / 1609.344), afterDecimalDigits: 2) + " mi"
-            nearbyDataCell.backgroundColor = .white
-            nearbyDataCell.destinationLabel.isHidden = true
-            nearbyDataCell.runInfoLabel.isHidden = true
-            nearbyDataCell.timeLabel.textColor = notBlack
-            
-            nearbyDataCell.nearbyStationLabel.isHidden = false
-            nearbyDataCell.nearbyStationLabel.text = nearbyStationsData[indexPath.row][2] as? String
+            return nearbyDataCell
             
             
             
-            for view in nearbyLineViews {
-                view?.isHidden = false
-                view?.layer.cornerRadius = 12
+        } else {
+            //Show Train Tracker Data
+            if indexPath.row == 0 {
+                //Alert Cell
+                let firstCell = dataCollectionView.dequeueReusableCell(withReuseIdentifier: "AlertCell", for: indexPath) as! AlertCell
+                firstCell.layer.borderWidth = 3
+                firstCell.layer.borderColor = notBlack.cgColor
+                firstCell.layer.cornerRadius = 7
+                return firstCell
+                
+            } else {
+                print(indexPath.row)
+                //TrainTracker Cell
+                let dataCell = dataCollectionView.dequeueReusableCell(withReuseIdentifier: "TrainTrackerCell", for: indexPath) as! TrainTrackerCell
+                //Destination
+                if trainTrackerData[indexPath.row - 1][2] as? String == stationNameLabel.text! {
+                    dataCell.destinationLabel.text = "Terminal Arrival"
+                    dataCell.runInfoLabel.text = (trainTrackerData[indexPath.row - 1][1] as? String)! + " Line Run # " + String(trainTrackerData[indexPath.row - 1][7] as! Int)
+                } else {
+                    dataCell.destinationLabel.text = (trainTrackerData[indexPath.row - 1][2] as? String)!
+                    dataCell.runInfoLabel.text = (trainTrackerData[indexPath.row - 1][1] as? String)! + " Line Run # " + String(trainTrackerData[indexPath.row - 1][7] as! Int) + " to"
+                }
+                //Time
+                if trainTrackerData[indexPath.row - 1][4] as! Bool{
+                    dataCell.timeLabel.text = "Due"
+                } else if trainTrackerData[indexPath.row - 1][6] as! Bool{
+                    dataCell.timeLabel.text = "Delayed"
+                } else {
+                    dataCell.timeLabel.text = (trainTrackerData[indexPath.row - 1][3] as? String)! + " min"
+                }
+                
+                
+                dataCell.backgroundColor = trainTrackerData[indexPath.row - 1][0] as? UIColor
+                dataCell.layer.cornerRadius = 7
+
+                
+                return dataCell
+                
             }
             
-            var count = 0
-            for color in nearbyStationsData[indexPath.row][3] as! [UIColor] {
-                nearbyLineViews[count]?.backgroundColor = color
-                count += 1
-            }
         }
-        
-        return nearbyDataCell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -487,8 +559,10 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             
             dataCollectionView.reloadData()
         } else {
-            let alert = FollowTrainAlertView(runNumber: trainTrackerData[indexPath.row][7] as! Int, color: trainTrackerData[indexPath.row][0] as! UIColor, destination: trainTrackerData[indexPath.row][2] as! String, colorString: trainTrackerData[indexPath.row][1] as! String)
-            alert.show(animated: true)
+            if indexPath.row != 0 {
+                let alert = FollowTrainAlertView(runNumber: trainTrackerData[indexPath.row-1][7] as! Int, color: trainTrackerData[indexPath.row-1][0] as! UIColor, destination: trainTrackerData[indexPath.row-1][2] as! String, colorString: trainTrackerData[indexPath.row-1][1] as! String)
+                alert.show(animated: true)
+            }
         }
        
         

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A05AF4B22B88D1F007C29E7 /* TrainTrackerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A05AF4922B88D1F007C29E7 /* TrainTrackerCell.swift */; };
+		4A05AF4C22B88D1F007C29E7 /* TrainTrackerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A05AF4A22B88D1F007C29E7 /* TrainTrackerCell.xib */; };
+		4A05AF4F22B88D41007C29E7 /* NearbyStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A05AF4D22B88D41007C29E7 /* NearbyStationCell.swift */; };
+		4A05AF5022B88D41007C29E7 /* NearbyStationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A05AF4E22B88D41007C29E7 /* NearbyStationCell.xib */; };
+		4A05AF5322B88D75007C29E7 /* AlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A05AF5122B88D75007C29E7 /* AlertCell.swift */; };
+		4A05AF5422B88D75007C29E7 /* AlertCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A05AF5222B88D75007C29E7 /* AlertCell.xib */; };
 		4A34B9B622B87CDC0026B9AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A34B9B522B87CDC0026B9AC /* Main.storyboard */; };
 		4AAA371922AFF30E0098C6CC /* PopUpAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAA371822AFF30E0098C6CC /* PopUpAnimation.swift */; };
 		4AAA371B22AFF35D0098C6CC /* FollowTrainAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAA371A22AFF35D0098C6CC /* FollowTrainAlertView.swift */; };
@@ -38,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A05AF4922B88D1F007C29E7 /* TrainTrackerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainTrackerCell.swift; sourceTree = "<group>"; };
+		4A05AF4A22B88D1F007C29E7 /* TrainTrackerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainTrackerCell.xib; sourceTree = "<group>"; };
+		4A05AF4D22B88D41007C29E7 /* NearbyStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyStationCell.swift; sourceTree = "<group>"; };
+		4A05AF4E22B88D41007C29E7 /* NearbyStationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearbyStationCell.xib; sourceTree = "<group>"; };
+		4A05AF5122B88D75007C29E7 /* AlertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCell.swift; sourceTree = "<group>"; };
+		4A05AF5222B88D75007C29E7 /* AlertCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertCell.xib; sourceTree = "<group>"; };
 		4A34B9B522B87CDC0026B9AC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4AAA371822AFF30E0098C6CC /* PopUpAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAnimation.swift; sourceTree = "<group>"; };
 		4AAA371A22AFF35D0098C6CC /* FollowTrainAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowTrainAlertView.swift; sourceTree = "<group>"; };
@@ -80,6 +92,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A05AF5522B91D44007C29E7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4A05AF5622B91D58007C29E7 /* TrainTrackerCell */,
+				4A05AF5722B91D6C007C29E7 /* NearbyStationCell */,
+				4A05AF5822B91D87007C29E7 /* AlertCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		4A05AF5622B91D58007C29E7 /* TrainTrackerCell */ = {
+			isa = PBXGroup;
+			children = (
+				4A05AF4922B88D1F007C29E7 /* TrainTrackerCell.swift */,
+				4A05AF4A22B88D1F007C29E7 /* TrainTrackerCell.xib */,
+			);
+			path = TrainTrackerCell;
+			sourceTree = "<group>";
+		};
+		4A05AF5722B91D6C007C29E7 /* NearbyStationCell */ = {
+			isa = PBXGroup;
+			children = (
+				4A05AF4D22B88D41007C29E7 /* NearbyStationCell.swift */,
+				4A05AF4E22B88D41007C29E7 /* NearbyStationCell.xib */,
+			);
+			path = NearbyStationCell;
+			sourceTree = "<group>";
+		};
+		4A05AF5822B91D87007C29E7 /* AlertCell */ = {
+			isa = PBXGroup;
+			children = (
+				4A05AF5122B88D75007C29E7 /* AlertCell.swift */,
+				4A05AF5222B88D75007C29E7 /* AlertCell.xib */,
+			);
+			path = AlertCell;
+			sourceTree = "<group>";
+		};
 		4AAA371522AB2EA80098C6CC /* Stuff */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				4AB7D085229EFB9B00A5EDFD /* HomeScreen.swift */,
+				4A05AF5522B91D44007C29E7 /* Cells */,
 				4AB7D0A722A6D5AC00A5EDFD /* NearbyDataCollectionViewCell.swift */,
 				4AAA372222B1828C0098C6CC /* Follow Train */,
 			);
@@ -245,7 +295,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A05AF5422B88D75007C29E7 /* AlertCell.xib in Resources */,
 				4AB7D0BC22A6DDB500A5EDFD /* Montserrat-Light.ttf in Resources */,
+				4A05AF5022B88D41007C29E7 /* NearbyStationCell.xib in Resources */,
 				4AB7D0AC22A6DCFF00A5EDFD /* Montserrat-Regular.ttf in Resources */,
 				4AB7D090229EFB9D00A5EDFD /* LaunchScreen.storyboard in Resources */,
 				4AB7D0B422A6DD4A00A5EDFD /* Montserrat-Bold.ttf in Resources */,
@@ -255,6 +307,7 @@
 				4A34B9B622B87CDC0026B9AC /* Main.storyboard in Resources */,
 				4AB7D0BA22A6DD7C00A5EDFD /* Montserrat-ExtraBold.ttf in Resources */,
 				4AB7D0B622A6DD5700A5EDFD /* Montserrat-Thin.ttf in Resources */,
+				4A05AF4C22B88D1F007C29E7 /* TrainTrackerCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,9 +328,12 @@
 				4AB7D084229EFB9B00A5EDFD /* AppDelegate.swift in Sources */,
 				4AB7D086229EFB9B00A5EDFD /* HomeScreen.swift in Sources */,
 				4AB7D0BE22A6DEC500A5EDFD /* Color.swift in Sources */,
+				4A05AF4B22B88D1F007C29E7 /* TrainTrackerCell.swift in Sources */,
+				4A05AF4F22B88D41007C29E7 /* NearbyStationCell.swift in Sources */,
 				4AB7D0C022A968C300A5EDFD /* SwiftyJSON.swift in Sources */,
 				4AAA371B22AFF35D0098C6CC /* FollowTrainAlertView.swift in Sources */,
 				4AB7D0A822A6D5AC00A5EDFD /* NearbyDataCollectionViewCell.swift in Sources */,
+				4A05AF5322B88D75007C29E7 /* AlertCell.swift in Sources */,
 				4AAA371922AFF30E0098C6CC /* PopUpAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
