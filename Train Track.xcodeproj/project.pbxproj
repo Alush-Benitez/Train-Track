@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A34B9B622B87CDC0026B9AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A34B9B522B87CDC0026B9AC /* Main.storyboard */; };
 		4AAA371922AFF30E0098C6CC /* PopUpAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAA371822AFF30E0098C6CC /* PopUpAnimation.swift */; };
 		4AAA371B22AFF35D0098C6CC /* FollowTrainAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAA371A22AFF35D0098C6CC /* FollowTrainAlertView.swift */; };
 		4AB7D084229EFB9B00A5EDFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7D083229EFB9B00A5EDFD /* AppDelegate.swift */; };
 		4AB7D086229EFB9B00A5EDFD /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7D085229EFB9B00A5EDFD /* HomeScreen.swift */; };
-		4AB7D08B229EFB9B00A5EDFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB7D089229EFB9B00A5EDFD /* Main.storyboard */; };
 		4AB7D08D229EFB9D00A5EDFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB7D08C229EFB9D00A5EDFD /* Assets.xcassets */; };
 		4AB7D090229EFB9D00A5EDFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB7D08E229EFB9D00A5EDFD /* LaunchScreen.storyboard */; };
 		4AB7D09B229EFB9D00A5EDFD /* Chi_TransitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7D09A229EFB9D00A5EDFD /* Chi_TransitTests.swift */; };
@@ -38,12 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A34B9B522B87CDC0026B9AC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4AAA371822AFF30E0098C6CC /* PopUpAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAnimation.swift; sourceTree = "<group>"; };
 		4AAA371A22AFF35D0098C6CC /* FollowTrainAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowTrainAlertView.swift; sourceTree = "<group>"; };
 		4AB7D080229EFB9B00A5EDFD /* Chi Transit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chi Transit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB7D083229EFB9B00A5EDFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AB7D085229EFB9B00A5EDFD /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
-		4AB7D08A229EFB9B00A5EDFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AB7D08C229EFB9D00A5EDFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AB7D08F229EFB9D00A5EDFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AB7D091229EFB9D00A5EDFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		4AB7D082229EFB9B00A5EDFD /* Train Track */ = {
 			isa = PBXGroup;
 			children = (
-				4AB7D089229EFB9B00A5EDFD /* Main.storyboard */,
+				4A34B9B522B87CDC0026B9AC /* Main.storyboard */,
 				4AB7D0BD22A6DEC500A5EDFD /* Color.swift */,
 				4AB7D091229EFB9D00A5EDFD /* Info.plist */,
 				4AAA371622AB2F620098C6CC /* HomeScreen */,
@@ -250,9 +250,9 @@
 				4AB7D090229EFB9D00A5EDFD /* LaunchScreen.storyboard in Resources */,
 				4AB7D0B422A6DD4A00A5EDFD /* Montserrat-Bold.ttf in Resources */,
 				4AB7D08D229EFB9D00A5EDFD /* Assets.xcassets in Resources */,
-				4AB7D08B229EFB9B00A5EDFD /* Main.storyboard in Resources */,
 				4AB7D0AE22A6DD0B00A5EDFD /* Montserrat-SemiBold.ttf in Resources */,
 				4AB7D0B822A6DD6E00A5EDFD /* Montserrat-Medium.ttf in Resources */,
+				4A34B9B622B87CDC0026B9AC /* Main.storyboard in Resources */,
 				4AB7D0BA22A6DD7C00A5EDFD /* Montserrat-ExtraBold.ttf in Resources */,
 				4AB7D0B622A6DD5700A5EDFD /* Montserrat-Thin.ttf in Resources */,
 			);
@@ -301,14 +301,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4AB7D089229EFB9B00A5EDFD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4AB7D08A229EFB9B00A5EDFD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4AB7D08E229EFB9D00A5EDFD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -28,12 +28,12 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>"Enable location services so we can provide you with informations from stations closest to you"</string>
+	<string>&quot;Enable location services so we can provide you with informations from stations closest to you&quot;</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-Medium.ttf</string>
 		<string>Montserrat-Light.ttf</string>
-		<string>Montserrat-Semibold.ttf</string>
+		<string>Montserrat-SemiBold.ttf</string>
 		<string>Montserrat-Thin.ttf</string>
 		<string>Montserrat-Regular.ttf</string>
 		<string>Montserrat-Bold.ttf</string>
