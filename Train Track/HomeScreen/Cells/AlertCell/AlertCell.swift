@@ -13,6 +13,7 @@ class AlertCell: UICollectionViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var statusIcon: UIImageView!
     
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

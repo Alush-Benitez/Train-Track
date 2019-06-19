@@ -23,6 +23,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     @IBOutlet weak var accessableIcon: UIImageView!
     @IBOutlet weak var nearbyButton: UIButton!
     @IBOutlet weak var elevatorAlertIcon: UIImageView!
+    @IBOutlet weak var lastUpdatedLabel: UILabel!
     
     
     let locationManager = CLLocationManager()
@@ -33,6 +34,10 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     var firstLoad = true
     var nearbyPressed = false
     var selectedIndex = 0
+    
+    var alertCount = 0
+    var colorsAffected: [UIColor] = []
+    var alertString = ""
     
     
     
@@ -55,6 +60,9 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         nearbyButton.layer.cornerRadius = 7
         nearbyButton.layer.borderWidth = 2
         nearbyButton.layer.borderColor = notBlack.cgColor
+        
+        lastUpdatedLabel.layer.cornerRadius = 4
+        lastUpdatedLabel.layer.backgroundColor = notBlack.cgColor
         
         locationManager.requestWhenInUseAuthorization()
         
@@ -88,6 +96,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             locationManager.startUpdatingLocation()
         } else {
             grabTrainTrackerData(mapid: nearbyStationsData[selectedIndex][0] as! Double)
+            grabAlertData(stationid: Int(nearbyStationsData[selectedIndex][0] as! Double))
         }
         dataCollectionView.reloadData()
         let delay = DispatchTime.now() + .milliseconds(500)
@@ -104,6 +113,8 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                 grabClosestStations()
                 if firstLoad {
                     grabTrainTrackerData(mapid: nearbyStationsData[0][0] as! Double)
+                    grabAlertData(stationid: Int(nearbyStationsData[0][0] as! Double))
+                    
                     firstLoad = false
                     
                 }
@@ -353,6 +364,19 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             let arrivalHour = Int(String(result["arrT"].stringValue[index...index2]))!
             let predictionHour = Int(String(result["prdt"].stringValue[index...index2]))!
             
+            print("here")
+            var friendlyMin = String(predictionMin)
+            if friendlyMin.count == 1 {
+                friendlyMin = "0" + friendlyMin
+            }
+            
+            if predictionHour > 12 {
+                lastUpdatedLabel.text = String(predictionHour - 12) + ":" + String(friendlyMin) + " PM"
+            } else {
+                lastUpdatedLabel.text = String(predictionHour) + ":" + String(friendlyMin) + " AM"
+            }
+            
+            
             if arrivalHour == predictionHour {
                 info.append(String(arrivalMin - predictionMin))
             } else {
@@ -372,6 +396,48 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         }
     }
     
+    //*************************
+    //PARSE CONSUMER ALERT DATA
+    //*************************
+    
+    func grabAlertData(stationid: Int) {
+        let query = "http://www.transitchicago.com/api/1.0/routes.aspx?stationid=" + String(Int(stationid)) + "&outputType=JSON"
+        print(query)
+        if let url = URL(string: query) {
+            if let data = try? Data(contentsOf: url) {
+                let json = try! JSON(data: data)
+                self.parseAlertData(json: json)
+            }
+        }
+    }
+    
+    func parseAlertData(json: JSON?){
+        alertCount = 0
+        alertString = ""
+        if json!["CTARoutes"]["RouteInfo"].arrayValue == [] {
+            if json!["CTARoutes"]["RouteInfo"].dictionaryValue["RouteStatus"]?.stringValue ?? "error" != "Normal Service"{
+                alertCount += 1
+                alertString = json!["CTARoutes"]["RouteInfo"].dictionaryValue["RouteStatus"]?.stringValue ?? "error"
+            }
+        } else {
+            for result in json!["CTARoutes"]["RouteInfo"].arrayValue {
+                if result["RouteStatus"].stringValue != "Normal Service"{
+                    alertCount += 1
+                    alertString = result["RouteStatus"].stringValue
+                }
+            }
+        }
+        
+        
+        
+        if alertCount == 0 {
+            alertString = "Normal Service"
+            colorsAffected = nearbyStationsData[0][3] as! [UIColor]
+        } else if alertCount != 1 {
+            alertString = "Multiple Alerts"
+        }
+    }
+    
     
     
     
@@ -384,6 +450,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if !nearbyPressed {
+            print(trainTrackerData.count + 1)
             return trainTrackerData.count + 1
         } else {
             return 5
@@ -391,83 +458,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let nearbyDataCell = collectionView.dequeueReusableCell(withReuseIdentifier: "nearbyDataCell", for: indexPath as IndexPath) as! NearbyDataCollectionViewCell
-//        nearbyDataCell.layer.cornerRadius = 7
-//
-//        var nearbyLineViews = [nearbyDataCell.firstLineView, nearbyDataCell.secondLineView, nearbyDataCell.thirdLineView, nearbyDataCell.fourthLineView, nearbyDataCell.fifthLineView, nearbyDataCell.sixthLineView]
-//
-//        for view in nearbyLineViews {
-//            view?.backgroundColor = .white
-//        }
-//
-//
-//        if !nearbyPressed {
-//            for view in nearbyLineViews {
-//                view?.isHidden = true
-//            }
-//            nearbyDataCell.layer.shadowColor = UIColor.white.cgColor
-//            nearbyDataCell.nearbyStationLabel.isHidden = true
-//            nearbyDataCell.destinationLabel.isHidden = false
-//            nearbyDataCell.runInfoLabel.isHidden = false
-//            nearbyDataCell.timeLabel.textColor = .white
-//
-//            nearbyDataCell.destinationLabel.isHidden = false
-//            nearbyDataCell.timeLabel.isHidden = false
-//
-//            //Train Tracker data
-//            if trainTrackerData[indexPath.row][4] as! Bool{
-//                nearbyDataCell.timeLabel.text = "Due"
-//            } else if trainTrackerData[indexPath.row][6] as! Bool{
-//                nearbyDataCell.timeLabel.text = "Delayed"
-//            } else {
-//                nearbyDataCell.timeLabel.text = (trainTrackerData[indexPath.row][3] as? String)! + " min"
-//            }
-//
-//            if trainTrackerData[indexPath.row][2] as? String == stationNameLabel.text! {
-//                nearbyDataCell.destinationLabel.text = "Terminal Arrival"
-//            } else {
-//                nearbyDataCell.destinationLabel.text = (trainTrackerData[indexPath.row][2] as? String)!
-//            }
-//
-//            nearbyDataCell.runInfoLabel.text = (trainTrackerData[indexPath.row][1] as? String)! + " Line Run # " + String(trainTrackerData[indexPath.row][7] as! Int) + " to"
-//            nearbyDataCell.backgroundColor = trainTrackerData[indexPath.row][0] as? UIColor
-//
-//
-//
-//        } else {
-//
-//            //Shadow
-//            nearbyDataCell.layer.shadowColor = UIColor.gray.cgColor
-//            nearbyDataCell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-//            nearbyDataCell.layer.shadowRadius = 2.0
-//            nearbyDataCell.layer.shadowOpacity = 1.0
-//            nearbyDataCell.layer.masksToBounds = false
-//            nearbyDataCell.layer.shadowPath = UIBezierPath(roundedRect:nearbyDataCell.bounds, cornerRadius: nearbyDataCell.contentView.layer.cornerRadius).cgPath
-//
-//
-//            nearbyDataCell.timeLabel.text = truncateDigitsAfterDecimal(number:((nearbyStationsData[indexPath.row][1] as! Double) / 1609.344), afterDecimalDigits: 2) + " mi"
-//            nearbyDataCell.backgroundColor = .white
-//            nearbyDataCell.destinationLabel.isHidden = true
-//            nearbyDataCell.runInfoLabel.isHidden = true
-//            nearbyDataCell.timeLabel.textColor = notBlack
-//
-//            nearbyDataCell.nearbyStationLabel.isHidden = false
-//            nearbyDataCell.nearbyStationLabel.text = nearbyStationsData[indexPath.row][2] as? String
-//
-//
-//
-//            for view in nearbyLineViews {
-//                view?.isHidden = false
-//                view?.layer.cornerRadius = 12
-//            }
-//
-//            var count = 0
-//            for color in nearbyStationsData[indexPath.row][3] as! [UIColor] {
-//                nearbyLineViews[count]?.backgroundColor = color
-//                count += 1
-//            }
-//        }
-        
         if nearbyPressed {
             //Show Nearby Stations
             let nearbyDataCell = dataCollectionView.dequeueReusableCell(withReuseIdentifier: "NearbyStationCell", for: indexPath) as! NearbyStationCell
@@ -476,6 +466,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             nearbyDataCell.layer.cornerRadius = 7
             for view in nearbyDataCell.lineViews {
                 view.layer.cornerRadius = 13
+                view.backgroundColor = .white
             }
             var count = 0
             for color in nearbyStationsData[indexPath.row][3] as! [UIColor] {
@@ -485,11 +476,11 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             
             //Shadow
             nearbyDataCell.layer.shadowColor = UIColor.gray.cgColor
-            nearbyDataCell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-            nearbyDataCell.layer.shadowRadius = 2.0
+            nearbyDataCell.layer.shadowOffset = CGSize(width: 0, height: 1.2)
+            nearbyDataCell.layer.shadowRadius = 1.2
             nearbyDataCell.layer.shadowOpacity = 1.0
             nearbyDataCell.layer.masksToBounds = false
-            nearbyDataCell.layer.shadowPath = UIBezierPath(roundedRect:nearbyDataCell.bounds, cornerRadius: nearbyDataCell.contentView.layer.cornerRadius).cgPath
+            nearbyDataCell.layer.shadowPath = UIBezierPath(roundedRect:nearbyDataCell.bounds, cornerRadius: 7).cgPath
             
             return nearbyDataCell
             
@@ -500,22 +491,31 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             if indexPath.row == 0 {
                 //Alert Cell
                 let firstCell = dataCollectionView.dequeueReusableCell(withReuseIdentifier: "AlertCell", for: indexPath) as! AlertCell
-                firstCell.layer.borderWidth = 3
-                firstCell.layer.borderColor = notBlack.cgColor
                 firstCell.layer.cornerRadius = 7
+                firstCell.descriptionLabel.text = alertString
+                
+                
+                
+                firstCell.layer.shadowColor = UIColor.gray.cgColor
+                firstCell.layer.shadowOffset = CGSize(width: 0, height: 1.2)
+                firstCell.layer.shadowRadius = 1.2
+                firstCell.layer.shadowOpacity = 1.0
+                firstCell.layer.masksToBounds = false
+                firstCell.layer.shadowPath = UIBezierPath(roundedRect:firstCell.bounds, cornerRadius: 7).cgPath
+                
                 return firstCell
                 
             } else {
-                print(indexPath.row)
+                //print("HERE")
                 //TrainTracker Cell
                 let dataCell = dataCollectionView.dequeueReusableCell(withReuseIdentifier: "TrainTrackerCell", for: indexPath) as! TrainTrackerCell
                 //Destination
                 if trainTrackerData[indexPath.row - 1][2] as? String == stationNameLabel.text! {
                     dataCell.destinationLabel.text = "Terminal Arrival"
-                    dataCell.runInfoLabel.text = (trainTrackerData[indexPath.row - 1][1] as? String)! + " Line Run # " + String(trainTrackerData[indexPath.row - 1][7] as! Int)
+                    dataCell.runInfoLabel.text = (trainTrackerData[indexPath.row - 1][1] as? String)! + " Line Run #" + String(trainTrackerData[indexPath.row - 1][7] as! Int)
                 } else {
                     dataCell.destinationLabel.text = (trainTrackerData[indexPath.row - 1][2] as? String)!
-                    dataCell.runInfoLabel.text = (trainTrackerData[indexPath.row - 1][1] as? String)! + " Line Run # " + String(trainTrackerData[indexPath.row - 1][7] as! Int) + " to"
+                    dataCell.runInfoLabel.text = (trainTrackerData[indexPath.row - 1][1] as? String)! + " Line Run #" + String(trainTrackerData[indexPath.row - 1][7] as! Int) + " to"
                 }
                 //Time
                 if trainTrackerData[indexPath.row - 1][4] as! Bool{
@@ -529,6 +529,13 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                 
                 dataCell.backgroundColor = trainTrackerData[indexPath.row - 1][0] as? UIColor
                 dataCell.layer.cornerRadius = 7
+                
+                dataCell.layer.shadowColor = UIColor.gray.cgColor
+                dataCell.layer.shadowOffset = CGSize(width: 0, height: 1.2)
+                dataCell.layer.shadowRadius = 1.2
+                dataCell.layer.shadowOpacity = 1.0
+                dataCell.layer.masksToBounds = false
+                dataCell.layer.shadowPath = UIBezierPath(roundedRect:dataCell.bounds, cornerRadius: 7).cgPath
 
                 
                 return dataCell
@@ -555,6 +562,9 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             selectedIndex = indexPath.row
             
             grabTrainTrackerData(mapid: nearbyStationsData[indexPath.row][0] as! Double)
+            print(Int(nearbyStationsData[indexPath.row][0] as! Double))
+            print("up!")
+            grabAlertData(stationid: Int(nearbyStationsData[indexPath.row][0] as! Double))
             
             
             dataCollectionView.reloadData()
