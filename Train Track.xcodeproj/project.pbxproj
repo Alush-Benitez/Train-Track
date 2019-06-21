@@ -13,6 +13,7 @@
 		4A05AF5022B88D41007C29E7 /* NearbyStationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A05AF4E22B88D41007C29E7 /* NearbyStationCell.xib */; };
 		4A05AF5322B88D75007C29E7 /* AlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A05AF5122B88D75007C29E7 /* AlertCell.swift */; };
 		4A05AF5422B88D75007C29E7 /* AlertCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A05AF5222B88D75007C29E7 /* AlertCell.xib */; };
+		4A05AF5A22BD2786007C29E7 /* StatusAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A05AF5922BD2786007C29E7 /* StatusAlertView.swift */; };
 		4A34B9B622B87CDC0026B9AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A34B9B522B87CDC0026B9AC /* Main.storyboard */; };
 		4AAA371922AFF30E0098C6CC /* PopUpAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAA371822AFF30E0098C6CC /* PopUpAnimation.swift */; };
 		4AAA371B22AFF35D0098C6CC /* FollowTrainAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAA371A22AFF35D0098C6CC /* FollowTrainAlertView.swift */; };
@@ -49,6 +50,7 @@
 		4A05AF4E22B88D41007C29E7 /* NearbyStationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearbyStationCell.xib; sourceTree = "<group>"; };
 		4A05AF5122B88D75007C29E7 /* AlertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCell.swift; sourceTree = "<group>"; };
 		4A05AF5222B88D75007C29E7 /* AlertCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertCell.xib; sourceTree = "<group>"; };
+		4A05AF5922BD2786007C29E7 /* StatusAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusAlertView.swift; sourceTree = "<group>"; };
 		4A34B9B522B87CDC0026B9AC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4AAA371822AFF30E0098C6CC /* PopUpAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAnimation.swift; sourceTree = "<group>"; };
 		4AAA371A22AFF35D0098C6CC /* FollowTrainAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowTrainAlertView.swift; sourceTree = "<group>"; };
@@ -143,19 +145,12 @@
 			isa = PBXGroup;
 			children = (
 				4AB7D085229EFB9B00A5EDFD /* HomeScreen.swift */,
-				4A05AF5522B91D44007C29E7 /* Cells */,
-				4AAA372222B1828C0098C6CC /* Follow Train */,
-			);
-			path = HomeScreen;
-			sourceTree = "<group>";
-		};
-		4AAA372222B1828C0098C6CC /* Follow Train */ = {
-			isa = PBXGroup;
-			children = (
 				4AAA371822AFF30E0098C6CC /* PopUpAnimation.swift */,
 				4AAA371A22AFF35D0098C6CC /* FollowTrainAlertView.swift */,
+				4A05AF5922BD2786007C29E7 /* StatusAlertView.swift */,
+				4A05AF5522B91D44007C29E7 /* Cells */,
 			);
-			path = "Follow Train";
+			path = HomeScreen;
 			sourceTree = "<group>";
 		};
 		4AB7D077229EFB9B00A5EDFD = {
@@ -323,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AB7D084229EFB9B00A5EDFD /* AppDelegate.swift in Sources */,
+				4A05AF5A22BD2786007C29E7 /* StatusAlertView.swift in Sources */,
 				4AB7D086229EFB9B00A5EDFD /* HomeScreen.swift in Sources */,
 				4AB7D0BE22A6DEC500A5EDFD /* Color.swift in Sources */,
 				4A05AF4B22B88D1F007C29E7 /* TrainTrackerCell.swift in Sources */,

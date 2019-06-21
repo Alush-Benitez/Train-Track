@@ -12,7 +12,6 @@ import CoreLocation
 class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate{
     
     @IBOutlet weak var stationNameLabel: UILabel!
-    @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var dataCollectionView: UICollectionView!
     @IBOutlet weak var firstLineView: UIView!
     @IBOutlet weak var secondLineView: UIView!
@@ -57,12 +56,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         dataCollectionView.register(UINib.init(nibName: "NearbyStationCell", bundle: nil), forCellWithReuseIdentifier: "NearbyStationCell")
         dataCollectionView.register(UINib.init(nibName: "AlertCell", bundle: nil), forCellWithReuseIdentifier: "AlertCell")
         
-        nearbyButton.layer.cornerRadius = 7
-        nearbyButton.layer.borderWidth = 2
-        nearbyButton.layer.borderColor = notBlack.cgColor
-        
-        lastUpdatedLabel.layer.cornerRadius = 4
-        lastUpdatedLabel.layer.backgroundColor = notBlack.cgColor
+       
         
         locationManager.requestWhenInUseAuthorization()
         
@@ -87,6 +81,12 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         }
         
         refreshControl.addTarget(self, action: #selector(reloadTrainTrackerData(_:)), for: .valueChanged)
+        nearbyButton.layer.cornerRadius = 7
+        nearbyButton.layer.borderWidth = 2
+        nearbyButton.layer.borderColor = notBlack.cgColor
+        
+        lastUpdatedLabel.layer.cornerRadius = 4
+        lastUpdatedLabel.layer.backgroundColor = notBlack.cgColor
     }
     
     @objc private func reloadTrainTrackerData(_ sender: Any) {
@@ -110,7 +110,24 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         if let location = locations.first {
             currentLocation = location
             if !loaded {
+                let date = Date()
+                let calendar = Calendar.current
+                let hour = calendar.component(.hour, from: date)
+                let minutes = calendar.component(.minute, from: date)
+                
+                var friendlyMin = String(minutes)
+                if friendlyMin.count == 1 {
+                    friendlyMin = "0" + friendlyMin
+                }
+                
+                if hour >= 12 {
+                    lastUpdatedLabel.text = String(hour - 12) + ":" + friendlyMin + " PM"
+                } else {
+                    lastUpdatedLabel.text = String(hour) + ":" + friendlyMin + " AM"
+                }
+                
                 grabClosestStations()
+                
                 if firstLoad {
                     grabTrainTrackerData(mapid: nearbyStationsData[0][0] as! Double)
                     grabAlertData(stationid: Int(nearbyStationsData[0][0] as! Double))
@@ -146,6 +163,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         var tested = false
         let userCoordinate = CLLocation(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
         nearbyStationsData = [[-1.0, -1.0, "", [], false], [-1.0, -1.0, "", [], false], [-1.0, -1.0, "", [], false], [-1.0, -1.0, "", [], false], [-1.0, -1.0, "", [], false]]
+        var name = ""
         
         //Find Closest Station Data
         for result in json![].arrayValue {
@@ -160,6 +178,12 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             
             if !tested {
                 testedCoordinates.append([result["location"]["coordinates"][1].doubleValue, result["location"]["coordinates"][0].doubleValue])
+                
+                if result["station_name"].stringValue == "Harold Washington Library-State/Van Buren" {
+                    name = "Harold Washington Library"
+                } else {
+                    name = result["station_name"].stringValue
+                }
                 let distanceInMeters = stationCoordinate.distance(from: userCoordinate)
                 if distanceInMeters < nearbyStationsData[0][1] as! Double || nearbyStationsData[0][1] as! Double == -1 {
                     //Closer than closest
@@ -171,7 +195,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                     
                     nearbyStationsData[0][0] = result["map_id"].doubleValue
                     nearbyStationsData[0][1] = distanceInMeters
-                    nearbyStationsData[0][2] = result["station_name"].stringValue
+                    nearbyStationsData[0][2] = name
                     nearbyStationsData[0][4] = result["ada"].boolValue
                 } else if distanceInMeters < nearbyStationsData[1][1] as! Double || nearbyStationsData[1][1] as! Double == -1 {
                     //Closer than second closest
@@ -181,7 +205,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                     
                     nearbyStationsData[1][0] = result["map_id"].doubleValue
                     nearbyStationsData[1][1] = distanceInMeters
-                    nearbyStationsData[1][2] = result["station_name"].stringValue
+                    nearbyStationsData[1][2] = name
                     nearbyStationsData[1][4] = result["ada"].boolValue
                 } else if distanceInMeters < nearbyStationsData[2][1] as! Double || nearbyStationsData[2][1] as! Double == -1 {
                     //closer than third closest
@@ -190,7 +214,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                     
                     nearbyStationsData[2][0] = result["map_id"].doubleValue
                     nearbyStationsData[2][1] = distanceInMeters
-                    nearbyStationsData[2][2] = result["station_name"].stringValue
+                    nearbyStationsData[2][2] = name
                     nearbyStationsData[2][4] = result["ada"].boolValue
                 } else if distanceInMeters < nearbyStationsData[3][1] as! Double || nearbyStationsData[3][1] as! Double == -1{
                     //closer than fourth closest
@@ -198,13 +222,13 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                     
                     nearbyStationsData[3][0] = result["map_id"].doubleValue
                     nearbyStationsData[3][1] = distanceInMeters
-                    nearbyStationsData[3][2] = result["station_name"].stringValue
+                    nearbyStationsData[3][2] = name
                     nearbyStationsData[3][4] = result["ada"].boolValue
                 } else if distanceInMeters < nearbyStationsData[4][1] as! Double || nearbyStationsData[4][1] as! Double == -1{
                     //closer than fifth closest
                     nearbyStationsData[4][0] = result["map_id"].doubleValue
                     nearbyStationsData[4][1] = distanceInMeters
-                    nearbyStationsData[4][2] = result["station_name"].stringValue
+                    nearbyStationsData[4][2] = name
                     nearbyStationsData[4][4] = result["ada"].boolValue
                 }
             }
@@ -285,7 +309,10 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             if !tested {
                 testedIds.append(result["map_id"].intValue)
                 if result["map_id"].doubleValue == nearbyStationsData[0][0] as! Double && firstLoad {
-                    stationNameLabel.text = result["station_name"].stringValue
+                    stationNameLabel.text = nearbyStationsData[0][2] as! String
+                    //[labelObject setMinimumScaleFactor:0.5];
+                    //[labelObject setBaselineAdjustment:UIBaselineAdjustmentAlignCenters];
+                    //stationNameLabel.sizeToFit()
                     accessableIcon.isHidden = !result["ada"].boolValue
                 }
             }
@@ -439,11 +466,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     }
     
     
-    
-    
-    
-    
-    
     //**********************
     //SET UP COLLECTION VIEW
     //**********************
@@ -493,20 +515,21 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                 let firstCell = dataCollectionView.dequeueReusableCell(withReuseIdentifier: "AlertCell", for: indexPath) as! AlertCell
                 firstCell.layer.cornerRadius = 7
                 firstCell.descriptionLabel.text = alertString
-                
-                
-                
                 firstCell.layer.shadowColor = UIColor.gray.cgColor
                 firstCell.layer.shadowOffset = CGSize(width: 0, height: 1.2)
                 firstCell.layer.shadowRadius = 1.2
                 firstCell.layer.shadowOpacity = 1.0
                 firstCell.layer.masksToBounds = false
                 firstCell.layer.shadowPath = UIBezierPath(roundedRect:firstCell.bounds, cornerRadius: 7).cgPath
+                if alertString != "Normal Service" {
+                    firstCell.statusIcon.image = UIImage(named: "warning-icon")
+                } else {
+                    firstCell.statusIcon.image = UIImage(named: "greencheck")
+                }
                 
                 return firstCell
                 
             } else {
-                //print("HERE")
                 //TrainTracker Cell
                 let dataCell = dataCollectionView.dequeueReusableCell(withReuseIdentifier: "TrainTrackerCell", for: indexPath) as! TrainTrackerCell
                 //Destination
@@ -517,6 +540,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                     dataCell.destinationLabel.text = (trainTrackerData[indexPath.row - 1][2] as? String)!
                     dataCell.runInfoLabel.text = (trainTrackerData[indexPath.row - 1][1] as? String)! + " Line Run #" + String(trainTrackerData[indexPath.row - 1][7] as! Int) + " to"
                 }
+                
                 //Time
                 if trainTrackerData[indexPath.row - 1][4] as! Bool{
                     dataCell.timeLabel.text = "Due"
@@ -525,8 +549,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                 } else {
                     dataCell.timeLabel.text = (trainTrackerData[indexPath.row - 1][3] as? String)! + " min"
                 }
-                
-                
+
                 dataCell.backgroundColor = trainTrackerData[indexPath.row - 1][0] as? UIColor
                 dataCell.layer.cornerRadius = 7
                 
@@ -536,10 +559,8 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                 dataCell.layer.shadowOpacity = 1.0
                 dataCell.layer.masksToBounds = false
                 dataCell.layer.shadowPath = UIBezierPath(roundedRect:dataCell.bounds, cornerRadius: 7).cgPath
-
                 
                 return dataCell
-                
             }
             
         }
@@ -562,8 +583,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             selectedIndex = indexPath.row
             
             grabTrainTrackerData(mapid: nearbyStationsData[indexPath.row][0] as! Double)
-            print(Int(nearbyStationsData[indexPath.row][0] as! Double))
-            print("up!")
             grabAlertData(stationid: Int(nearbyStationsData[indexPath.row][0] as! Double))
             
             
@@ -592,7 +611,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             stationNameLabel.text = "Nearby"
             nearbyButton.isHidden = true
             accessableIcon.isHidden = true
-            favoriteButton.isHidden = true
+            //favoriteButton.isHidden = true
             
             for view in lineViews {
                 view.isHidden = true
@@ -600,7 +619,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         } else {
             nearbyButton.isHidden = false
             
-            favoriteButton.isHidden = false
+            //favoriteButton.isHidden = false
             
             for view in lineViews {
                 view.backgroundColor = .white

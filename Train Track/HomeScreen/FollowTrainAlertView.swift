@@ -87,7 +87,6 @@ class FollowTrainAlertView: UIView, PopUpAnimation {
             dialogView.addSubview(noDataLabel)
         }
         
-        
         dialogView.addSubview(backgroundColorView)
         dialogView.addSubview(runInfoLabel)
         dialogView.addSubview(destinationLabel)
@@ -102,17 +101,18 @@ class FollowTrainAlertView: UIView, PopUpAnimation {
         dialogView.layer.cornerRadius = 7
         dialogView.clipsToBounds = true
         addSubview(dialogView)
-        
-        
- 
+
         backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTappedOnBackgroundView)))
         
         
     }
+    
+    //***********
+    //SETUP STUFF
+    //***********
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -121,9 +121,6 @@ class FollowTrainAlertView: UIView, PopUpAnimation {
     @objc func didTappedOnBackgroundView(){
         dismiss(animated: true)
     }
-    
-    
-    
     
     func grabNextStations(runNumber: Int) {
         let query = "http://lapi.transitchicago.com/api/1.0/ttfollow.aspx?key=167e3f6b5d0646889964748acf3bcc58&runnumber=" + String(runNumber) + "&outputType=JSON"
@@ -135,6 +132,11 @@ class FollowTrainAlertView: UIView, PopUpAnimation {
         }
     }
     
+    
+    //************
+    //DATA PARSING
+    //************
+    
     func parseNextStations(json: JSON?){
         
         nextStationsData = []
@@ -142,7 +144,11 @@ class FollowTrainAlertView: UIView, PopUpAnimation {
         //StationName, countdownTime, isApp, isDly
         for result in json!["ctatt"]["eta"].arrayValue {
             var info: [Any] = []
-            info.append(result["staNm"].stringValue)
+            if result["staNm"].stringValue == "Harold Washington Library-State/Van Buren" {
+                info.append("Harold Washington Library")
+            } else {
+                info.append(result["staNm"].stringValue)
+            }
             
             //time
             var index = result["arrT"].stringValue.index(result["arrT"].stringValue.startIndex, offsetBy: 14)
