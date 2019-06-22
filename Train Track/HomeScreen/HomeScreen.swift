@@ -591,6 +591,10 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             if indexPath.row != 0 {
                 let alert = FollowTrainAlertView(runNumber: trainTrackerData[indexPath.row-1][7] as! Int, color: trainTrackerData[indexPath.row-1][0] as! UIColor, destination: trainTrackerData[indexPath.row-1][2] as! String, colorString: trainTrackerData[indexPath.row-1][1] as! String)
                 alert.show(animated: true)
+            } else {
+                let alert = StatusAlertView(stationid: Int(nearbyStationsData[selectedIndex][0] as! Double))
+                print(nearbyStationsData[selectedIndex][0])
+                alert.show(animated: true)
             }
         }
        
