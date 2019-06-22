@@ -28,7 +28,81 @@ class StatusAlertView: UIView, PopUpAnimation {
         let dialogViewWidth = frame.width-64
         
         //Current Alerts
+        let regularAlertsHeader =  UILabel(frame: CGRect(x: 8, y: 8, width: dialogViewWidth-16, height: 30))
+        regularAlertsHeader.text = "Current Alerts"
+        regularAlertsHeader.textColor = notBlack
+        regularAlertsHeader.font = UIFont(name: "Montserrat-Bold", size: 25.0)
+        regularAlertsHeader.textAlignment = .left
         
+        var alertDataViews: [Any] = []
+        var heightOfLast = 0
+        
+        for i in 0..<regularAlerts.count {
+            var lineCount = 1
+            for line in regularAlerts[i][2] as! [String] {
+                if line != "Pexp" {
+                    let lineView = UIView(frame: CGRect(x: ((5 * (lineCount - 1)) + 8 + (16 * (lineCount - 1))), y: 50 + heightOfLast + (22 * i), width: 16, height: 16))
+                    lineView.layer.cornerRadius = 8
+                    if line == "Red" {
+                        lineView.backgroundColor = ctaRed
+                    } else if line == "Blue" {
+                        lineView.backgroundColor = ctaBlue
+                    } else if line == "Brn" {
+                        lineView.backgroundColor = ctaBrown
+                    } else if line == "G" {
+                        lineView.backgroundColor = ctaGreen
+                    } else if line == "Org" {
+                        lineView.backgroundColor = ctaOrange
+                    } else if line == "P"{
+                        lineView.backgroundColor = ctaPurple
+                    } else if line == "Pink" {
+                        lineView.backgroundColor = ctaPink
+                    } else {
+                        lineView.backgroundColor = ctaYellow
+                    }
+                    alertDataViews.append(lineView)
+                    lineCount += 1
+                }
+            }
+            let discriptionLabel = UILabel(frame: CGRect(x: 8, y: 70 + (22 * i) + heightOfLast, width: Int(dialogViewWidth-16), height: 1))
+            discriptionLabel.text = regularAlerts[i][0] as? String
+            discriptionLabel.textColor = notBlack
+            discriptionLabel.font = UIFont(name: "Montserrat-Regular", size: 12.0)
+            discriptionLabel.textAlignment = .left
+            discriptionLabel.lineBreakMode = .byWordWrapping
+            discriptionLabel.numberOfLines = 0
+            discriptionLabel.sizeToFit()
+            heightOfLast += Int(discriptionLabel.frame.height + 8)
+            alertDataViews.append(discriptionLabel)
+            
+            
+//            let discriptionText = UITextView(frame: CGRect(x: 8, y: 45 + (100 * i), width: Int(dialogViewWidth-16), height: 100))
+//            discriptionText.isEditable = false
+//            discriptionText.isScrollEnabled = false
+//            discriptionText.font = UIFont(name: "Montserrat-Light", size: 12.0)
+//            discriptionText.textColor = notBlack
+//            alertDataViews.append(discriptionText)
+            
+        }
+        
+        var height = 600.0
+        
+        for view in alertDataViews {
+            dialogView.addSubview(view as! UIView)
+            //height += Double((view as! UIView).frame.height + 10)
+        }
+        
+        dialogView.addSubview(regularAlertsHeader)
+        
+        //var dialogViewHeight = runInfoLabel.frame.height + 8 + destinationLabel.frame.height + 8
+        //dialogViewHeight += CGFloat(height)
+        dialogView.frame.origin = CGPoint(x: 32, y: frame.height)
+        dialogView.frame.size = CGSize(width: Double(frame.width-64), height: height)
+        
+        dialogView.backgroundColor = UIColor.white
+        dialogView.layer.cornerRadius = 7
+        dialogView.clipsToBounds = true
+        addSubview(dialogView)
         
         
         backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTappedOnBackgroundView)))
@@ -75,6 +149,9 @@ class StatusAlertView: UIView, PopUpAnimation {
                     linesAffected.append(service["ServiceId"].stringValue)
                 }
             }
+            if linesAffected == [] && result["ImpactedService"].dictionaryValue["Service"]!.dictionaryValue["ServiceType"]!.stringValue == "R"{
+                linesAffected.append(result["ImpactedService"].dictionaryValue["Service"]!.dictionaryValue["ServiceId"]!.stringValue)
+            }
             info.append(linesAffected)
             
             if result["Impact"].stringValue == "Elevator Status" {
@@ -101,5 +178,6 @@ class StatusAlertView: UIView, PopUpAnimation {
             regularAlerts[j + 1][1] = key
             regularAlerts[j + 1] = keyStuff
         }
+        print(regularAlerts)
     }
 }

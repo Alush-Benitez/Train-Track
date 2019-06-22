@@ -92,8 +92,8 @@ class FollowTrainAlertView: UIView, PopUpAnimation {
         dialogView.addSubview(destinationLabel)
         
         
-        var dialogViewHeight = runInfoLabel.frame.height + 8 + destinationLabel.frame.height + 8
-        dialogViewHeight += CGFloat(height)
+        //var dialogViewHeight = runInfoLabel.frame.height + 8 + destinationLabel.frame.height + 8
+        //dialogViewHeight += CGFloat(height)
         dialogView.frame.origin = CGPoint(x: 32, y: frame.height)
         dialogView.frame.size = CGSize(width: Double(frame.width-64), height: height)
         
