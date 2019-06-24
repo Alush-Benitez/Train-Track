@@ -32,38 +32,61 @@ class StatusAlertView: UIView, PopUpAnimation {
         //**************
         //CURRENT ALERTS
         //**************
-        
-        let regularAlertsHeader =  UILabel(frame: CGRect(x: 8, y: 8, width: dialogViewWidth-16, height: 25))
-        regularAlertsHeader.text = "Current Alerts"
-        regularAlertsHeader.textColor = notBlack
-        regularAlertsHeader.font = UIFont(name: "Montserrat-Bold", size: 20.0)
-        regularAlertsHeader.textAlignment = .left
+        var noRegularAlerts = false
         heightCount += 40
-        
         var alertDataViews = addDataToViews(array: regularAlerts, dialogViewWidth: dialogViewWidth)
         
-        for view in alertDataViews {
-            dialogView.addSubview(view as! UIView)
+        if alertDataViews.count != 0 {
+            let regularAlertsHeader =  UILabel(frame: CGRect(x: 8, y: 8, width: dialogViewWidth-16, height: 25))
+            regularAlertsHeader.text = "Current Alerts"
+            regularAlertsHeader.textColor = notBlack
+            regularAlertsHeader.font = UIFont(name: "Montserrat-Bold", size: 20.0)
+            regularAlertsHeader.textAlignment = .left
+            
+            
+            for view in alertDataViews {
+                dialogView.addSubview(view as! UIView)
+            }
+            dialogView.addSubview(regularAlertsHeader)
+        } else {
+            noRegularAlerts = true
         }
         
         //********************
         //ACCESSIBILITY ALERTS
         //********************
         
-        let elevatorAlertsSeperator = UIView(frame: CGRect(x: 8, y: heightCount, width: Int(dialogViewWidth-16), height: 2))
-        elevatorAlertsSeperator.backgroundColor = .gray
-        heightCount += 10
-        
-        
         alertDataViews = addDataToViews(array: accessibilityAlerts, dialogViewWidth: dialogViewWidth)
-        
-        for view in alertDataViews {
-            dialogView.addSubview(view as! UIView)
+        if alertDataViews.count == 0 && noRegularAlerts{
+            //No regular alerts AND no elevator alerts
+            let regularAlertsHeader =  UILabel(frame: CGRect(x: 8, y: 19, width: dialogViewWidth-16, height: 30))
+            regularAlertsHeader.text = "No Service Alerts"
+            regularAlertsHeader.textColor = notBlack
+            regularAlertsHeader.font = UIFont(name: "Montserrat-Bold", size: 24)
+            regularAlertsHeader.textAlignment = .center
+            print(regularAlertsHeader.frame.height)
+            dialogView.addSubview(regularAlertsHeader)
+            heightCount += 20
+        } else if noRegularAlerts {
+            //ONLY no regular alerts
+            for view in alertDataViews {
+                dialogView.addSubview(view as! UIView)
+            }
+        } else if alertDataViews.count != 0{
+            //BOTH PRESENT
+            let elevatorAlertsSeperator = UIView(frame: CGRect(x: 8, y: heightCount, width: Int(dialogViewWidth-16), height: 2))
+            elevatorAlertsSeperator.backgroundColor = .gray
+            heightCount += 10
+            dialogView.addSubview(elevatorAlertsSeperator)
+            
+            for view in alertDataViews {
+                dialogView.addSubview(view as! UIView)
+            }
         }
 
         
-        dialogView.addSubview(elevatorAlertsSeperator)
-        dialogView.addSubview(regularAlertsHeader)
+        
+        
         dialogView.frame.origin = CGPoint(x: 32, y: frame.height)
         dialogView.frame.size = CGSize(width: Double(frame.width-64), height: Double(heightCount + 8))
         
@@ -112,6 +135,9 @@ class StatusAlertView: UIView, PopUpAnimation {
                 if service["ServiceType"].stringValue == "R" {
                     linesAffected.append(service["ServiceId"].stringValue)
                 }
+                if service["ServiceType"].stringValue == "B" {
+                    linesAffected.append(service["ServiceId"].stringValue)
+                }
             }
             if linesAffected == [] && result["ImpactedService"].dictionaryValue["Service"]!.dictionaryValue["ServiceType"]!.stringValue == "R"{
                 linesAffected.append(result["ImpactedService"].dictionaryValue["Service"]!.dictionaryValue["ServiceId"]!.stringValue)
@@ -128,20 +154,22 @@ class StatusAlertView: UIView, PopUpAnimation {
         }
         //Insertion Sort for RegularAlerts
         let n = regularAlerts.count
-
-        for i in 1..<n {
-            let key = regularAlerts[i][0] as! Int
-            let keyStuff: [Any] = regularAlerts[i]
-            var j = i - 1
-            
-            while j >= 0 && (regularAlerts[j][0] as! Int) < key {
-                regularAlerts[j + 1] = regularAlerts[j]
-                j = j-1
+        if n != 0 {
+            for i in 1..<n {
+                let key = regularAlerts[i][0] as! Int
+                let keyStuff: [Any] = regularAlerts[i]
+                var j = i - 1
+                
+                while j >= 0 && (regularAlerts[j][0] as! Int) < key {
+                    regularAlerts[j + 1] = regularAlerts[j]
+                    j = j-1
+                }
+                regularAlerts[j + 1][0] = key
+                regularAlerts[j + 1] = keyStuff
             }
-            regularAlerts[j + 1][0] = key
-            regularAlerts[j + 1] = keyStuff
         }
     }
+    
     
     //Helper func
     
@@ -156,22 +184,44 @@ class StatusAlertView: UIView, PopUpAnimation {
                     lineView.layer.cornerRadius = 8
                     if line == "Red" {
                         lineView.backgroundColor = ctaRed
+                        alertDataViews.append(lineView)
                     } else if line == "Blue" {
                         lineView.backgroundColor = ctaBlue
+                        alertDataViews.append(lineView)
                     } else if line == "Brn" {
                         lineView.backgroundColor = ctaBrown
+                        alertDataViews.append(lineView)
                     } else if line == "G" {
                         lineView.backgroundColor = ctaGreen
+                        alertDataViews.append(lineView)
                     } else if line == "Org" {
                         lineView.backgroundColor = ctaOrange
+                        alertDataViews.append(lineView)
                     } else if line == "P"{
                         lineView.backgroundColor = ctaPurple
+                        alertDataViews.append(lineView)
                     } else if line == "Pink" {
                         lineView.backgroundColor = ctaPink
-                    } else {
+                        alertDataViews.append(lineView)
+                    } else if line == "Y"{
                         lineView.backgroundColor = ctaYellow
+                        alertDataViews.append(lineView)
+                    } else {
+                        lineView.backgroundColor = .gray
+                        let busText = UILabel(frame: CGRect(x: ((5 * (lineCount - 1)) + 8 + (16 * (lineCount - 1))), y: heightCount, width: 16, height: 16))
+                        busText.textColor = .white
+                        busText.textAlignment = .center
+                        busText.text = line
+                        if line.count > 2 {
+                            busText.font = UIFont(name: "Montserrat-Bold", size: 6.0)
+                        } else {
+                            busText.font = UIFont(name: "Montserrat-Bold", size: 9.0)
+                        }
+                        alertDataViews.append(lineView)
+                        alertDataViews.append(busText)
                     }
-                    alertDataViews.append(lineView)
+                    //alertDataViews.append(lineView)
+                    
                     lineCount += 1
                     
                 }
