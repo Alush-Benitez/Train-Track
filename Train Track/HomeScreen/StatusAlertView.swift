@@ -220,12 +220,8 @@ class StatusAlertView: UIView, PopUpAnimation {
                         alertDataViews.append(lineView)
                         alertDataViews.append(busText)
                     }
-                    //alertDataViews.append(lineView)
-                    
                     lineCount += 1
-                    
                 }
-                
             }
             heightCount += 22
             let discriptionLabel = UILabel(frame: CGRect(x: 8, y: heightCount, width: Int(dialogViewWidth-16), height: 1))

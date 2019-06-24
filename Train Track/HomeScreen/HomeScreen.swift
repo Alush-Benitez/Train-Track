@@ -24,7 +24,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     @IBOutlet weak var elevatorAlertIcon: UIImageView!
     @IBOutlet weak var lastUpdatedLabel: UILabel!
     
-    
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation!
     
@@ -37,11 +36,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     var alertCount = 0
     var colorsAffected: [UIColor] = []
     var alertString = ""
-    
-    
-    
     private let refreshControl = UIRefreshControl()
-    
     
     //mapID, Distance, name, colors, accessable
     //Ordered closest to furthest
@@ -55,9 +50,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         dataCollectionView.register(UINib.init(nibName: "TrainTrackerCell", bundle: nil), forCellWithReuseIdentifier: "TrainTrackerCell")
         dataCollectionView.register(UINib.init(nibName: "NearbyStationCell", bundle: nil), forCellWithReuseIdentifier: "NearbyStationCell")
         dataCollectionView.register(UINib.init(nibName: "AlertCell", bundle: nil), forCellWithReuseIdentifier: "AlertCell")
-        
-       
-        
         locationManager.requestWhenInUseAuthorization()
         
         lineViews = [firstLineView, secondLineView, thirdLineView, fourthLineView, fifthLineView, sixthLineView]
@@ -142,7 +134,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         }
     }
     
-    
     //***********************
     //PARSE STATION INFO DATA
     //***********************
@@ -167,9 +158,15 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         
         //Find Closest Station Data
         for result in json![].arrayValue {
+            var latitude = result["location"]["coordinates"][0].doubleValue
+            var longitude = result["location"]["coordinates"][1].doubleValue
             stationCoordinate = CLLocation(latitude: result["location"]["coordinates"][1].doubleValue, longitude: result["location"]["coordinates"][0].doubleValue)
             for coordinate in testedCoordinates {
-                if result["location"]["coordinates"][1].doubleValue == coordinate[0] && result["location"]["coordinates"][0].doubleValue == coordinate[1]{
+                if result["station_name"].stringValue == "Roosevelt" {
+                    latitude = 41.867368
+                    longitude = -87.627402
+                }
+                if latitude == coordinate[0] && longitude == coordinate[1]{
                     tested = true
                 }
             }
@@ -177,7 +174,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             //Getting mapID, Distance, name, colors
             
             if !tested {
-                testedCoordinates.append([result["location"]["coordinates"][1].doubleValue, result["location"]["coordinates"][0].doubleValue])
+                testedCoordinates.append([latitude, longitude])
                 
                 if result["station_name"].stringValue == "Harold Washington Library-State/Van Buren" {
                     name = "Harold Washington Library"
@@ -191,7 +188,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                     nearbyStationsData[3] = nearbyStationsData[2]
                     nearbyStationsData[2] = nearbyStationsData[1]
                     nearbyStationsData[1] = nearbyStationsData[0]
-                    
                     
                     nearbyStationsData[0][0] = result["map_id"].doubleValue
                     nearbyStationsData[0][1] = distanceInMeters
@@ -234,8 +230,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             }
             tested = false
         }
-        
-        
         
         tested = false
         var testedIds: [Int] = []
@@ -318,12 +312,8 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             }
             tested = false
         }
-        
-        print(nearbyStationsData[0])
-        
+        print(nearbyStationsData)
     }
-    
-    
     
     //************************
     //PARSE TRAIN TRACKER DATA
@@ -646,4 +636,3 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         
     }
 }
-
