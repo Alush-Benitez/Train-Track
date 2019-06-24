@@ -25,7 +25,7 @@ class FollowTrainAlertView: UIView, PopUpAnimation {
         
         grabNextStations(runNumber: runNumber)
         
-        let dialogViewWidth = frame.width-64
+        let dialogViewWidth = frame.width-40
         
         var newDestination = ""
         
@@ -95,7 +95,7 @@ class FollowTrainAlertView: UIView, PopUpAnimation {
         //var dialogViewHeight = runInfoLabel.frame.height + 8 + destinationLabel.frame.height + 8
         //dialogViewHeight += CGFloat(height)
         dialogView.frame.origin = CGPoint(x: 32, y: frame.height)
-        dialogView.frame.size = CGSize(width: Double(frame.width-64), height: height)
+        dialogView.frame.size = CGSize(width: Double(frame.width-40), height: height)
         
         dialogView.backgroundColor = UIColor.white
         dialogView.layer.cornerRadius = 7

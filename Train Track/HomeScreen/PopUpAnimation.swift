@@ -19,6 +19,7 @@ extension PopUpAnimation where Self:UIView{
     func show(animated:Bool){
         self.backgroundView.alpha = 0
         self.dialogView.center = CGPoint(x: self.center.x, y: self.frame.height + self.dialogView.frame.height/2)
+        //self.accessibilityView.center = CGPoint(x: self.center.x, y: self.frame.height + self.accessibilityView.frame.height/2)
         UIApplication.shared.delegate?.window??.rootViewController?.view.addSubview(self)
         if animated {
             
