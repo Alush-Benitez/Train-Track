@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate{
+class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var stationNameLabel: UILabel!
     @IBOutlet weak var dataCollectionView: UICollectionView!
@@ -21,7 +21,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     @IBOutlet weak var sixthLineView: UIView!
     @IBOutlet weak var accessableIcon: UIImageView!
     @IBOutlet weak var nearbyButton: UIButton!
-    @IBOutlet weak var elevatorAlertIcon: UIImageView!
     @IBOutlet weak var lastUpdatedLabel: UILabel!
     
     let locationManager = CLLocationManager()
@@ -303,7 +302,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             if !tested {
                 testedIds.append(result["map_id"].intValue)
                 if result["map_id"].doubleValue == nearbyStationsData[0][0] as! Double && firstLoad {
-                    stationNameLabel.text = nearbyStationsData[0][2] as! String
+                    stationNameLabel.text = nearbyStationsData[0][2] as? String
                     //[labelObject setMinimumScaleFactor:0.5];
                     //[labelObject setBaselineAdjustment:UIBaselineAdjustmentAlignCenters];
                     //stationNameLabel.sizeToFit()
@@ -587,8 +586,10 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                 alert.show(animated: true)
             }
         }
-       
-        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.dataCollectionView.frame.width - 40, height: 75)
     }
     
     //****************

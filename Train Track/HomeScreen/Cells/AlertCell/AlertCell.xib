@@ -18,19 +18,23 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AlertCell" id="gTV-IL-0wX" customClass="AlertCell" customModule="Chi_Transit" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="374" height="75"/>
+            <rect key="frame" x="0.0" y="0.0" width="365" height="75"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="374" height="75"/>
+                <rect key="frame" x="0.0" y="0.0" width="365" height="75"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greencheck" translatesAutoresizingMaskIntoConstraints="NO" id="zkZ-e9-dQA">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greencheck" translatesAutoresizingMaskIntoConstraints="NO" id="zkZ-e9-dQA">
                         <rect key="frame" x="6" y="17" width="40" height="40"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="zkZ-e9-dQA" secondAttribute="height" multiplier="1:1" id="hy8-sh-Jm4"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="haha" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CS7-ny-Ps6">
-                        <rect key="frame" x="56" y="7" width="311" height="61"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="haha" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CS7-ny-Ps6">
+                        <rect key="frame" x="56" y="7" width="304" height="61"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="CS7-ny-Ps6" secondAttribute="height" multiplier="304:61" id="hwj-xb-5ga"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="28"/>
                         <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -38,12 +42,20 @@
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="zkZ-e9-dQA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="079-oR-bz3"/>
+                <constraint firstItem="CS7-ny-Ps6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="7" id="ccQ-k5-XgH"/>
+                <constraint firstAttribute="bottom" secondItem="zkZ-e9-dQA" secondAttribute="bottom" constant="18" id="fE1-KI-z3C"/>
+                <constraint firstAttribute="bottom" secondItem="CS7-ny-Ps6" secondAttribute="bottom" constant="7" id="heN-zY-8th"/>
+                <constraint firstAttribute="trailing" secondItem="CS7-ny-Ps6" secondAttribute="trailing" constant="5" id="wnx-ba-Ejp"/>
+                <constraint firstItem="zkZ-e9-dQA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="17" id="zUR-yS-Bzs"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
                 <outlet property="descriptionLabel" destination="CS7-ny-Ps6" id="JAF-5k-TGk"/>
                 <outlet property="statusIcon" destination="zkZ-e9-dQA" id="6fT-bR-L2k"/>
             </connections>
-            <point key="canvasLocation" x="63.768115942028992" y="35.825892857142854"/>
+            <point key="canvasLocation" x="63.04347826086957" y="35.825892857142854"/>
         </collectionViewCell>
     </objects>
     <resources>
