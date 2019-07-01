@@ -33,6 +33,8 @@
 		4AB7D0BC22A6DDB500A5EDFD /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AB7D0BB22A6DDB500A5EDFD /* Montserrat-Light.ttf */; };
 		4AB7D0BE22A6DEC500A5EDFD /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7D0BD22A6DEC500A5EDFD /* Color.swift */; };
 		4AB7D0C022A968C300A5EDFD /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7D0BF22A968C200A5EDFD /* SwiftyJSON.swift */; };
+		4ADF227D22C54D75007679F2 /* AlertDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF227C22C54D75007679F2 /* AlertDetails.swift */; };
+		4ADF227F22C81961007679F2 /* AlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF227E22C81961007679F2 /* AlertCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		4AB7D0BB22A6DDB500A5EDFD /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		4AB7D0BD22A6DEC500A5EDFD /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		4AB7D0BF22A968C200A5EDFD /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		4ADF227C22C54D75007679F2 /* AlertDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertDetails.swift; path = ../../AlertDetails.swift; sourceTree = "<group>"; };
+		4ADF227E22C81961007679F2 /* AlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,13 +137,15 @@
 			path = AlertCell;
 			sourceTree = "<group>";
 		};
-		4A05AF5F22C5102E007C29E7 /* New Group */ = {
+		4A05AF5F22C5102E007C29E7 /* Alerts Screen */ = {
 			isa = PBXGroup;
 			children = (
 				4A05AF5B22C4FD99007C29E7 /* AlertsScreen.swift */,
 				4A05AF5D22C50ED6007C29E7 /* AlertScreenCell.swift */,
+				4ADF227C22C54D75007679F2 /* AlertDetails.swift */,
+				4ADF227E22C81961007679F2 /* AlertCollectionViewCell.swift */,
 			);
-			path = "New Group";
+			path = "Alerts Screen";
 			sourceTree = "<group>";
 		};
 		4AAA371522AB2EA80098C6CC /* Stuff */ = {
@@ -190,7 +196,7 @@
 				4A34B9B522B87CDC0026B9AC /* Main.storyboard */,
 				4AB7D0BD22A6DEC500A5EDFD /* Color.swift */,
 				4AB7D091229EFB9D00A5EDFD /* Info.plist */,
-				4A05AF5F22C5102E007C29E7 /* New Group */,
+				4A05AF5F22C5102E007C29E7 /* Alerts Screen */,
 				4AAA371622AB2F620098C6CC /* HomeScreen */,
 				4AAA371522AB2EA80098C6CC /* Stuff */,
 			);
@@ -332,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AB7D084229EFB9B00A5EDFD /* AppDelegate.swift in Sources */,
+				4ADF227D22C54D75007679F2 /* AlertDetails.swift in Sources */,
 				4A05AF5A22BD2786007C29E7 /* StatusAlertView.swift in Sources */,
 				4AB7D086229EFB9B00A5EDFD /* HomeScreen.swift in Sources */,
 				4A05AF5C22C4FD99007C29E7 /* AlertsScreen.swift in Sources */,
@@ -343,6 +350,7 @@
 				4AAA371B22AFF35D0098C6CC /* FollowTrainAlertView.swift in Sources */,
 				4A05AF5322B88D75007C29E7 /* AlertCell.swift in Sources */,
 				4AAA371922AFF30E0098C6CC /* PopUpAnimation.swift in Sources */,
+				4ADF227F22C81961007679F2 /* AlertCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

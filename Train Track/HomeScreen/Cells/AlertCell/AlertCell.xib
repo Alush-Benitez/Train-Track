@@ -25,15 +25,16 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greencheck" translatesAutoresizingMaskIntoConstraints="NO" id="zkZ-e9-dQA">
-                        <rect key="frame" x="6" y="17" width="40" height="40"/>
+                        <rect key="frame" x="6" y="17.5" width="40" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="zkZ-e9-dQA" secondAttribute="height" multiplier="1:1" id="hy8-sh-Jm4"/>
+                            <constraint firstAttribute="width" constant="40" id="61x-oy-GPf"/>
+                            <constraint firstAttribute="height" constant="40" id="8MF-t6-dl3"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="haha" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CS7-ny-Ps6">
-                        <rect key="frame" x="56" y="7" width="304" height="61"/>
+                        <rect key="frame" x="56" y="20.5" width="285" height="34.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="CS7-ny-Ps6" secondAttribute="height" multiplier="304:61" id="hwj-xb-5ga"/>
+                            <constraint firstAttribute="width" secondItem="CS7-ny-Ps6" secondAttribute="height" multiplier="289:35" id="MYR-6W-vVh"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="28"/>
                         <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -43,12 +44,10 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="zkZ-e9-dQA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="079-oR-bz3"/>
-                <constraint firstItem="CS7-ny-Ps6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="7" id="ccQ-k5-XgH"/>
-                <constraint firstAttribute="bottom" secondItem="zkZ-e9-dQA" secondAttribute="bottom" constant="18" id="fE1-KI-z3C"/>
-                <constraint firstAttribute="bottom" secondItem="CS7-ny-Ps6" secondAttribute="bottom" constant="7" id="heN-zY-8th"/>
-                <constraint firstAttribute="trailing" secondItem="CS7-ny-Ps6" secondAttribute="trailing" constant="5" id="wnx-ba-Ejp"/>
-                <constraint firstItem="zkZ-e9-dQA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="17" id="zUR-yS-Bzs"/>
+                <constraint firstItem="CS7-ny-Ps6" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="ETm-eD-foc"/>
+                <constraint firstItem="CS7-ny-Ps6" firstAttribute="leading" secondItem="zkZ-e9-dQA" secondAttribute="trailing" constant="10" id="Jip-Ym-36m"/>
+                <constraint firstItem="zkZ-e9-dQA" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="X8S-Wy-E9H"/>
+                <constraint firstItem="zkZ-e9-dQA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="oGZ-pf-FmW"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>

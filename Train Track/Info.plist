@@ -28,7 +28,7 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>&quot;Enable location services so we can provide you with informations from stations closest to you&quot;</string>
+	<string>Enable location services so we can provide you with information from stations closest to you</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-Medium.ttf</string>

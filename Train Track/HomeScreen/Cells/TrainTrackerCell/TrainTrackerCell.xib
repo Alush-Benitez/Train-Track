@@ -37,11 +37,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dempster-Skokie" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sfx-D2-UVG">
-                        <rect key="frame" x="8" y="28.5" width="266.5" height="34.5"/>
+                        <rect key="frame" x="8" y="30" width="245.5" height="34"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="Sfx-D2-UVG" secondAttribute="height" multiplier="85:11" id="cpj-kQ-Jq8"/>
+                            <constraint firstAttribute="width" secondItem="Sfx-D2-UVG" secondAttribute="height" multiplier="85:11" constant="-15.454545454545439" id="cpj-kQ-Jq8"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="28"/>
+                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="27"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -62,7 +62,7 @@
                 <constraint firstAttribute="bottom" secondItem="leF-Os-EAO" secondAttribute="bottom" constant="15" id="KwS-KL-gEU"/>
                 <constraint firstItem="Sfx-D2-UVG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="P3i-tg-NZ1"/>
                 <constraint firstItem="k0V-2h-wrA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="XJw-3R-YFK"/>
-                <constraint firstAttribute="bottom" secondItem="Sfx-D2-UVG" secondAttribute="bottom" constant="12" id="kMF-33-gMn"/>
+                <constraint firstAttribute="bottom" secondItem="Sfx-D2-UVG" secondAttribute="bottom" constant="11" id="kMF-33-gMn"/>
                 <constraint firstItem="leF-Os-EAO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="nSQ-45-TBz"/>
                 <constraint firstItem="k0V-2h-wrA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="uic-eP-Mfz"/>
             </constraints>

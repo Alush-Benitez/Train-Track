@@ -15,55 +15,59 @@ class AlertsScreen: UIViewController, UICollectionViewDelegate, UICollectionView
     var routeStatuses: [String] = []
     let routes = [["Red Line", ctaRed], ["Blue Line", ctaBlue], ["Brown Line", ctaBrown], ["Green Line", ctaGreen], ["Orange Line", ctaOrange], ["Pink Line", ctaPink], ["Purple Line", ctaPurple], ["Yellow Line", ctaYellow]]
     
-    private let refreshControl = UIRefreshControl()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.isNavigationBarHidden = true
         
         let attributes = [NSAttributedString.Key.font: UIFont(name: "Montserrat-ExtraBold", size: 50.0), NSAttributedString.Key.foregroundColor: notBlack]
-        let smallAttributes = [NSAttributedString.Key.font: UIFont(name: "Montserrat-ExtraBold", size: 30.0), NSAttributedString.Key.foregroundColor: notBlack]
         
         navigationController?.navigationBar.largeTitleTextAttributes = attributes as [NSAttributedString.Key : Any]
-        navigationController?.navigationBar.titleTextAttributes = smallAttributes as [NSAttributedString.Key : Any]
         title = "Alerts"
         
-        //Refresh
-        if #available(iOS 10.0, *) {
-            routesCollectionView.refreshControl = refreshControl
-        } else {
-            routesCollectionView.addSubview(refreshControl)
-        }
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(reloadAlerts(_:)))
         
-        refreshControl.addTarget(self, action: #selector(reloadAlerts(_:)), for: .valueChanged)
+
+        refreshButton.tintColor = notBlack
+        
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = refreshButton
         
         routesCollectionView.delegate = self
         routesCollectionView.dataSource = self
-        //routesCollectionView.isScrollEnabled = false
+        routesCollectionView.isScrollEnabled = false
         
         grabAlertData()
         routesCollectionView.reloadData()
         
     }
     
-    @objc private func reloadAlerts(_ sender: Any) {
-        grabAlertData()
-        routesCollectionView.reloadData()
-        let delay = DispatchTime.now() + .milliseconds(500)
-        DispatchQueue.main.asyncAfter(deadline: delay){
-            self.routesCollectionView.refreshControl!.endRefreshing()
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.isTranslucent = false
     }
     
+    @objc func reloadAlerts(_ sender: UIBarButtonItem!) {
+        grabAlertData()
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.routesCollectionView.alpha = 0
+        })
+
+        let notificationFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+        notificationFeedbackGenerator.prepare()
+        notificationFeedbackGenerator.impactOccurred()
+        routesCollectionView.reloadData()
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.routesCollectionView.alpha = 1
+        })
+    }
+
     
-    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        <#code#>
-//    }'
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.routesCollectionView.frame.width - 40, height:((self.routesCollectionView.frame.height - 105) / 8) - 0.5)
+        return CGSize(width: self.routesCollectionView.frame.width - 40, height:((self.routesCollectionView.frame.height - 70) / 8) - 0.5)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -92,6 +96,21 @@ class AlertsScreen: UIViewController, UICollectionViewDelegate, UICollectionView
         return cell
     }
     
+    //Segue
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let desVC = mainStoryboard.instantiateViewController(withIdentifier: "AlertDetails") as! AlertDetails
+        desVC.lineName = routes[indexPath.row][0] as! String
+        desVC.statusInfo.append(routeStatuses[indexPath.row])
+        if routeStatuses[indexPath.row] != "Normal Service" {
+            desVC.statusInfo.append(UIImage(named: "warning-icon")!)
+        } else {
+            desVC.statusInfo.append(UIImage(named: "greencheck")!)
+        }
+        self.navigationController?.pushViewController(desVC, animated: true)
+    }
+    
 
     //*************************
     //PARSE COMSUMER ALERT DATA
@@ -115,5 +134,9 @@ class AlertsScreen: UIViewController, UICollectionViewDelegate, UICollectionView
                 routeStatuses.append(result["RouteStatus"].stringValue)
             }
         }
+    }
+    
+    @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue){
+        
     }
 }

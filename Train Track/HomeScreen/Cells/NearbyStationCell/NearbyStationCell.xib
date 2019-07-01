@@ -24,46 +24,76 @@
                 <rect key="frame" x="0.0" y="0.0" width="365" height="75"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dempster-Skokie" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5FJ-78-jyC">
-                        <rect key="frame" x="7" y="7" width="256" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dempster-Skokie" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5FJ-78-jyC">
+                        <rect key="frame" x="7" y="7" width="268" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="5FJ-78-jyC" secondAttribute="height" multiplier="67:8" id="DWF-XL-iaW"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="26"/>
                         <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5li-4N-nKb">
-                        <rect key="frame" x="40" y="43" width="26" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xNQ-wm-Wbp">
-                        <rect key="frame" x="74" y="43" width="26" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rft-B8-esg">
-                        <rect key="frame" x="108" y="43" width="26" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JAC-qg-2Fs">
-                        <rect key="frame" x="142" y="43" width="26" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fYn-QI-1co">
-                        <rect key="frame" x="176" y="43" width="26" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vzz-jx-adw">
-                        <rect key="frame" x="7" y="43" width="26" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20.99 mi" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IF9-gS-WDS">
-                        <rect key="frame" x="263" y="14" width="98" height="46"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="hRt-ZJ-p9O">
+                        <rect key="frame" x="7" y="43" width="191" height="26"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vzz-jx-adw">
+                                <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="cS8-25-gYo"/>
+                                    <constraint firstAttribute="height" constant="26" id="u4h-vj-k2m"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5li-4N-nKb">
+                                <rect key="frame" x="33" y="0.0" width="26" height="26"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="Ry7-SB-1Fo"/>
+                                    <constraint firstAttribute="height" constant="26" id="q7Y-d0-DLG"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNQ-wm-Wbp">
+                                <rect key="frame" x="66" y="0.0" width="26" height="26"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="EI2-cm-3hc"/>
+                                    <constraint firstAttribute="height" constant="26" id="I2S-bQ-xGv"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rft-B8-esg">
+                                <rect key="frame" x="99" y="0.0" width="26" height="26"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="k0o-BY-XUL"/>
+                                    <constraint firstAttribute="height" constant="26" id="zfe-U8-2s8"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAC-qg-2Fs">
+                                <rect key="frame" x="132" y="0.0" width="26" height="26"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="ARM-2c-cv6"/>
+                                    <constraint firstAttribute="height" constant="26" id="HaW-o9-XoI"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fYn-QI-1co">
+                                <rect key="frame" x="165" y="0.0" width="26" height="26"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="Eeu-Jk-nhz"/>
+                                    <constraint firstAttribute="width" constant="26" id="bnN-Op-cjs"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="hRt-ZJ-p9O" secondAttribute="height" multiplier="191:26" id="0td-rD-sL8"/>
+                        </constraints>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="77.9 mi" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IF9-gS-WDS">
+                        <rect key="frame" x="279" y="15.5" width="82" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="IF9-gS-WDS" secondAttribute="height" multiplier="85:46" id="iFS-kH-Wjq"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="22"/>
                         <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -71,6 +101,14 @@
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="IF9-gS-WDS" secondAttribute="trailing" constant="4" id="16M-0q-cd1"/>
+                <constraint firstItem="hRt-ZJ-p9O" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="7" id="EAN-af-yMS"/>
+                <constraint firstItem="5FJ-78-jyC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="7" id="VqU-HD-uTh"/>
+                <constraint firstAttribute="bottom" secondItem="hRt-ZJ-p9O" secondAttribute="bottom" constant="6" id="Vxn-rb-Oud"/>
+                <constraint firstItem="IF9-gS-WDS" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="dUy-Gx-r42"/>
+                <constraint firstItem="5FJ-78-jyC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="7" id="gzR-YH-Dah"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
                 <outlet property="distanceLabel" destination="IF9-gS-WDS" id="XQ9-Tp-rad"/>

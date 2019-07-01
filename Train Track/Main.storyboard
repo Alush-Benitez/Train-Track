@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -29,27 +29,27 @@
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="HomeScreen" customModule="Chi_Transit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nearby" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.45000000000000001" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RSk-Yf-5lc">
-                                <rect key="frame" x="20" y="20" width="335" height="50"/>
+                                <rect key="frame" x="20" y="44" width="374" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="RSk-Yf-5lc" secondAttribute="height" multiplier="187:28" id="0I8-Iv-xOf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Montserrat-ExtraBold" family="Montserrat ExtraBold" pointSize="47"/>
+                                <fontDescription key="fontDescription" name="Montserrat-ExtraBold" family="Montserrat ExtraBold" pointSize="45"/>
                                 <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="handicap" translatesAutoresizingMaskIntoConstraints="NO" id="TQs-mL-rxI">
-                                <rect key="frame" x="325" y="80" width="30" height="30"/>
+                                <rect key="frame" x="364" y="110" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Ez4-ax-Hby"/>
                                     <constraint firstAttribute="width" constant="30" id="t0V-Oh-MPO"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBd-ao-6BE">
-                                <rect key="frame" x="120" y="566.5" width="135" height="35"/>
+                                <rect key="frame" x="120" y="756" width="174" height="46"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="eBd-ao-6BE" secondAttribute="height" multiplier="175:46" id="kva-Pf-zv8"/>
@@ -63,7 +63,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pe-7V-WJN">
-                                <rect key="frame" x="20" y="571" width="79" height="26"/>
+                                <rect key="frame" x="20" y="766" width="79" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5Pe-7V-WJN" secondAttribute="height" multiplier="79:26" id="1Lt-A4-rI0"/>
                                     <constraint firstAttribute="width" constant="79" id="raB-LY-6co"/>
@@ -73,7 +73,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="umj-Xe-Dwn">
-                                <rect key="frame" x="0.0" y="121" width="375" height="437.5"/>
+                                <rect key="frame" x="0.0" y="151" width="414" height="597"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="15" id="YQa-gS-D9A">
                                     <size key="itemSize" width="365" height="75"/>
@@ -83,7 +83,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="nearbyDataCell" id="hYG-pb-Ajh" customClass="NearbyDataCollectionViewCell" customModule="Chi_Transit" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="10" width="365" height="75"/>
+                                        <rect key="frame" x="24.666666666666668" y="10" width="365" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="365" height="75"/>
@@ -94,7 +94,7 @@
                                 </cells>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RGd-5j-qVk">
-                                <rect key="frame" x="20" y="81" width="205" height="30"/>
+                                <rect key="frame" x="20" y="111" width="205" height="30"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="30" placeholderIntrinsicHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="VTz-9n-anB">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -190,7 +190,7 @@
             <objects>
                 <viewController id="Cp0-ba-XFM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jst-CX-lGg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="5xr-HX-EMX"/>
@@ -206,18 +206,18 @@
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Chi_Transit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="87" y="312" width="201" height="43"/>
+                                <rect key="frame" x="106.66666666666669" y="426.66666666666669" width="201" height="43"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="80" y="363" width="215" height="17"/>
+                                <rect key="frame" x="99.666666666666686" y="477.66666666666669" width="215" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -248,18 +248,18 @@
         <!--Alerts Screen-->
         <scene sceneID="QPg-23-O5c">
             <objects>
-                <viewController id="Rkf-np-g4Q" customClass="AlertsScreen" customModule="Chi_Transit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlertMain" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Rkf-np-g4Q" customClass="AlertsScreen" customModule="Chi_Transit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nd6-dr-h38">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zfe-3R-yE3">
-                                <rect key="frame" x="0.0" y="3" width="375" height="593"/>
+                                <rect key="frame" x="0.0" y="16" width="414" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Zfe-3R-yE3" secondAttribute="height" multiplier="207:353" constant="27.263456090651516" id="Job-Jx-F1o"/>
+                                    <constraint firstAttribute="width" secondItem="Zfe-3R-yE3" secondAttribute="height" multiplier="207:353" constant="62.158640226628904" id="Job-Jx-F1o"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="OOf-kt-eGO">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="12" id="OOf-kt-eGO">
                                     <size key="itemSize" width="365" height="75"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -267,26 +267,26 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="alertCell" id="qBH-og-ZwW" customClass="AlertScreenCell" customModule="Chi_Transit" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="0.0" width="365" height="75"/>
+                                        <rect key="frame" x="24.666666666666668" y="0.0" width="365" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="365" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purple Line" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TE-9x-ysy">
-                                                    <rect key="frame" x="20" y="17" width="249" height="41"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orange Line" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TE-9x-ysy">
+                                                    <rect key="frame" x="19.999999999999986" y="19" width="224.66666666666663" height="37"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="3TE-9x-ysy" secondAttribute="height" multiplier="249:41" id="OvO-pN-9x1"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="33"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="30"/>
                                                     <color key="textColor" red="0.32156862749999998" green="0.13725490200000001" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GMa-rG-0kF">
-                                                    <rect key="frame" x="304" y="17" width="41" height="41"/>
+                                                    <rect key="frame" x="310" y="20" width="35" height="35"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="41" id="Ogn-80-oV4"/>
-                                                        <constraint firstAttribute="width" constant="41" id="Q26-C3-YjV"/>
+                                                        <constraint firstAttribute="height" constant="35" id="Ogn-80-oV4"/>
+                                                        <constraint firstAttribute="width" constant="35" id="Q26-C3-YjV"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -308,7 +308,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Zfe-3R-yE3" firstAttribute="trailing" secondItem="rZO-3k-V0V" secondAttribute="trailing" id="7w6-So-cp9"/>
-                            <constraint firstItem="Zfe-3R-yE3" firstAttribute="top" secondItem="Nd6-dr-h38" secondAttribute="top" constant="3" id="FiS-Dp-Zv7"/>
+                            <constraint firstItem="Zfe-3R-yE3" firstAttribute="top" secondItem="Nd6-dr-h38" secondAttribute="top" constant="16" id="FiS-Dp-Zv7"/>
                             <constraint firstItem="Zfe-3R-yE3" firstAttribute="leading" secondItem="rZO-3k-V0V" secondAttribute="leading" id="Ien-fi-Ydx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rZO-3k-V0V"/>
@@ -321,7 +321,113 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zim-Z5-l1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1656.8" y="-314.39280359820094"/>
+            <point key="canvasLocation" x="1656.521739130435" y="-314.73214285714283"/>
+        </scene>
+        <!--Alert Details-->
+        <scene sceneID="YqV-A2-cTM">
+            <objects>
+                <viewController storyboardIdentifier="AlertDetails" useStoryboardIdentifierAsRestorationIdentifier="YES" id="24a-9i-Glc" customClass="AlertDetails" customModule="Chi_Transit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PUA-aU-N1L">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mdv-Io-Wt7">
+                                <rect key="frame" x="20" y="187" width="374" height="610"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RCd-9h-iqv">
+                                    <size key="itemSize" width="365" height="180"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="alert" reuseIdentifier="alert" id="uas-pz-Crt" customClass="AlertCollectionViewCell" customModule="Chi_Transit" customModuleProvider="target">
+                                        <rect key="frame" x="4.666666666666667" y="0.0" width="365" height="180"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="365" height="180"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="warning-icon" translatesAutoresizingMaskIntoConstraints="NO" id="8Q8-Az-AWu">
+                                                    <rect key="frame" x="14" y="19" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chicago River Bridge Lifts and fun stuff" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Bx-XA-fYJ">
+                                                    <rect key="frame" x="52" y="12" width="294" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
+                                                    <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmB-1K-S1R">
+                                                    <rect key="frame" x="14" y="64" width="346" height="62"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <string key="text">During spring thru fall, the Chicago River Bridges are periodicly opened. Expect minor delays. Hello CTA customers please download my app.</string>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat Medium" pointSize="13"/>
+                                                    <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="6/14/15 11:00 PM" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Be6-r9-S8P">
+                                                    <rect key="frame" x="14" y="134" width="108" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat Medium" pointSize="13"/>
+                                                    <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="6/15/15 4:00 AM" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8d-qY-UvJ">
+                                                    <rect key="frame" x="259" y="134" width="101" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat Medium" pointSize="13"/>
+                                                    <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="alertDiscriptionLabel" destination="cmB-1K-S1R" id="kIw-gG-U8h"/>
+                                            <outlet property="alertHeadline" destination="1Bx-XA-fYJ" id="fk9-Ov-1YC"/>
+                                            <outlet property="alertIcon" destination="8Q8-Az-AWu" id="n8h-jo-W2j"/>
+                                            <outlet property="endTimeLabel" destination="V8d-qY-UvJ" id="h0g-Ee-Lff"/>
+                                            <outlet property="startTimeLabel" destination="Be6-r9-S8P" id="59j-iD-hLH"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDA-5D-0V1">
+                                <rect key="frame" x="59" y="51" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="nkq-hp-Rfc" kind="unwind" unwindAction="myUnwindActionWithUnwindSegue:" id="iK6-7j-V7p"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pU8-lZ-MwD">
+                                <rect key="frame" x="98" y="141" width="219" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="System Alerts"/>
+                                    <segment title="Elevator Alerts"/>
+                                </segments>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="valueChanged:" destination="24a-9i-Glc" eventType="valueChanged" id="zbY-Iu-XbB"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="SSJ-Cg-yQq"/>
+                    </view>
+                    <connections>
+                        <outlet property="alertsCollectionView" destination="Mdv-Io-Wt7" id="YYJ-sv-gIY"/>
+                        <outlet property="backButton" destination="hDA-5D-0V1" id="BJb-oj-XQT"/>
+                        <outlet property="segmentedControl" destination="pU8-lZ-MwD" id="FNg-jU-ttw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QQB-iJ-8yO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="nkq-hp-Rfc" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2513.04347826087" y="-310.04464285714283"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -355,7 +461,7 @@
                     <tabBarItem key="tabBarItem" title="Search" image="search" selectedImage="search" id="D3p-eo-rNb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Byz-hG-zdL">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -374,7 +480,7 @@
                     <tabBarItem key="tabBarItem" title="Alerts" image="attention" id="xox-Zj-iaV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="9cg-b4-CCv">
-                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="barPosition">
@@ -398,5 +504,6 @@
         <image name="marker" width="30" height="30"/>
         <image name="search" width="30" height="30"/>
         <image name="star" width="30" height="30"/>
+        <image name="warning-icon" width="512" height="512"/>
     </resources>
 </document>

@@ -380,16 +380,15 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             let arrivalHour = Int(String(result["arrT"].stringValue[index...index2]))!
             let predictionHour = Int(String(result["prdt"].stringValue[index...index2]))!
             
-            print("here")
             var friendlyMin = String(predictionMin)
             if friendlyMin.count == 1 {
                 friendlyMin = "0" + friendlyMin
             }
             
-            if predictionHour > 12 {
-                lastUpdatedLabel.text = String(predictionHour - 12) + ":" + String(friendlyMin) + " PM"
-            } else {
+            if predictionHour < 12 {
                 lastUpdatedLabel.text = String(predictionHour) + ":" + String(friendlyMin) + " AM"
+            } else {
+                lastUpdatedLabel.text = String(predictionHour - 12) + ":" + String(friendlyMin) + " PM"
             }
             
             
@@ -473,7 +472,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             //Show Nearby Stations
             let nearbyDataCell = dataCollectionView.dequeueReusableCell(withReuseIdentifier: "NearbyStationCell", for: indexPath) as! NearbyStationCell
             nearbyDataCell.nearbyStationLabel.text = nearbyStationsData[indexPath.row][2] as? String
-            nearbyDataCell.distanceLabel.text = truncateDigitsAfterDecimal(number:((nearbyStationsData[indexPath.row][1] as! Double) / 1609.344), afterDecimalDigits: 2) + " mi"
+            nearbyDataCell.distanceLabel.text = truncateDigitsAfterDecimal(number:((nearbyStationsData[indexPath.row][1] as! Double) / 1609.344), afterDecimalDigits: 1) + " mi"
             nearbyDataCell.layer.cornerRadius = 7
             for view in nearbyDataCell.lineViews {
                 view.layer.cornerRadius = 13
@@ -557,9 +556,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if nearbyPressed {
-            let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .medium)
-            impactFeedbackgenerator.prepare()
-            impactFeedbackgenerator.impactOccurred()
             nearbyPressed = false;
             fixHomeScreen(nearbyPresseed: nearbyPressed)
             stationNameLabel.text = nearbyStationsData[indexPath.row][2] as? String
@@ -582,7 +578,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                 alert.show(animated: true)
             } else {
                 let alert = StatusAlertView(stationid: Int(nearbyStationsData[selectedIndex][0] as! Double))
-                print(nearbyStationsData[selectedIndex][0])
                 alert.show(animated: true)
             }
         }
@@ -606,16 +601,13 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             stationNameLabel.text = "Nearby"
             nearbyButton.isHidden = true
             accessableIcon.isHidden = true
-            //favoriteButton.isHidden = true
             
             for view in lineViews {
                 view.isHidden = true
             }
         } else {
             nearbyButton.isHidden = false
-            
-            //favoriteButton.isHidden = false
-            
+
             for view in lineViews {
                 view.backgroundColor = .white
                 view.isHidden = false
@@ -631,9 +623,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         nearbyPressed = true
         fixHomeScreen(nearbyPresseed: nearbyPressed)
         dataCollectionView.reloadData()
-        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .medium)
-        impactFeedbackgenerator.prepare()
-        impactFeedbackgenerator.impactOccurred()
         
     }
 }

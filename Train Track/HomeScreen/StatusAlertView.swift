@@ -32,22 +32,21 @@ class StatusAlertView: UIView, PopUpAnimation {
         //**************
         //CURRENT ALERTS
         //**************
+        
+        let regularAlertsHeader =  UILabel(frame: CGRect(x: 8, y: 8, width: dialogViewWidth-16, height: 25))
+        regularAlertsHeader.text = "Current Alerts"
+        regularAlertsHeader.textColor = notBlack
+        regularAlertsHeader.font = UIFont(name: "Montserrat-Bold", size: 20.0)
+        regularAlertsHeader.textAlignment = .left
+    
         var noRegularAlerts = false
         heightCount += 40
         var alertDataViews = addDataToViews(array: regularAlerts, dialogViewWidth: dialogViewWidth)
         
         if alertDataViews.count != 0 {
-            let regularAlertsHeader =  UILabel(frame: CGRect(x: 8, y: 8, width: dialogViewWidth-16, height: 25))
-            regularAlertsHeader.text = "Current Alerts"
-            regularAlertsHeader.textColor = notBlack
-            regularAlertsHeader.font = UIFont(name: "Montserrat-Bold", size: 20.0)
-            regularAlertsHeader.textAlignment = .left
-            
-            
             for view in alertDataViews {
                 dialogView.addSubview(view as! UIView)
             }
-            dialogView.addSubview(regularAlertsHeader)
         } else {
             noRegularAlerts = true
         }
@@ -59,16 +58,18 @@ class StatusAlertView: UIView, PopUpAnimation {
         alertDataViews = addDataToViews(array: accessibilityAlerts, dialogViewWidth: dialogViewWidth)
         if alertDataViews.count == 0 && noRegularAlerts{
             //No regular alerts AND no elevator alerts
-            let regularAlertsHeader =  UILabel(frame: CGRect(x: 8, y: 19, width: dialogViewWidth-16, height: 30))
-            regularAlertsHeader.text = "No Service Alerts"
-            regularAlertsHeader.textColor = notBlack
-            regularAlertsHeader.font = UIFont(name: "Montserrat-Bold", size: 24)
-            regularAlertsHeader.textAlignment = .center
-            print(regularAlertsHeader.frame.height)
-            dialogView.addSubview(regularAlertsHeader)
+            let noAlertsHeader =  UILabel(frame: CGRect(x: 8, y: 19, width: dialogViewWidth-16, height: 30))
+            noAlertsHeader.text = "No Service Alerts"
+            noAlertsHeader.textColor = notBlack
+            noAlertsHeader.font = UIFont(name: "Montserrat-Bold", size: 24)
+            noAlertsHeader.textAlignment = .center
+            print(noAlertsHeader.frame.height)
+            dialogView.addSubview(noAlertsHeader)
             heightCount += 20
         } else if noRegularAlerts {
             //ONLY no regular alerts
+            
+            regularAlertsHeader.text = "Accessibility Alerts"
             for view in alertDataViews {
                 dialogView.addSubview(view as! UIView)
             }
@@ -86,7 +87,7 @@ class StatusAlertView: UIView, PopUpAnimation {
 
         
         
-        
+        dialogView.addSubview(regularAlertsHeader)
         dialogView.frame.origin = CGPoint(x: 32, y: frame.height)
         dialogView.frame.size = CGSize(width: Double(frame.width-64), height: Double(heightCount + 8))
         
@@ -138,9 +139,29 @@ class StatusAlertView: UIView, PopUpAnimation {
                 if service["ServiceType"].stringValue == "B" {
                     linesAffected.append(service["ServiceId"].stringValue)
                 }
+                if service["ServiceType"].stringValue == "X" {
+                    linesAffected.append("Red")
+                    linesAffected.append("Blue")
+                    linesAffected.append("Brn")
+                    linesAffected.append("G")
+                    linesAffected.append("Org")
+                    linesAffected.append("Pink")
+                    linesAffected.append("P")
+                    linesAffected.append("Y")
+                    
+                }
             }
             if linesAffected == [] && result["ImpactedService"].dictionaryValue["Service"]!.dictionaryValue["ServiceType"]!.stringValue == "R"{
                 linesAffected.append(result["ImpactedService"].dictionaryValue["Service"]!.dictionaryValue["ServiceId"]!.stringValue)
+            } else if linesAffected == [] && result["ImpactedService"].dictionaryValue["Service"]!.dictionaryValue["ServiceType"]!.stringValue == "X" {
+                linesAffected.append("Red")
+                linesAffected.append("Blue")
+                linesAffected.append("Brn")
+                linesAffected.append("G")
+                linesAffected.append("Org")
+                linesAffected.append("Pink")
+                linesAffected.append("P")
+                linesAffected.append("Y")
             }
             info.append(linesAffected)
             
