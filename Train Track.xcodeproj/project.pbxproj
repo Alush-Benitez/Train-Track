@@ -34,7 +34,10 @@
 		4AB7D0BE22A6DEC500A5EDFD /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7D0BD22A6DEC500A5EDFD /* Color.swift */; };
 		4AB7D0C022A968C300A5EDFD /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7D0BF22A968C200A5EDFD /* SwiftyJSON.swift */; };
 		4ADF227D22C54D75007679F2 /* AlertDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF227C22C54D75007679F2 /* AlertDetails.swift */; };
-		4ADF227F22C81961007679F2 /* AlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF227E22C81961007679F2 /* AlertCollectionViewCell.swift */; };
+		4ADF228222CAB757007679F2 /* ElevatorAlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF228022CAB757007679F2 /* ElevatorAlertCollectionViewCell.swift */; };
+		4ADF228322CAB757007679F2 /* ElevatorAlertCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ADF228122CAB757007679F2 /* ElevatorAlertCollectionViewCell.xib */; };
+		4ADF228622CABF5C007679F2 /* SystemAlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF228422CABF5C007679F2 /* SystemAlertCollectionViewCell.swift */; };
+		4ADF228722CABF5C007679F2 /* SystemAlertCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ADF228522CABF5C007679F2 /* SystemAlertCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +82,10 @@
 		4AB7D0BD22A6DEC500A5EDFD /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		4AB7D0BF22A968C200A5EDFD /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		4ADF227C22C54D75007679F2 /* AlertDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertDetails.swift; path = ../../AlertDetails.swift; sourceTree = "<group>"; };
-		4ADF227E22C81961007679F2 /* AlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCollectionViewCell.swift; sourceTree = "<group>"; };
+		4ADF228022CAB757007679F2 /* ElevatorAlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorAlertCollectionViewCell.swift; sourceTree = "<group>"; };
+		4ADF228122CAB757007679F2 /* ElevatorAlertCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ElevatorAlertCollectionViewCell.xib; sourceTree = "<group>"; };
+		4ADF228422CABF5C007679F2 /* SystemAlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAlertCollectionViewCell.swift; sourceTree = "<group>"; };
+		4ADF228522CABF5C007679F2 /* SystemAlertCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SystemAlertCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +149,7 @@
 				4A05AF5B22C4FD99007C29E7 /* AlertsScreen.swift */,
 				4A05AF5D22C50ED6007C29E7 /* AlertScreenCell.swift */,
 				4ADF227C22C54D75007679F2 /* AlertDetails.swift */,
-				4ADF227E22C81961007679F2 /* AlertCollectionViewCell.swift */,
+				4ADF228822CAD135007679F2 /* Cells */,
 			);
 			path = "Alerts Screen";
 			sourceTree = "<group>";
@@ -224,6 +230,33 @@
 				4AB7D0BB22A6DDB500A5EDFD /* Montserrat-Light.ttf */,
 			);
 			path = Montserrat;
+			sourceTree = "<group>";
+		};
+		4ADF228822CAD135007679F2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4ADF228922CAD154007679F2 /* System Alert */,
+				4ADF228A22CAD170007679F2 /* Elevator Alert */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		4ADF228922CAD154007679F2 /* System Alert */ = {
+			isa = PBXGroup;
+			children = (
+				4ADF228422CABF5C007679F2 /* SystemAlertCollectionViewCell.swift */,
+				4ADF228522CABF5C007679F2 /* SystemAlertCollectionViewCell.xib */,
+			);
+			path = "System Alert";
+			sourceTree = "<group>";
+		};
+		4ADF228A22CAD170007679F2 /* Elevator Alert */ = {
+			isa = PBXGroup;
+			children = (
+				4ADF228022CAB757007679F2 /* ElevatorAlertCollectionViewCell.swift */,
+				4ADF228122CAB757007679F2 /* ElevatorAlertCollectionViewCell.xib */,
+			);
+			path = "Elevator Alert";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,8 +341,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A05AF5422B88D75007C29E7 /* AlertCell.xib in Resources */,
+				4ADF228722CABF5C007679F2 /* SystemAlertCollectionViewCell.xib in Resources */,
 				4AB7D0BC22A6DDB500A5EDFD /* Montserrat-Light.ttf in Resources */,
 				4A05AF5022B88D41007C29E7 /* NearbyStationCell.xib in Resources */,
+				4ADF228322CAB757007679F2 /* ElevatorAlertCollectionViewCell.xib in Resources */,
 				4AB7D0AC22A6DCFF00A5EDFD /* Montserrat-Regular.ttf in Resources */,
 				4AB7D090229EFB9D00A5EDFD /* LaunchScreen.storyboard in Resources */,
 				4AB7D0B422A6DD4A00A5EDFD /* Montserrat-Bold.ttf in Resources */,
@@ -339,9 +374,11 @@
 			files = (
 				4AB7D084229EFB9B00A5EDFD /* AppDelegate.swift in Sources */,
 				4ADF227D22C54D75007679F2 /* AlertDetails.swift in Sources */,
+				4ADF228622CABF5C007679F2 /* SystemAlertCollectionViewCell.swift in Sources */,
 				4A05AF5A22BD2786007C29E7 /* StatusAlertView.swift in Sources */,
 				4AB7D086229EFB9B00A5EDFD /* HomeScreen.swift in Sources */,
 				4A05AF5C22C4FD99007C29E7 /* AlertsScreen.swift in Sources */,
+				4ADF228222CAB757007679F2 /* ElevatorAlertCollectionViewCell.swift in Sources */,
 				4A05AF5E22C50ED6007C29E7 /* AlertScreenCell.swift in Sources */,
 				4AB7D0BE22A6DEC500A5EDFD /* Color.swift in Sources */,
 				4A05AF4B22B88D1F007C29E7 /* TrainTrackerCell.swift in Sources */,
@@ -350,7 +387,6 @@
 				4AAA371B22AFF35D0098C6CC /* FollowTrainAlertView.swift in Sources */,
 				4A05AF5322B88D75007C29E7 /* AlertCell.swift in Sources */,
 				4AAA371922AFF30E0098C6CC /* PopUpAnimation.swift in Sources */,
-				4ADF227F22C81961007679F2 /* AlertCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

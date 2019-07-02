@@ -63,7 +63,7 @@ class StatusAlertView: UIView, PopUpAnimation {
             noAlertsHeader.textColor = notBlack
             noAlertsHeader.font = UIFont(name: "Montserrat-Bold", size: 24)
             noAlertsHeader.textAlignment = .center
-            print(noAlertsHeader.frame.height)
+            regularAlertsHeader.isHidden = true
             dialogView.addSubview(noAlertsHeader)
             heightCount += 20
         } else if noRegularAlerts {
@@ -85,8 +85,6 @@ class StatusAlertView: UIView, PopUpAnimation {
             }
         }
 
-        
-        
         dialogView.addSubview(regularAlertsHeader)
         dialogView.frame.origin = CGPoint(x: 32, y: frame.height)
         dialogView.frame.size = CGSize(width: Double(frame.width-64), height: Double(heightCount + 8))

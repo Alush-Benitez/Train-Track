@@ -17,21 +17,10 @@ class AlertsScreen: UIViewController, UICollectionViewDelegate, UICollectionView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.isNavigationBarHidden = true
         
-        let attributes = [NSAttributedString.Key.font: UIFont(name: "Montserrat-ExtraBold", size: 50.0), NSAttributedString.Key.foregroundColor: notBlack]
         
-        navigationController?.navigationBar.largeTitleTextAttributes = attributes as [NSAttributedString.Key : Any]
-        title = "Alerts"
         
-        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(reloadAlerts(_:)))
-        
-
-        refreshButton.tintColor = notBlack
-        
-        navigationController?.navigationBar.topItem?.rightBarButtonItem = refreshButton
         
         routesCollectionView.delegate = self
         routesCollectionView.dataSource = self
@@ -40,28 +29,6 @@ class AlertsScreen: UIViewController, UICollectionViewDelegate, UICollectionView
         grabAlertData()
         routesCollectionView.reloadData()
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.isTranslucent = false
-    }
-    
-    @objc func reloadAlerts(_ sender: UIBarButtonItem!) {
-        grabAlertData()
-        
-        UIView.animate(withDuration: 0.5, animations: {
-            self.routesCollectionView.alpha = 0
-        })
-
-        let notificationFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
-        notificationFeedbackGenerator.prepare()
-        notificationFeedbackGenerator.impactOccurred()
-        routesCollectionView.reloadData()
-        
-        UIView.animate(withDuration: 0.5, animations: {
-            self.routesCollectionView.alpha = 1
-        })
     }
 
     
@@ -138,5 +105,23 @@ class AlertsScreen: UIViewController, UICollectionViewDelegate, UICollectionView
     
     @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue){
         
+    }
+    
+    
+    @IBAction func reload(_ sender: Any) {
+        grabAlertData()
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.routesCollectionView.alpha = 0
+        })
+        
+        let notificationFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+        notificationFeedbackGenerator.prepare()
+        notificationFeedbackGenerator.impactOccurred()
+        routesCollectionView.reloadData()
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.routesCollectionView.alpha = 1
+        })
     }
 }

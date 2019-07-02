@@ -311,7 +311,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             }
             tested = false
         }
-        print(nearbyStationsData)
     }
     
     //************************
