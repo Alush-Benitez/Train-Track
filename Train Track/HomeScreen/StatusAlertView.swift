@@ -55,7 +55,15 @@ class StatusAlertView: UIView, PopUpAnimation {
         //ACCESSIBILITY ALERTS
         //********************
         
+        let heightBeforeAccessibility = heightCount
+        if !noRegularAlerts {
+            heightCount += 10
+        }
         alertDataViews = addDataToViews(array: accessibilityAlerts, dialogViewWidth: dialogViewWidth)
+        if alertDataViews.count == 0 {
+            heightCount -= 10
+        }
+        
         if alertDataViews.count == 0 && noRegularAlerts{
             //No regular alerts AND no elevator alerts
             let noAlertsHeader =  UILabel(frame: CGRect(x: 8, y: 19, width: dialogViewWidth-16, height: 30))
@@ -75,9 +83,9 @@ class StatusAlertView: UIView, PopUpAnimation {
             }
         } else if alertDataViews.count != 0{
             //BOTH PRESENT
-            let elevatorAlertsSeperator = UIView(frame: CGRect(x: 8, y: heightCount, width: Int(dialogViewWidth-16), height: 2))
+            let elevatorAlertsSeperator = UIView(frame: CGRect(x: 8, y: heightBeforeAccessibility, width: Int(dialogViewWidth-16), height: 2))
             elevatorAlertsSeperator.backgroundColor = .gray
-            heightCount += 10
+            //heightCount += 10
             dialogView.addSubview(elevatorAlertsSeperator)
             
             for view in alertDataViews {

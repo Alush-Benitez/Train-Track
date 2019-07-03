@@ -103,7 +103,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             if !loaded {
                 let date = Date()
                 let calendar = Calendar.current
-                let hour = calendar.component(.hour, from: date)
+                var hour = calendar.component(.hour, from: date)
                 let minutes = calendar.component(.minute, from: date)
                 
                 var friendlyMin = String(minutes)
@@ -114,6 +114,9 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                 if hour >= 12 {
                     lastUpdatedLabel.text = String(hour - 12) + ":" + friendlyMin + " PM"
                 } else {
+                    if hour == 0 {
+                        hour = 12
+                    }
                     lastUpdatedLabel.text = String(hour) + ":" + friendlyMin + " AM"
                 }
                 
