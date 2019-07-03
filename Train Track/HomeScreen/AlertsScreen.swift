@@ -18,20 +18,14 @@ class AlertsScreen: UIViewController, UICollectionViewDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
-        
-        
-        
-        
+
         routesCollectionView.delegate = self
         routesCollectionView.dataSource = self
         routesCollectionView.isScrollEnabled = false
         
         grabAlertData()
         routesCollectionView.reloadData()
-        
     }
-
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.routesCollectionView.frame.width - 40, height:((self.routesCollectionView.frame.height - 70) / 8) - 0.5)
@@ -102,6 +96,10 @@ class AlertsScreen: UIViewController, UICollectionViewDelegate, UICollectionView
             }
         }
     }
+    
+    //*******
+    //ACTIONS
+    //*******
     
     @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue){
         

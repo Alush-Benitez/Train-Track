@@ -10,11 +10,14 @@ import UIKit
 
 class SystemAlertCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var statusIcon: UIImageView!
     @IBOutlet weak var headlineLabel: UILabel!
     @IBOutlet weak var discriptionLabel: UILabel!
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
+    @IBOutlet weak var colorView: UIView!
+    @IBOutlet weak var toLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
+    
     
 
     override func awakeFromNib() {

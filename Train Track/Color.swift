@@ -29,3 +29,6 @@ let ctaPurple = UIColor(red: 134, green: 76, blue: 188)
 let ctaYellow = UIColor(red: 245, green: 201, blue: 4)
 
 let notBlack = UIColor(red: 60, green: 60, blue: 60)
+let alertRed = UIColor(red: 238, green: 80, blue: 83)
+let goodGreen = UIColor(red: 133, green: 217, blue: 117)
+let infoBlue = UIColor(red: 118, green: 150, blue: 255)

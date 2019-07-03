@@ -77,13 +77,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="15" id="YQa-gS-D9A">
                                     <size key="itemSize" width="365" height="75"/>
-                                    <size key="headerReferenceSize" width="0.0" height="2"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="nearbyDataCell" id="hYG-pb-Ajh" customClass="NearbyDataCollectionViewCell" customModule="Chi_Transit" customModuleProvider="target">
-                                        <rect key="frame" x="24.666666666666668" y="12" width="365" height="75"/>
+                                        <rect key="frame" x="24.666666666666668" y="10" width="365" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="365" height="75"/>
@@ -92,10 +92,6 @@
                                         <color key="backgroundColor" red="0.77647058820000003" green="0.047058823530000002" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gZR-yx-NG7">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="2"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionReusableView>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RGd-5j-qVk">
                                 <rect key="frame" x="20" y="111" width="205" height="30"/>
