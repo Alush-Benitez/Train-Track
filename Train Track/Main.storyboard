@@ -437,16 +437,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=":)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szm-Xg-Kzq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szm-Xg-Kzq">
                                 <rect key="frame" x="104" y="238" width="206" height="239"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="206" id="3K2-Xs-ZGo"/>
+                                    <constraint firstAttribute="height" constant="239" id="oZ7-0j-bC7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="200"/>
                                 <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Bz-ar-gqo">
-                                <rect key="frame" x="214" y="169" width="150" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Bz-ar-gqo">
+                                <rect key="frame" x="230" y="169" width="146" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9Bz-ar-gqo" secondAttribute="height" multiplier="146:33" id="suT-GS-N5k"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat SemiBold" pointSize="17"/>
                                 <state key="normal" title="Elevator Alerts">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -455,10 +460,12 @@
                                     <action selector="elevatorAlertsToggle:" destination="24a-9i-Glc" eventType="touchUpInside" id="J8M-8n-uKi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bG-rP-XZ1">
-                                <rect key="frame" x="50" y="169" width="150" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bG-rP-XZ1">
+                                <rect key="frame" x="38" y="169" width="146" height="33"/>
                                 <color key="backgroundColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6bG-rP-XZ1" secondAttribute="height" multiplier="146:33" id="7Q7-EB-XY1"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat SemiBold" pointSize="17"/>
                                 <state key="normal" title="System Alerts">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -467,20 +474,25 @@
                                     <action selector="systemAlertsToggle:" destination="24a-9i-Glc" eventType="touchUpInside" id="Tq7-dz-0Ux"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="atJ-9i-nwx">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atJ-9i-nwx">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="157"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Orange Line" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Doz-Jg-FhQ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orange Line" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Doz-Jg-FhQ">
                                         <rect key="frame" x="21" y="79" width="327" height="61"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="327" id="Bct-2U-Xqs"/>
+                                            <constraint firstAttribute="height" constant="61" id="s9b-dp-PO1"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Montserrat-ExtraBold" family="Montserrat ExtraBold" pointSize="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDA-5D-0V1">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDA-5D-0V1">
                                         <rect key="frame" x="21" y="45" width="68" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="26" id="UKs-Wy-hhG"/>
+                                            <constraint firstAttribute="width" constant="68" id="pPk-kO-gBg"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                         <state key="normal" title="&lt; Alerts">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -491,30 +503,39 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.78823529411764703" blue="0.015686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="hDA-5D-0V1" firstAttribute="leading" secondItem="atJ-9i-nwx" secondAttribute="leading" constant="21" id="2CT-XX-bDH"/>
+                                    <constraint firstItem="Doz-Jg-FhQ" firstAttribute="top" secondItem="hDA-5D-0V1" secondAttribute="bottom" constant="8" id="4T0-nC-lAR"/>
+                                    <constraint firstItem="hDA-5D-0V1" firstAttribute="top" secondItem="atJ-9i-nwx" secondAttribute="top" constant="45" id="Dw0-aT-TPR"/>
+                                    <constraint firstItem="Doz-Jg-FhQ" firstAttribute="leading" secondItem="atJ-9i-nwx" secondAttribute="leading" constant="21" id="Lf0-5j-mLZ"/>
+                                    <constraint firstAttribute="width" secondItem="atJ-9i-nwx" secondAttribute="height" multiplier="414:157" id="mfq-8H-XNO"/>
+                                </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Alerts!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMm-Lo-pI2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Alerts!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YMm-Lo-pI2">
                                 <rect key="frame" x="104" y="506" width="206" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="mpi-Lw-ajY"/>
+                                    <constraint firstAttribute="width" constant="206" id="t82-w1-rac"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="40"/>
                                 <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mdv-Io-Wt7">
-                                <rect key="frame" x="0.0" y="211" width="414" height="606"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mdv-Io-Wt7">
+                                <rect key="frame" x="0.0" y="211" width="414" height="685"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RCd-9h-iqv">
-                                    <size key="itemSize" width="375" height="180"/>
+                                    <size key="itemSize" width="365" height="180"/>
                                     <size key="headerReferenceSize" width="0.0" height="6"/>
                                     <size key="footerReferenceSize" width="0.0" height="10"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="alert" reuseIdentifier="alert" id="uas-pz-Crt">
-                                        <rect key="frame" x="19.666666666666668" y="6" width="375" height="180"/>
+                                        <rect key="frame" x="24.666666666666668" y="6" width="365" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="365" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                     </collectionViewCell>
@@ -530,6 +551,26 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SSJ-Cg-yQq" firstAttribute="bottom" secondItem="Mdv-Io-Wt7" secondAttribute="bottom" constant="-34" id="1q5-18-9zv"/>
+                            <constraint firstItem="Mdv-Io-Wt7" firstAttribute="leading" secondItem="SSJ-Cg-yQq" secondAttribute="leading" id="6dd-3V-s18"/>
+                            <constraint firstItem="atJ-9i-nwx" firstAttribute="trailing" secondItem="SSJ-Cg-yQq" secondAttribute="trailing" id="9J4-pf-Lfg"/>
+                            <constraint firstItem="Mdv-Io-Wt7" firstAttribute="top" secondItem="9Bz-ar-gqo" secondAttribute="bottom" constant="9" id="9wk-0H-kgb"/>
+                            <constraint firstItem="SSJ-Cg-yQq" firstAttribute="trailing" secondItem="YMm-Lo-pI2" secondAttribute="trailing" constant="104" id="F80-6V-rwR"/>
+                            <constraint firstItem="9Bz-ar-gqo" firstAttribute="top" secondItem="atJ-9i-nwx" secondAttribute="bottom" constant="12" id="Fya-XJ-KsK"/>
+                            <constraint firstItem="SSJ-Cg-yQq" firstAttribute="trailing" secondItem="9Bz-ar-gqo" secondAttribute="trailing" constant="38" id="LHp-41-lKh"/>
+                            <constraint firstItem="YMm-Lo-pI2" firstAttribute="top" secondItem="szm-Xg-Kzq" secondAttribute="bottom" constant="29" id="M9H-VM-PdW"/>
+                            <constraint firstItem="SSJ-Cg-yQq" firstAttribute="trailing" secondItem="szm-Xg-Kzq" secondAttribute="trailing" constant="104" id="MFC-PW-fO0"/>
+                            <constraint firstItem="Mdv-Io-Wt7" firstAttribute="top" secondItem="6bG-rP-XZ1" secondAttribute="bottom" constant="9" id="NI1-k5-7QD"/>
+                            <constraint firstItem="atJ-9i-nwx" firstAttribute="leading" secondItem="SSJ-Cg-yQq" secondAttribute="leading" id="QII-Yp-jHq"/>
+                            <constraint firstItem="6bG-rP-XZ1" firstAttribute="top" secondItem="atJ-9i-nwx" secondAttribute="bottom" constant="12" id="Sbp-XK-Py7"/>
+                            <constraint firstItem="YMm-Lo-pI2" firstAttribute="leading" secondItem="SSJ-Cg-yQq" secondAttribute="leading" constant="104" id="W31-xX-WRm"/>
+                            <constraint firstItem="atJ-9i-nwx" firstAttribute="top" secondItem="PUA-aU-N1L" secondAttribute="top" id="Z1U-FY-NOY"/>
+                            <constraint firstItem="Mdv-Io-Wt7" firstAttribute="trailing" secondItem="SSJ-Cg-yQq" secondAttribute="trailing" id="ZRc-Nw-qiR"/>
+                            <constraint firstItem="6bG-rP-XZ1" firstAttribute="leading" secondItem="SSJ-Cg-yQq" secondAttribute="leading" constant="38" id="hju-xk-TkB"/>
+                            <constraint firstItem="szm-Xg-Kzq" firstAttribute="top" secondItem="9Bz-ar-gqo" secondAttribute="bottom" constant="36" id="mfH-6d-7jH"/>
+                            <constraint firstItem="szm-Xg-Kzq" firstAttribute="leading" secondItem="SSJ-Cg-yQq" secondAttribute="leading" constant="104" id="xVx-kU-4cy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SSJ-Cg-yQq"/>
                     </view>
                     <connections>
