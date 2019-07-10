@@ -63,8 +63,8 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
         stationsCollectionView.delegate = self
         stationsCollectionView.dataSource = self
         
-        lineInfo = [redLineStations, blueLineStations, brownLineStations, greenLineStations, orangeLineStations, pinkLineStations, purpleLineStations, yellowLineStations]
         grabStationsInLines()
+        lineInfo = [redLineStations, blueLineStations, brownLineStations, greenLineStations, orangeLineStations, pinkLineStations, purpleLineStations, yellowLineStations]
         stationsCollectionView.reloadData()
 
     }
@@ -198,8 +198,13 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
         }
         
     }
+    
+    //*********************
+    //COLLECTION VIEW SETUP
+    //*********************
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(lineInfo[selectedLineIndex])
         return lineInfo[selectedLineIndex].count
     }
 
