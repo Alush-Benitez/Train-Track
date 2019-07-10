@@ -119,15 +119,12 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                     }
                     lastUpdatedLabel.text = String(hour) + ":" + friendlyMin + " AM"
                 }
-                
                 grabClosestStations()
                 
                 if firstLoad {
                     grabTrainTrackerData(mapid: nearbyStationsData[0][0] as! Double)
                     grabAlertData(stationid: Int(nearbyStationsData[0][0] as! Double))
-                    
                     firstLoad = false
-                    
                 }
                 dataCollectionView.reloadData()
                 loaded = true
@@ -160,6 +157,8 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         
         //Find Closest Station Data
         for result in json![].arrayValue {
+            
+            //Checking if station was already tested
             var latitude = result["location"]["coordinates"][0].doubleValue
             var longitude = result["location"]["coordinates"][1].doubleValue
             stationCoordinate = CLLocation(latitude: result["location"]["coordinates"][1].doubleValue, longitude: result["location"]["coordinates"][0].doubleValue)
@@ -499,7 +498,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             
             
         } else {
-            //Show Train Tracker Data
             if indexPath.row == 0 {
                 //Alert Cell
                 let firstCell = dataCollectionView.dequeueReusableCell(withReuseIdentifier: "AlertCell", for: indexPath) as! AlertCell
@@ -526,8 +524,11 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                 if trainTrackerData[indexPath.row - 1][2] as? String == stationNameLabel.text! {
                     dataCell.destinationLabel.text = "Terminal Arrival"
                     dataCell.runInfoLabel.text = (trainTrackerData[indexPath.row - 1][1] as? String)! + " Line Run #" + String(trainTrackerData[indexPath.row - 1][7] as! Int)
+                } else if trainTrackerData[indexPath.row - 1][2] as? String == "Loop" {
+                    dataCell.destinationLabel.text = "The Loop"
+                    dataCell.runInfoLabel.text = (trainTrackerData[indexPath.row - 1][1] as? String)! + " Line Run #" + String(trainTrackerData[indexPath.row - 1][7] as! Int) + " to"
                 } else {
-                    dataCell.destinationLabel.text = (trainTrackerData[indexPath.row - 1][2] as? String)!
+                    dataCell.destinationLabel.text = trainTrackerData[indexPath.row - 1][2] as? String
                     dataCell.runInfoLabel.text = (trainTrackerData[indexPath.row - 1][1] as? String)! + " Line Run #" + String(trainTrackerData[indexPath.row - 1][7] as! Int) + " to"
                 }
                 

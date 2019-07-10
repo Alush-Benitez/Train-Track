@@ -201,14 +201,13 @@ class AlertDetails: UIViewController, UICollectionViewDelegate, UICollectionView
         if !elevatorAlertsShown && alertsInfo.count != 0 {
             alertsCollectionView.isHidden = false
             return alertsInfo.count
-        } else if elevatorAlertsInfo.count != 0{
+        } else if elevatorAlertsInfo.count != 0 && elevatorAlertsShown{
             alertsCollectionView.isHidden = false
             return elevatorAlertsInfo.count
         } else {
             alertsCollectionView.isHidden = true
             return 0
         }
-        
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
