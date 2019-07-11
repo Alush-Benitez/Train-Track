@@ -33,7 +33,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     var selectedIndex = 0
     
     var alertCount = 0
-    var colorsAffected: [UIColor] = []
     var alertString = ""
     private let refreshControl = UIRefreshControl()
     
@@ -86,8 +85,8 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             
             locationManager.startUpdatingLocation()
         } else {
-            grabTrainTrackerData(mapid: nearbyStationsData[selectedIndex][0] as! Double)
-            grabAlertData(stationid: Int(nearbyStationsData[selectedIndex][0] as! Double))
+            trainTrackerData = grabTrainTrackerData(mapid: nearbyStationsData[selectedIndex][0] as! Double)
+            alertString = grabAlertData(stationid: Int(nearbyStationsData[selectedIndex][0] as! Double))
         }
         dataCollectionView.reloadData()
         let delay = DispatchTime.now() + .milliseconds(500)
@@ -111,8 +110,10 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                     friendlyMin = "0" + friendlyMin
                 }
                 
-                if hour >= 12 {
+                if hour > 12 {
                     lastUpdatedLabel.text = String(hour - 12) + ":" + friendlyMin + " PM"
+                } else if hour == 12 {
+                    lastUpdatedLabel.text = String(hour) + ":" + friendlyMin + " PM"
                 } else {
                     if hour == 0 {
                         hour = 12
@@ -122,8 +123,8 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                 grabClosestStations()
                 
                 if firstLoad {
-                    grabTrainTrackerData(mapid: nearbyStationsData[0][0] as! Double)
-                    grabAlertData(stationid: Int(nearbyStationsData[0][0] as! Double))
+                    trainTrackerData = grabTrainTrackerData(mapid: nearbyStationsData[0][0] as! Double)
+                    alertString = grabAlertData(stationid: Int(nearbyStationsData[0][0] as! Double))
                     firstLoad = false
                 }
                 dataCollectionView.reloadData()
@@ -176,12 +177,12 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             
             if !tested {
                 testedCoordinates.append([latitude, longitude])
+                name = result["station_name"].stringValue
                 
                 if result["station_name"].stringValue == "Harold Washington Library-State/Van Buren" {
                     name = "Harold Washington Library"
-                } else {
-                    name = result["station_name"].stringValue
                 }
+                
                 let distanceInMeters = stationCoordinate.distance(from: userCoordinate)
                 if distanceInMeters < nearbyStationsData[0][1] as! Double || nearbyStationsData[0][1] as! Double == -1 {
                     //Closer than closest
@@ -305,152 +306,10 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                 testedIds.append(result["map_id"].intValue)
                 if result["map_id"].doubleValue == nearbyStationsData[0][0] as! Double && firstLoad {
                     stationNameLabel.text = nearbyStationsData[0][2] as? String
-                    //[labelObject setMinimumScaleFactor:0.5];
-                    //[labelObject setBaselineAdjustment:UIBaselineAdjustmentAlignCenters];
-                    //stationNameLabel.sizeToFit()
                     accessableIcon.isHidden = !result["ada"].boolValue
                 }
             }
             tested = false
-        }
-    }
-    
-    //************************
-    //PARSE TRAIN TRACKER DATA
-    //************************
-    
-    func grabTrainTrackerData(mapid: Double) {
-        let query = "http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=167e3f6b5d0646889964748acf3bcc58&mapid=" + String(Int(mapid)) + "&outputType=JSON"
-        if let url = URL(string: query) {
-            if let data = try? Data(contentsOf: url) {
-                let json = try! JSON(data: data)
-                self.parseTrainTrackerData(json: json)
-            }
-        }
-    }
-    
-    func parseTrainTrackerData(json: JSON?){
-        trainTrackerData = []
-        
-        for result in json!["ctatt"]["eta"].arrayValue {
-            
-            //Color, colorString, Destination, countdowntime, isApproaching, isScheduled, isDelayed, runNumber
-            var info: [Any] = []
-            
-            //Colorz
-            if result["rt"].stringValue == "Red" {
-                info.append(ctaRed)
-                info.append("Red")
-            } else if result["rt"].stringValue == "Blue" {
-                info.append(ctaBlue)
-                info.append("Blue")
-            } else if result["rt"].stringValue == "Brn" {
-                info.append(ctaBrown)
-                info.append("Brown")
-            } else if result["rt"].stringValue == "G" {
-                info.append(ctaGreen)
-                info.append("Green")
-            } else if result["rt"].stringValue == "Org" {
-                info.append(ctaOrange)
-                info.append("Orange")
-            } else if result["rt"].stringValue == "P" {
-                info.append(ctaPurple)
-                info.append("Purple")
-            } else if result["rt"].stringValue == "Pink" {
-                info.append(ctaPink)
-                info.append("Pink")
-            } else {
-                info.append(ctaYellow)
-                info.append("Yellow")
-            }
-            
-            //Destination
-            if result["destNm"].stringValue == "Skokie" {
-                info.append("Dempster-Skokie")
-            } else {
-                info.append(result["destNm"].stringValue)
-            }
-            
-            //time
-            var index = result["arrT"].stringValue.index(result["arrT"].stringValue.startIndex, offsetBy: 14)
-            var index2 = result["arrT"].stringValue.index(result["arrT"].stringValue.startIndex, offsetBy: 15)
-            let arrivalMin = Int(String(result["arrT"].stringValue[index...index2]))!
-            let predictionMin = Int(String(result["prdt"].stringValue[index...index2]))!
-            index = result["arrT"].stringValue.index(result["arrT"].stringValue.startIndex, offsetBy: 11)
-            index2 = result["arrT"].stringValue.index(result["arrT"].stringValue.startIndex, offsetBy: 12)
-            let arrivalHour = Int(String(result["arrT"].stringValue[index...index2]))!
-            let predictionHour = Int(String(result["prdt"].stringValue[index...index2]))!
-            
-            var friendlyMin = String(predictionMin)
-            if friendlyMin.count == 1 {
-                friendlyMin = "0" + friendlyMin
-            }
-            
-            if predictionHour < 12 {
-                lastUpdatedLabel.text = String(predictionHour) + ":" + String(friendlyMin) + " AM"
-            } else {
-                lastUpdatedLabel.text = String(predictionHour - 12) + ":" + String(friendlyMin) + " PM"
-            }
-            
-            
-            if arrivalHour == predictionHour {
-                info.append(String(arrivalMin - predictionMin))
-            } else {
-                info.append(String((60 - predictionMin) + arrivalMin))
-            }
-            
-            //bools
-            info.append(result["isApp"].boolValue)
-            info.append(result["isSch"].boolValue)
-            info.append(result["isDly"].boolValue)
-            
-            //run number
-            info.append(result["rn"].intValue)
-            
-            trainTrackerData.append(info)
-            
-        }
-    }
-    
-    //*************************
-    //PARSE CONSUMER ALERT DATA
-    //*************************
-    
-    func grabAlertData(stationid: Int) {
-        let query = "http://www.transitchicago.com/api/1.0/routes.aspx?stationid=" + String(Int(stationid)) + "&outputType=JSON"
-        print(query)
-        if let url = URL(string: query) {
-            if let data = try? Data(contentsOf: url) {
-                let json = try! JSON(data: data)
-                self.parseAlertData(json: json)
-            }
-        }
-    }
-    
-    func parseAlertData(json: JSON?){
-        alertCount = 0
-        alertString = ""
-        if json!["CTARoutes"]["RouteInfo"].arrayValue == [] {
-            if json!["CTARoutes"]["RouteInfo"].dictionaryValue["RouteStatus"]?.stringValue ?? "error" != "Normal Service"{
-                alertCount += 1
-                alertString = json!["CTARoutes"]["RouteInfo"].dictionaryValue["RouteStatus"]?.stringValue ?? "error"
-            }
-        } else {
-            for result in json!["CTARoutes"]["RouteInfo"].arrayValue {
-                if result["RouteStatus"].stringValue != "Normal Service"{
-                    alertCount += 1
-                    alertString = result["RouteStatus"].stringValue
-                }
-            }
-        }
-        
-        
-        
-        if alertCount == 0 {
-            alertString = "Normal Service"
-            colorsAffected = nearbyStationsData[0][3] as! [UIColor]
-        } else if alertCount != 1 {
-            alertString = "Multiple Alerts"
         }
     }
     
@@ -461,7 +320,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if !nearbyPressed {
-            print(trainTrackerData.count + 1)
             return trainTrackerData.count + 1
         } else {
             return 5
@@ -570,8 +428,8 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             
             selectedIndex = indexPath.row
             
-            grabTrainTrackerData(mapid: nearbyStationsData[indexPath.row][0] as! Double)
-            grabAlertData(stationid: Int(nearbyStationsData[indexPath.row][0] as! Double))
+            trainTrackerData = grabTrainTrackerData(mapid: nearbyStationsData[indexPath.row][0] as! Double)
+            alertString = grabAlertData(stationid: Int(nearbyStationsData[indexPath.row][0] as! Double))
             
             
             dataCollectionView.reloadData()

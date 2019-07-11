@@ -57,7 +57,7 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
         filters = [redFilter, blueFilter, brownFilter, greenFilter, orangeFilter, pinkFilter, purpleFilter, yellowFilter]
         for i in 0..<filters.count {
             filters[i].backgroundColor = colors[i]
-            filters[i].layer.cornerRadius = 32.5
+            filters[i].layer.cornerRadius = 26
         }
         
         stationsCollectionView.delegate = self
@@ -67,6 +67,10 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
         lineInfo = [redLineStations, blueLineStations, brownLineStations, greenLineStations, orangeLineStations, pinkLineStations, purpleLineStations, yellowLineStations]
         stationsCollectionView.reloadData()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
     }
     
     //***********************
@@ -234,6 +238,12 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let desVC = mainStoryboard.instantiateViewController(withIdentifier: "SearchResultsScreen") as! SearchResultsScreen
+        self.navigationController?.pushViewController(desVC, animated: true)
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
         // TODO
     }
@@ -241,6 +251,10 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
     //*******
     //ACTIONS
     //*******
+    
+    @IBAction func searchUnwindSegue(unwindSegue: UIStoryboardSegue){
+        
+    }
     
     @IBAction func redSelected(_ sender: Any) {
         selectedLineIndex = 0

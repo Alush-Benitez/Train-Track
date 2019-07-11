@@ -91,7 +91,7 @@ class AlertsScreen: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func parseAlertData(json: JSON?){
         for result in json!["CTARoutes"]["RouteInfo"].arrayValue {
-            if result["Route"].stringValue != "Purple Line Express" {
+            if result["Route"].stringValue != "Purple Line" {
                 routeStatuses.append(result["RouteStatus"].stringValue)
             }
         }

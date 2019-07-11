@@ -291,7 +291,12 @@ class AlertDetails: UIViewController, UICollectionViewDelegate, UICollectionView
             cell.layer.masksToBounds = false
             cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: 7).cgPath
             
-            cell.stationLabel.text = elevatorAlertsInfo[indexPath.row][0] as? String
+            var stationName = elevatorAlertsInfo[indexPath.row][0] as? String
+            if elevatorAlertsInfo[indexPath.row][0] as? String == "Harold Washington Library-State/Van Buren" {
+                stationName = "Harold Washington Library"
+            }
+            
+            cell.stationLabel.text = stationName
             return cell
             
         }
