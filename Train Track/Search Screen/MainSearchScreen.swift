@@ -241,6 +241,11 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let desVC = mainStoryboard.instantiateViewController(withIdentifier: "SearchResultsScreen") as! SearchResultsScreen
+        desVC.stationName = lineInfo[selectedLineIndex][indexPath.row][0] as? String ?? "error"
+        desVC.stationColors = lineInfo[selectedLineIndex][indexPath.row][2] as? [UIColor] ?? []
+        print("here")
+        print(lineInfo[selectedLineIndex][indexPath.row])
+        desVC.mapId = Int(lineInfo[selectedLineIndex][indexPath.row][1] as? String ?? "0") ?? 0
         self.navigationController?.pushViewController(desVC, animated: true)
     }
     

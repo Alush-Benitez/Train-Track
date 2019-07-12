@@ -403,18 +403,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nearby" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.44999998807907104" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="48f-Jg-vcA">
-                                <rect key="frame" x="20" y="84" width="374" height="56"/>
+                                <rect key="frame" x="20" y="78" width="374" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Montserrat-ExtraBold" family="Montserrat ExtraBold" pointSize="45"/>
                                 <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="handicap" translatesAutoresizingMaskIntoConstraints="NO" id="eu6-z5-uyc">
-                                <rect key="frame" x="364" y="150" width="30" height="30"/>
+                                <rect key="frame" x="364" y="144" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wbp-uO-hO9">
-                                <rect key="frame" x="0.0" y="191" width="414" height="621"/>
+                                <rect key="frame" x="0.0" y="185" width="414" height="628"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="15" id="Mcl-oD-htY">
@@ -436,7 +436,7 @@
                                 </cells>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tbU-PM-ljG">
-                                <rect key="frame" x="20" y="151" width="205" height="30"/>
+                                <rect key="frame" x="20" y="145" width="205" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="30" placeholderIntrinsicHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="FNt-3j-Zgi">
@@ -494,10 +494,27 @@
                                     <segue destination="P5I-nc-xaT" kind="unwind" unwindAction="searchUnwindSegueWithUnwindSegue:" id="0ae-wQ-ZuW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lP9-gY-jha">
+                                <rect key="frame" x="364" y="43" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Fav"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="jfn-mM-pW1"/>
                     </view>
+                    <connections>
+                        <outlet property="accessableIcon" destination="eu6-z5-uyc" id="jZF-vh-sbm"/>
+                        <outlet property="dataCollectionView" destination="Wbp-uO-hO9" id="J3E-EN-lTh"/>
+                        <outlet property="favoritesButton" destination="lP9-gY-jha" id="Pd6-wO-NiB"/>
+                        <outlet property="fifthLineView" destination="En1-6e-dZH" id="fru-Ya-5Pj"/>
+                        <outlet property="firstLineView" destination="FNt-3j-Zgi" id="KeN-32-5da"/>
+                        <outlet property="fourthLineView" destination="FzY-LH-aZG" id="bge-Is-UGp"/>
+                        <outlet property="secondLineView" destination="LCT-1Y-IOT" id="A06-E0-EEC"/>
+                        <outlet property="sixthLineView" destination="VjJ-oD-JEM" id="2DD-IN-uaJ"/>
+                        <outlet property="stationNameLabel" destination="48f-Jg-vcA" id="1aS-yH-eip"/>
+                        <outlet property="thirdLineView" destination="Ay1-hf-mEl" id="exZ-ZD-ruy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DnH-8z-oWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="P5I-nc-xaT" userLabel="Exit" sceneMemberID="exit"/>
