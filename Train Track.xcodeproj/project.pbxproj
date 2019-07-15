@@ -22,6 +22,9 @@
 		4A9A7BC822D3D3C40009E290 /* StationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A7BC722D3D3C40009E290 /* StationCell.swift */; };
 		4A9A7BCA22D778B90009E290 /* SearchResultsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A7BC922D778B90009E290 /* SearchResultsScreen.swift */; };
 		4A9A7BCD22D7862D0009E290 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A7BCC22D7862D0009E290 /* Globals.swift */; };
+		4A9A7BCF22DC13110009E290 /* String+Typographizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A7BCE22DC13100009E290 /* String+Typographizer.swift */; };
+		4A9A7BD122DC13190009E290 /* Typographizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A7BD022DC13190009E290 /* Typographizer.swift */; };
+		4A9A7BD322DC17490009E290 /* SearchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A7BD222DC17490009E290 /* SearchResultsCell.swift */; };
 		4AAA371922AFF30E0098C6CC /* PopUpAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAA371822AFF30E0098C6CC /* PopUpAnimation.swift */; };
 		4AAA371B22AFF35D0098C6CC /* FollowTrainAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAA371A22AFF35D0098C6CC /* FollowTrainAlertView.swift */; };
 		4AB7D084229EFB9B00A5EDFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7D083229EFB9B00A5EDFD /* AppDelegate.swift */; };
@@ -71,6 +74,9 @@
 		4A9A7BC722D3D3C40009E290 /* StationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCell.swift; sourceTree = "<group>"; };
 		4A9A7BC922D778B90009E290 /* SearchResultsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsScreen.swift; sourceTree = "<group>"; };
 		4A9A7BCC22D7862D0009E290 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		4A9A7BCE22DC13100009E290 /* String+Typographizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Typographizer.swift"; sourceTree = "<group>"; };
+		4A9A7BD022DC13190009E290 /* Typographizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typographizer.swift; sourceTree = "<group>"; };
+		4A9A7BD222DC17490009E290 /* SearchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsCell.swift; sourceTree = "<group>"; };
 		4AAA371822AFF30E0098C6CC /* PopUpAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAnimation.swift; sourceTree = "<group>"; };
 		4AAA371A22AFF35D0098C6CC /* FollowTrainAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowTrainAlertView.swift; sourceTree = "<group>"; };
 		4AB7D080229EFB9B00A5EDFD /* Chi Transit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chi Transit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				4A9A7BC722D3D3C40009E290 /* StationCell.swift */,
+				4A9A7BD222DC17490009E290 /* SearchResultsCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -191,6 +198,8 @@
 				4AB7D08E229EFB9D00A5EDFD /* LaunchScreen.storyboard */,
 				4AB7D08C229EFB9D00A5EDFD /* Assets.xcassets */,
 				4AB7D0BF22A968C200A5EDFD /* SwiftyJSON.swift */,
+				4A9A7BCE22DC13100009E290 /* String+Typographizer.swift */,
+				4A9A7BD022DC13190009E290 /* Typographizer.swift */,
 			);
 			path = Stuff;
 			sourceTree = "<group>";
@@ -415,7 +424,10 @@
 				4A9A7BCA22D778B90009E290 /* SearchResultsScreen.swift in Sources */,
 				4A9A7BC822D3D3C40009E290 /* StationCell.swift in Sources */,
 				4AB7D0BE22A6DEC500A5EDFD /* Color.swift in Sources */,
+				4A9A7BD322DC17490009E290 /* SearchResultsCell.swift in Sources */,
 				4A05AF4B22B88D1F007C29E7 /* TrainTrackerCell.swift in Sources */,
+				4A9A7BCF22DC13110009E290 /* String+Typographizer.swift in Sources */,
+				4A9A7BD122DC13190009E290 /* Typographizer.swift in Sources */,
 				4A05AF4F22B88D41007C29E7 /* NearbyStationCell.swift in Sources */,
 				4AB7D0C022A968C300A5EDFD /* SwiftyJSON.swift in Sources */,
 				4A9A7BC622D3A19F0009E290 /* SearchResultsTableViewScreen.swift in Sources */,

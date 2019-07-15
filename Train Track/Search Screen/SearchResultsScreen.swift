@@ -28,6 +28,7 @@ class SearchResultsScreen: UIViewController, UICollectionViewDataSource, UIColle
     
     var trainTrackerData: [[Any]] = []
     var alertString = ""
+    private let refreshControl = UIRefreshControl()
     
     
     override func viewDidLoad() {
@@ -47,10 +48,28 @@ class SearchResultsScreen: UIViewController, UICollectionViewDataSource, UIColle
         dataCollectionView.register(UINib.init(nibName: "TrainTrackerCell", bundle: nil), forCellWithReuseIdentifier: "TrainTrackerCell")
         dataCollectionView.register(UINib.init(nibName: "NearbyStationCell", bundle: nil), forCellWithReuseIdentifier: "NearbyStationCell")
         dataCollectionView.register(UINib.init(nibName: "AlertCell", bundle: nil), forCellWithReuseIdentifier: "AlertCell")
-        print(mapId)
         trainTrackerData = grabTrainTrackerData(mapid: Double(mapId))
         alertString = grabAlertData(stationid: mapId)
         dataCollectionView.reloadData()
+        
+        //Refresh
+        if #available(iOS 10.0, *) {
+            dataCollectionView.refreshControl = refreshControl
+        } else {
+            dataCollectionView.addSubview(refreshControl)
+        }
+        
+        refreshControl.addTarget(self, action: #selector(reloadTrainTrackerData(_:)), for: .valueChanged)
+    }
+    
+    @objc private func reloadTrainTrackerData(_ sender: Any) {
+        trainTrackerData = grabTrainTrackerData(mapid: Double(mapId))
+        alertString = grabAlertData(stationid: mapId)
+        dataCollectionView.reloadData()
+        let delay = DispatchTime.now() + .milliseconds(500)
+        DispatchQueue.main.asyncAfter(deadline: delay){
+            self.dataCollectionView.refreshControl!.endRefreshing()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -110,6 +129,20 @@ class SearchResultsScreen: UIViewController, UICollectionViewDataSource, UIColle
             
             return dataCell
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row != 0 {
+            let alert = FollowTrainAlertView(runNumber: trainTrackerData[indexPath.row-1][7] as! Int, color: trainTrackerData[indexPath.row-1][0] as! UIColor, destination: trainTrackerData[indexPath.row-1][2] as! String, colorString: trainTrackerData[indexPath.row-1][1] as! String)
+            alert.show(animated: true)
+        } else {
+            let alert = StatusAlertView(stationid: mapId)
+            alert.show(animated: true)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.dataCollectionView.frame.width - 40, height: 75)
     }
 
 }

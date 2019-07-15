@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchResultsUpdating {
 
     @IBOutlet weak var redFilter: UIButton!
     @IBOutlet weak var blueFilter: UIButton!
@@ -27,6 +27,9 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
     var searchBar = UISearchBar()
     var resultSearchController: UISearchController? = nil
     
+    var filteredStations: [[Any]] = []
+    
+    var allStations: [[Any]] = []
     var redLineStations: [[Any]] = []
     var blueLineStations: [[Any]] = []
     var brownLineStations: [[Any]] = []
@@ -54,6 +57,9 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
         resultSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
         
+        resultSearchController?.searchResultsUpdater = self
+        resultSearchController?.searchBar.placeholder = "Find A Station"
+        
         filters = [redFilter, blueFilter, brownFilter, greenFilter, orangeFilter, pinkFilter, purpleFilter, yellowFilter]
         for i in 0..<filters.count {
             filters[i].backgroundColor = colors[i]
@@ -71,6 +77,37 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
+    }
+    
+    //****************
+    //SEARCH BAR STUFF
+    //****************
+    
+    func searchBarIsEmpty() -> Bool {
+        return resultSearchController?.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        filteredStations = []
+        for station in allStations {
+            var stationName = (station[0] as! String)
+            if stationName == "O'Hare" {
+                stationName = "o'hare"
+            }
+            stationName = stationName.lowercased().typographized(language: "en")
+            if stationName.contains(searchText.lowercased()){
+                filteredStations.append(station)
+            }
+        }
+        
+        if let resultsController = resultSearchController?.searchResultsController as? SearchResultsTableViewScreen {
+            resultsController.filteredResults = filteredStations
+            resultsController.tableView.reloadData()
+        }
+    }
+
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
     }
     
     //***********************
@@ -133,6 +170,10 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
                     }
                     if lines.contains(ctaOrange) {
                         orangeLineStations.append(stationInfo)
+                    }
+                    if lines.count != 0 {
+                        allStations.append(stationInfo)
+
                     }
                     
                     //Reset data holders
@@ -249,9 +290,6 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
         self.navigationController?.pushViewController(desVC, animated: true)
     }
     
-    func updateSearchResults(for searchController: UISearchController) {
-        // TODO
-    }
     
     //*******
     //ACTIONS
