@@ -102,7 +102,7 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
         
         if let resultsController = resultSearchController?.searchResultsController as? SearchResultsTableViewScreen {
             resultsController.filteredResults = filteredStations
-            resultsController.tableView.reloadData()
+            resultsController.collectionView.reloadData()
         }
     }
 
@@ -284,7 +284,6 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
         let desVC = mainStoryboard.instantiateViewController(withIdentifier: "SearchResultsScreen") as! SearchResultsScreen
         desVC.stationName = lineInfo[selectedLineIndex][indexPath.row][0] as? String ?? "error"
         desVC.stationColors = lineInfo[selectedLineIndex][indexPath.row][2] as? [UIColor] ?? []
-        print("here")
         print(lineInfo[selectedLineIndex][indexPath.row])
         desVC.mapId = Int(lineInfo[selectedLineIndex][indexPath.row][1] as? String ?? "0") ?? 0
         self.navigationController?.pushViewController(desVC, animated: true)

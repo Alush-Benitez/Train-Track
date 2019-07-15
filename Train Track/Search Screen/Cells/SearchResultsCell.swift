@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchResultsCell: UITableViewCell {
+class SearchResultsCell: UICollectionViewCell {
     
     @IBOutlet weak var stationLabel: UILabel!
     @IBOutlet weak var firstLineView: UIView!
@@ -24,12 +24,6 @@ class SearchResultsCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         //lineViews = [firstLineView, secondLineView, thirdLineView, fourthLineView, fifthLineView, sixthLineView]
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

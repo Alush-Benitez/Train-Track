@@ -8,36 +8,23 @@
 
 import UIKit
 
-class SearchResultsTableViewScreen: UITableViewController {
+class SearchResultsTableViewScreen: UICollectionViewController {
     
     var filteredResults: [[Any]] = []
+    var searchController: UISearchController? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        collectionView.allowsSelection = true
+        collectionView.allowsMultipleSelection = false
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filteredResults.count
     }
-
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultsCell", for: indexPath) as! SearchResultsCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchResultsCell", for: indexPath) as! SearchResultsCell
         cell.stationLabel.text = filteredResults[indexPath.row][0] as? String
         
         let lineViews = [cell.firstLineView, cell.secondLineView, cell.thirdLineView, cell.fourthLineView, cell.fifthLineView, cell.sixthLineView]
@@ -46,7 +33,7 @@ class SearchResultsTableViewScreen: UITableViewController {
             view?.backgroundColor = .white
             view?.layer.cornerRadius = 13
         }
-
+        
         for i in 0..<(filteredResults[indexPath.row][2] as! [UIColor]).count {
             lineViews[i]?.backgroundColor = (filteredResults[indexPath.row][2] as! [UIColor])[i]
         }
@@ -63,5 +50,15 @@ class SearchResultsTableViewScreen: UITableViewController {
         
         return cell
     }
-
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("here!")
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let desVC = mainStoryboard.instantiateViewController(withIdentifier: "SearchResultsScreen") as! SearchResultsScreen
+        desVC.stationName = filteredResults[indexPath.row][0] as? String ?? "error"
+        desVC.stationColors = filteredResults[indexPath.row][2] as? [UIColor] ?? []
+        desVC.mapId = Int(filteredResults[indexPath.row][1] as? String ?? "0") ?? 0
+        self.navigationController?.pushViewController(desVC, animated: true)
+        //self.present(desVC, animated: true, completion: nil)
+    }
 }
