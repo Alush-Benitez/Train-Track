@@ -63,7 +63,7 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
         filters = [redFilter, blueFilter, brownFilter, greenFilter, orangeFilter, pinkFilter, purpleFilter, yellowFilter]
         for i in 0..<filters.count {
             filters[i].backgroundColor = colors[i]
-            filters[i].layer.cornerRadius = 26
+            filters[i].layer.cornerRadius = 2
         }
         
         stationsCollectionView.delegate = self
@@ -287,6 +287,7 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
         print(lineInfo[selectedLineIndex][indexPath.row])
         desVC.mapId = Int(lineInfo[selectedLineIndex][indexPath.row][1] as? String ?? "0") ?? 0
         self.navigationController?.pushViewController(desVC, animated: true)
+        //self.present(desVC, animated: true, completion: nil)
     }
     
     

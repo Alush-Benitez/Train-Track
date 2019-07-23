@@ -58,7 +58,28 @@ class SearchResultsTableViewScreen: UICollectionViewController {
         desVC.stationName = filteredResults[indexPath.row][0] as? String ?? "error"
         desVC.stationColors = filteredResults[indexPath.row][2] as? [UIColor] ?? []
         desVC.mapId = Int(filteredResults[indexPath.row][1] as? String ?? "0") ?? 0
-        self.navigationController?.pushViewController(desVC, animated: true)
+        let nav = mainStoryboard.instantiateViewController(withIdentifier: "nav") as! UINavigationController
+        nav.pushViewController(desVC, animated: true)
+        //self.navigationController!.pushViewController(desVC, animated: true)
         //self.present(desVC, animated: true, completion: nil)
+//        let transition = CATransition()
+//        transition.duration = 0.5
+//        transition.type = CATransitionType.push
+//        transition.subtype = CATransitionSubtype.fromRight
+//        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+//        view.window!.layer.add(transition, forKey: kCATransition)
+//        present(desVC, animated: false, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        //let desVC = segue.destination as? SearchResultsScreen
+        let desVC = (segue.destination as! UINavigationController).topViewController as! SearchResultsScreen
+        let indexPath = self.collectionView.indexPathsForSelectedItems
+        desVC.stationName = filteredResults[(indexPath?[0].row)!][0] as? String ?? "error"
+        desVC.stationColors = filteredResults[(indexPath?[0].row)!][2] as? [UIColor] ?? []
+        desVC.mapId = Int(filteredResults[(indexPath?[0].row)!][1] as? String ?? "0") ?? 0
+        desVC.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        desVC.navigationItem.leftItemsSupplementBackButton = true
     }
 }
