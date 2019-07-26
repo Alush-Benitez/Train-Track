@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A04392D22E8C681002DE35B /* FiltersScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04392C22E8C681002DE35B /* FiltersScreen.swift */; };
 		4A05AF4B22B88D1F007C29E7 /* TrainTrackerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A05AF4922B88D1F007C29E7 /* TrainTrackerCell.swift */; };
 		4A05AF4C22B88D1F007C29E7 /* TrainTrackerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A05AF4A22B88D1F007C29E7 /* TrainTrackerCell.xib */; };
 		4A05AF4F22B88D41007C29E7 /* NearbyStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A05AF4D22B88D41007C29E7 /* NearbyStationCell.swift */; };
@@ -18,13 +19,10 @@
 		4A05AF5E22C50ED6007C29E7 /* AlertScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A05AF5D22C50ED6007C29E7 /* AlertScreenCell.swift */; };
 		4A34B9B622B87CDC0026B9AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A34B9B522B87CDC0026B9AC /* Main.storyboard */; };
 		4A9A7BC422D3A1790009E290 /* MainSearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A7BC322D3A1790009E290 /* MainSearchScreen.swift */; };
-		4A9A7BC622D3A19F0009E290 /* SearchResultsTableViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A7BC522D3A19F0009E290 /* SearchResultsTableViewScreen.swift */; };
-		4A9A7BC822D3D3C40009E290 /* StationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A7BC722D3D3C40009E290 /* StationCell.swift */; };
 		4A9A7BCA22D778B90009E290 /* SearchResultsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A7BC922D778B90009E290 /* SearchResultsScreen.swift */; };
 		4A9A7BCD22D7862D0009E290 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A7BCC22D7862D0009E290 /* Globals.swift */; };
 		4A9A7BCF22DC13110009E290 /* String+Typographizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A7BCE22DC13100009E290 /* String+Typographizer.swift */; };
 		4A9A7BD122DC13190009E290 /* Typographizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A7BD022DC13190009E290 /* Typographizer.swift */; };
-		4A9A7BD322DC17490009E290 /* SearchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A7BD222DC17490009E290 /* SearchResultsCell.swift */; };
 		4AAA371922AFF30E0098C6CC /* PopUpAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAA371822AFF30E0098C6CC /* PopUpAnimation.swift */; };
 		4AAA371B22AFF35D0098C6CC /* FollowTrainAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAA371A22AFF35D0098C6CC /* FollowTrainAlertView.swift */; };
 		4AB7D084229EFB9B00A5EDFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7D083229EFB9B00A5EDFD /* AppDelegate.swift */; };
@@ -59,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A04392C22E8C681002DE35B /* FiltersScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FiltersScreen.swift; path = ../FiltersScreen.swift; sourceTree = "<group>"; };
 		4A05AF4922B88D1F007C29E7 /* TrainTrackerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainTrackerCell.swift; sourceTree = "<group>"; };
 		4A05AF4A22B88D1F007C29E7 /* TrainTrackerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainTrackerCell.xib; sourceTree = "<group>"; };
 		4A05AF4D22B88D41007C29E7 /* NearbyStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyStationCell.swift; sourceTree = "<group>"; };
@@ -70,13 +69,10 @@
 		4A05AF5D22C50ED6007C29E7 /* AlertScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertScreenCell.swift; path = ../HomeScreen/AlertScreenCell.swift; sourceTree = "<group>"; };
 		4A34B9B522B87CDC0026B9AC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4A9A7BC322D3A1790009E290 /* MainSearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchScreen.swift; sourceTree = "<group>"; };
-		4A9A7BC522D3A19F0009E290 /* SearchResultsTableViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewScreen.swift; sourceTree = "<group>"; };
-		4A9A7BC722D3D3C40009E290 /* StationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCell.swift; sourceTree = "<group>"; };
 		4A9A7BC922D778B90009E290 /* SearchResultsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsScreen.swift; sourceTree = "<group>"; };
 		4A9A7BCC22D7862D0009E290 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		4A9A7BCE22DC13100009E290 /* String+Typographizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Typographizer.swift"; sourceTree = "<group>"; };
 		4A9A7BD022DC13190009E290 /* Typographizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typographizer.swift; sourceTree = "<group>"; };
-		4A9A7BD222DC17490009E290 /* SearchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsCell.swift; sourceTree = "<group>"; };
 		4AAA371822AFF30E0098C6CC /* PopUpAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAnimation.swift; sourceTree = "<group>"; };
 		4AAA371A22AFF35D0098C6CC /* FollowTrainAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowTrainAlertView.swift; sourceTree = "<group>"; };
 		4AB7D080229EFB9B00A5EDFD /* Chi Transit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chi Transit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,20 +170,10 @@
 			isa = PBXGroup;
 			children = (
 				4A9A7BC322D3A1790009E290 /* MainSearchScreen.swift */,
-				4A9A7BC522D3A19F0009E290 /* SearchResultsTableViewScreen.swift */,
 				4A9A7BC922D778B90009E290 /* SearchResultsScreen.swift */,
-				4A9A7BCB22D77A3F0009E290 /* Cells */,
+				4A04392C22E8C681002DE35B /* FiltersScreen.swift */,
 			);
 			path = "Search Screen";
-			sourceTree = "<group>";
-		};
-		4A9A7BCB22D77A3F0009E290 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				4A9A7BC722D3D3C40009E290 /* StationCell.swift */,
-				4A9A7BD222DC17490009E290 /* SearchResultsCell.swift */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		4AAA371522AB2EA80098C6CC /* Stuff */ = {
@@ -208,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				4AB7D085229EFB9B00A5EDFD /* HomeScreen.swift */,
-				4AAA371822AFF30E0098C6CC /* PopUpAnimation.swift */,
 				4AAA371A22AFF35D0098C6CC /* FollowTrainAlertView.swift */,
 				4A05AF5922BD2786007C29E7 /* StatusAlertView.swift */,
 				4A05AF5522B91D44007C29E7 /* Cells */,
@@ -240,6 +225,7 @@
 				4A34B9B522B87CDC0026B9AC /* Main.storyboard */,
 				4AB7D0BD22A6DEC500A5EDFD /* Color.swift */,
 				4A9A7BCC22D7862D0009E290 /* Globals.swift */,
+				4AAA371822AFF30E0098C6CC /* PopUpAnimation.swift */,
 				4AB7D091229EFB9D00A5EDFD /* Info.plist */,
 				4A9A7BBE22D2352C0009E290 /* Search Screen */,
 				4A05AF5F22C5102E007C29E7 /* Alerts Screen */,
@@ -417,20 +403,18 @@
 				4ADF228622CABF5C007679F2 /* SystemAlertCollectionViewCell.swift in Sources */,
 				4A05AF5A22BD2786007C29E7 /* StatusAlertView.swift in Sources */,
 				4AB7D086229EFB9B00A5EDFD /* HomeScreen.swift in Sources */,
+				4A04392D22E8C681002DE35B /* FiltersScreen.swift in Sources */,
 				4A05AF5C22C4FD99007C29E7 /* AlertsScreen.swift in Sources */,
 				4ADF228222CAB757007679F2 /* ElevatorAlertCollectionViewCell.swift in Sources */,
 				4A05AF5E22C50ED6007C29E7 /* AlertScreenCell.swift in Sources */,
 				4A9A7BCD22D7862D0009E290 /* Globals.swift in Sources */,
 				4A9A7BCA22D778B90009E290 /* SearchResultsScreen.swift in Sources */,
-				4A9A7BC822D3D3C40009E290 /* StationCell.swift in Sources */,
 				4AB7D0BE22A6DEC500A5EDFD /* Color.swift in Sources */,
-				4A9A7BD322DC17490009E290 /* SearchResultsCell.swift in Sources */,
 				4A05AF4B22B88D1F007C29E7 /* TrainTrackerCell.swift in Sources */,
 				4A9A7BCF22DC13110009E290 /* String+Typographizer.swift in Sources */,
 				4A9A7BD122DC13190009E290 /* Typographizer.swift in Sources */,
 				4A05AF4F22B88D41007C29E7 /* NearbyStationCell.swift in Sources */,
 				4AB7D0C022A968C300A5EDFD /* SwiftyJSON.swift in Sources */,
-				4A9A7BC622D3A19F0009E290 /* SearchResultsTableViewScreen.swift in Sources */,
 				4A9A7BC422D3A1790009E290 /* MainSearchScreen.swift in Sources */,
 				4AAA371B22AFF35D0098C6CC /* FollowTrainAlertView.swift in Sources */,
 				4A05AF5322B88D75007C29E7 /* AlertCell.swift in Sources */,

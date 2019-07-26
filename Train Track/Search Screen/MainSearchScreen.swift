@@ -133,12 +133,14 @@ class MainSearchScreen: UICollectionViewController, UISearchResultsUpdating {
         
         stationInfo.append(json![].arrayValue[0].dictionaryValue["station_name"]!.stringValue)
         stationInfo.append(json![].arrayValue[0].dictionaryValue["map_id"]!.stringValue)
+        stationInfo.append(json![].arrayValue[0].dictionaryValue["ada"]!.boolValue)
         
         
         for result in json![].arrayValue {
             //Checking if station was already tested
             let mapId = result["map_id"].stringValue
-            
+            let accessibility = result["ada"].boolValue
+            print(accessibility)
             var name = result["station_name"].stringValue
             if name == "Harold Washington Library-State/Van Buren" {
                 name = "Harold Washington Library"
@@ -182,6 +184,7 @@ class MainSearchScreen: UICollectionViewController, UISearchResultsUpdating {
                     lines = []
                     stationInfo.append(name)
                     stationInfo.append(mapId)
+                    stationInfo.append(accessibility)
                     testedIds = [mapId]
                     
                 }
@@ -283,8 +286,9 @@ class MainSearchScreen: UICollectionViewController, UISearchResultsUpdating {
         }
         
         var count = 0
+        print(station)
         
-        for color in station[2] as! [UIColor] {
+        for color in station[3] as! [UIColor] {
             cell.lineViews[count].backgroundColor = color
             count += 1
         }
@@ -314,8 +318,9 @@ class MainSearchScreen: UICollectionViewController, UISearchResultsUpdating {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let desVC = mainStoryboard.instantiateViewController(withIdentifier: "SearchResultsScreen") as! SearchResultsScreen
         desVC.stationName = station[0] as? String ?? "error"
-        desVC.stationColors = station[2] as? [UIColor] ?? []
+        desVC.stationColors = station[3] as? [UIColor] ?? []
         desVC.mapId = Int(station[1] as? String ?? "0") ?? 0
+        desVC.accessibility = station[2] as? Bool ?? false
         self.navigationController?.pushViewController(desVC, animated: true)
         
     }

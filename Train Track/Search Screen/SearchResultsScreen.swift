@@ -24,6 +24,7 @@ class SearchResultsScreen: UIViewController, UICollectionViewDataSource, UIColle
     var stationName = ""
     var stationColors: [UIColor] = []
     var mapId = 0
+    var accessibility = false
     var lineViews: [UIView] = []
     
     var trainTrackerData: [[Any]] = []
@@ -43,6 +44,8 @@ class SearchResultsScreen: UIViewController, UICollectionViewDataSource, UIColle
         for i in 0..<stationColors.count {
             lineViews[i].backgroundColor = stationColors[i]
         }
+        accessableIcon.isHidden = !accessibility
+        
         dataCollectionView.delegate = self
         dataCollectionView.dataSource = self
         dataCollectionView.register(UINib.init(nibName: "TrainTrackerCell", bundle: nil), forCellWithReuseIdentifier: "TrainTrackerCell")
@@ -51,6 +54,8 @@ class SearchResultsScreen: UIViewController, UICollectionViewDataSource, UIColle
         trainTrackerData = grabTrainTrackerData(mapid: Double(mapId))
         alertString = grabAlertData(stationid: mapId)
         dataCollectionView.reloadData()
+        
+        
         
         //Refresh
         if #available(iOS 10.0, *) {
