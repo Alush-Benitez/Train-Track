@@ -189,243 +189,183 @@
             <point key="canvasLocation" x="747.82608695652175" y="-1028.5714285714284"/>
         </scene>
         <!--Main Search Screen-->
-        <scene sceneID="HH2-6C-gOr">
+        <scene sceneID="RJY-0r-epw">
             <objects>
-                <viewController storyboardIdentifier="MainSearchScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cp0-ba-XFM" customClass="MainSearchScreen" customModule="Chi_Transit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Jst-CX-lGg">
+                <collectionViewController storyboardIdentifier="MainSearchScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hdP-qN-zSL" customClass="MainSearchScreen" customModule="Chi_Transit" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" id="a2V-6d-Ei6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WHO-Y5-l69">
+                            <size key="itemSize" width="365" height="75"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Dwd-Sy-blj">
+                                <rect key="frame" x="24.666666666666668" y="15" width="365" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="365" height="75"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="hdP-qN-zSL" id="3BM-cJ-GCv"/>
+                            <outlet property="delegate" destination="hdP-qN-zSL" id="Qxh-pl-U3m"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="svx-Qh-hna"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V2F-6w-ygn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1658" y="1063"/>
+        </scene>
+        <!--Filters Screen-->
+        <scene sceneID="myZ-NU-36q">
+            <objects>
+                <viewController storyboardIdentifier="FiltersScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Pk-Zg-T6i" customClass="FiltersScreen" customModule="Chi_Transit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Iz-S9-CZl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIh-Ic-1Oe">
-                                <rect key="frame" x="126" y="152" width="66" height="30"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lb9-RQ-0S2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.96078431369999995" green="0.78823529410000004" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat SemiBold" pointSize="16"/>
-                                <state key="normal" title="Pink">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="pinkSelected:" destination="Cp0-ba-XFM" eventType="touchUpInside" id="8IL-Bl-KOD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kch-MP-Sc7">
-                                <rect key="frame" x="30" y="152" width="66" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.96078431369999995" green="0.78823529410000004" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat SemiBold" pointSize="16"/>
-                                <state key="normal" title="Orange">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="orangeSelected:" destination="Cp0-ba-XFM" eventType="touchUpInside" id="CRf-ue-rHb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1j-T3-vMk">
-                                <rect key="frame" x="318" y="112" width="66" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.96078431369999995" green="0.78823529410000004" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat SemiBold" pointSize="16"/>
-                                <state key="normal" title="Green">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="greenSelected:" destination="Cp0-ba-XFM" eventType="touchUpInside" id="L7C-ut-ynb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Keb-aC-aYQ">
-                                <rect key="frame" x="222" y="112" width="66" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.96078431369999995" green="0.78823529410000004" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat SemiBold" pointSize="16"/>
-                                <state key="normal" title="Brown">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="brownSelected:" destination="Cp0-ba-XFM" eventType="touchUpInside" id="zgd-WA-Cex"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFD-ul-c6x">
-                                <rect key="frame" x="126" y="112" width="66" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.23529411759999999" green="0.23529411759999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat SemiBold" pointSize="16"/>
-                                <state key="normal" title="Blue">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="blueSelected:" destination="Cp0-ba-XFM" eventType="touchUpInside" id="OkW-6m-ZUn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMB-1W-6JD">
-                                <rect key="frame" x="222" y="152" width="66" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.96078431369999995" green="0.78823529410000004" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat SemiBold" pointSize="16"/>
-                                <state key="normal" title="Purple">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="purpleSelected:" destination="Cp0-ba-XFM" eventType="touchUpInside" id="Suw-qO-rG4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWj-hN-aXy">
-                                <rect key="frame" x="318" y="152" width="66" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.96078431369999995" green="0.78823529410000004" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat SemiBold" pointSize="16"/>
-                                <state key="normal" title="Yellow">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="yellowSelected:" destination="Cp0-ba-XFM" eventType="touchUpInside" id="T7Y-34-ky6"/>
-                                </connections>
-                            </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yqq-ht-Cmr">
-                                <rect key="frame" x="20" y="185" width="374" height="628"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="12" minimumInteritemSpacing="10" id="T2r-QM-yeF">
-                                    <size key="itemSize" width="365" height="75"/>
-                                    <size key="headerReferenceSize" width="0.0" height="12"/>
-                                    <size key="footerReferenceSize" width="0.0" height="10"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="stationSearchCell" id="MbF-xq-xfv" customClass="StationCell" customModule="Chi_Transit" customModuleProvider="target">
-                                        <rect key="frame" x="4.666666666666667" y="12" width="365" height="75"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GW-fH-jet">
+                                        <rect key="frame" x="186" y="18" width="43" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="365" height="75"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Howard" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cIX-pj-F6U">
-                                                    <rect key="frame" x="5" y="7" width="294" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="21"/>
-                                                    <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZhN-7k-wht">
-                                                    <rect key="frame" x="5" y="40" width="145" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <subviews>
-                                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="30" placeholderIntrinsicHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="sQT-TX-RwX">
-                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                            <color key="backgroundColor" red="0.32156862749999998" green="0.13725490200000001" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="20" id="AjE-el-glX"/>
-                                                                <constraint firstAttribute="height" constant="20" id="UIB-tq-F8J"/>
-                                                            </constraints>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="30" placeholderIntrinsicHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="7IB-9u-zfK">
-                                                            <rect key="frame" x="25" y="0.0" width="20" height="20"/>
-                                                            <color key="backgroundColor" red="0.96078431369999995" green="0.78823529410000004" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="7IB-9u-zfK" secondAttribute="height" multiplier="1:1" id="dJg-gb-ue4"/>
-                                                            </constraints>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="30" placeholderIntrinsicHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="pPf-AT-O0j">
-                                                            <rect key="frame" x="50" y="0.0" width="20" height="20"/>
-                                                            <color key="backgroundColor" red="0.77647058820000003" green="0.047058823530000002" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="pPf-AT-O0j" secondAttribute="height" multiplier="1:1" id="A96-yW-zhk"/>
-                                                            </constraints>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="30" placeholderIntrinsicHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="6CT-Ci-3p3">
-                                                            <rect key="frame" x="75" y="0.0" width="20" height="20"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="6CT-Ci-3p3" secondAttribute="height" multiplier="1:1" id="p8I-7R-khB"/>
-                                                            </constraints>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="30" placeholderIntrinsicHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="moz-e4-pNE">
-                                                            <rect key="frame" x="100" y="0.0" width="20" height="20"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="moz-e4-pNE" secondAttribute="height" multiplier="1:1" id="Df1-Du-9h8"/>
-                                                            </constraints>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="30" placeholderIntrinsicHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="1yF-4C-Tdb">
-                                                            <rect key="frame" x="125" y="0.0" width="20" height="20"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="1yF-4C-Tdb" secondAttribute="height" multiplier="1:1" id="vs8-ti-XWL"/>
-                                                            </constraints>
-                                                        </view>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                        </view>
+                                        <fontDescription key="fontDescription" name="Montserrat-ExtraBold" family="Montserrat ExtraBold" pointSize="35"/>
+                                        <state key="normal" title="V">
+                                            <color key="titleColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
-                                            <outlet property="fifthLineView" destination="moz-e4-pNE" id="UcF-nh-Phr"/>
-                                            <outlet property="firstLineView" destination="sQT-TX-RwX" id="Xaz-GR-pGv"/>
-                                            <outlet property="fourthLineView" destination="6CT-Ci-3p3" id="8hW-oj-XbX"/>
-                                            <outlet property="secondLineView" destination="7IB-9u-zfK" id="zRh-rr-0vG"/>
-                                            <outlet property="sixthLineView" destination="1yF-4C-Tdb" id="gSK-rx-aZt"/>
-                                            <outlet property="stationName" destination="cIX-pj-F6U" id="qB4-qf-Zry"/>
-                                            <outlet property="thirdLineView" destination="pPf-AT-O0j" id="W2Y-Cq-GEm"/>
+                                            <action selector="backPressed:" destination="8Pk-Zg-T6i" eventType="touchUpInside" id="aTb-0z-frV"/>
+                                            <segue destination="KYW-gb-lAN" kind="unwind" unwindAction="searchUnwindSegueWithUnwindSegue:" id="mho-gp-nha"/>
                                         </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VgX-Fc-C5X">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="12"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionReusableView>
-                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8hV-L2-Dmu">
-                                    <rect key="frame" x="0.0" y="87" width="374" height="10"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionReusableView>
-                            </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGr-Dx-60h">
-                                <rect key="frame" x="30" y="112" width="66" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.25490196079999999" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat SemiBold" pointSize="16"/>
-                                <state key="normal" title="Red">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="redSelected:" destination="Cp0-ba-XFM" eventType="touchUpInside" id="75x-0R-JLH"/>
-                                </connections>
-                            </button>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abq-23-bZE">
+                                        <rect key="frame" x="53" y="109" width="130" height="130"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.23137254901960785" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-ExtraBold" family="Montserrat ExtraBold" pointSize="70"/>
+                                        <state key="normal" title="R">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="redPressed:" destination="8Pk-Zg-T6i" eventType="touchUpInside" id="OOt-rO-CFR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCD-6m-01j">
+                                        <rect key="frame" x="53" y="255" width="130" height="130"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-ExtraBold" family="Montserrat ExtraBold" pointSize="70"/>
+                                        <state key="normal" title="B">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="brownPressed:" destination="8Pk-Zg-T6i" eventType="touchUpInside" id="OGn-uX-2yy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPE-Nh-BQs">
+                                        <rect key="frame" x="232" y="109" width="130" height="130"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-ExtraBold" family="Montserrat ExtraBold" pointSize="70"/>
+                                        <state key="normal" title="B">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="bluePressed:" destination="8Pk-Zg-T6i" eventType="touchUpInside" id="aeO-aM-Gcf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNC-fe-zVB">
+                                        <rect key="frame" x="232" y="255" width="130" height="130"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-ExtraBold" family="Montserrat ExtraBold" pointSize="70"/>
+                                        <state key="normal" title="G">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="greenPressed:" destination="8Pk-Zg-T6i" eventType="touchUpInside" id="NIv-Tl-JGc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnZ-Be-I0i">
+                                        <rect key="frame" x="232" y="402" width="130" height="130"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-ExtraBold" family="Montserrat ExtraBold" pointSize="70"/>
+                                        <state key="normal" title="P">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pinkPressed:" destination="8Pk-Zg-T6i" eventType="touchUpInside" id="eNu-uW-PfM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vDj-P1-vI2">
+                                        <rect key="frame" x="232" y="554" width="130" height="130"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-ExtraBold" family="Montserrat ExtraBold" pointSize="70"/>
+                                        <state key="normal" title="Y">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="yellowPressed:" destination="8Pk-Zg-T6i" eventType="touchUpInside" id="2Au-Hs-Tea"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNV-Jz-edF">
+                                        <rect key="frame" x="53" y="554" width="130" height="130"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-ExtraBold" family="Montserrat ExtraBold" pointSize="70"/>
+                                        <state key="normal" title="P">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="purplePressed:" destination="8Pk-Zg-T6i" eventType="touchUpInside" id="VtE-RD-k8Y"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2gL-Ts-Dl0">
+                                        <rect key="frame" x="53" y="402" width="130" height="130"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-ExtraBold" family="Montserrat ExtraBold" pointSize="70"/>
+                                        <state key="normal" title="O">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="orangePressed:" destination="8Pk-Zg-T6i" eventType="touchUpInside" id="rGk-x3-TtB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="5xr-HX-EMX"/>
+                        <viewLayoutGuide key="safeArea" id="3lx-s2-jYn"/>
                     </view>
-                    <navigationItem key="navigationItem" id="z6p-X4-8pW"/>
                     <connections>
-                        <outlet property="blueFilter" destination="AFD-ul-c6x" id="zVn-3a-HjT"/>
-                        <outlet property="brownFilter" destination="Keb-aC-aYQ" id="7pj-Mg-dAr"/>
-                        <outlet property="greenFilter" destination="K1j-T3-vMk" id="vPU-f1-IwX"/>
-                        <outlet property="orangeFilter" destination="kch-MP-Sc7" id="SjR-YZ-8oY"/>
-                        <outlet property="pinkFilter" destination="dIh-Ic-1Oe" id="0TY-6a-Y6I"/>
-                        <outlet property="purpleFilter" destination="iMB-1W-6JD" id="eoB-eX-XZL"/>
-                        <outlet property="redFilter" destination="aGr-Dx-60h" id="t8W-gT-1s8"/>
-                        <outlet property="searchDisplayController" destination="dFn-Yx-2er" id="agk-dV-Eai"/>
-                        <outlet property="stationsCollectionView" destination="yqq-ht-Cmr" id="XNv-aE-SM2"/>
-                        <outlet property="yellowFilter" destination="CWj-hN-aXy" id="oUL-SX-WXl"/>
+                        <outlet property="backgroundView" destination="Lb9-RQ-0S2" id="wy7-mJ-NNG"/>
+                        <outlet property="blueButton" destination="bPE-Nh-BQs" id="Gro-8C-3gO"/>
+                        <outlet property="brownButton" destination="MCD-6m-01j" id="yMQ-Tr-VjW"/>
+                        <outlet property="greenButton" destination="PNC-fe-zVB" id="1UJ-ym-Rpq"/>
+                        <outlet property="orangeButton" destination="2gL-Ts-Dl0" id="eLC-ML-H5G"/>
+                        <outlet property="pinkButton" destination="fnZ-Be-I0i" id="JHU-tw-SaS"/>
+                        <outlet property="purpleButton" destination="iNV-Jz-edF" id="RYb-rO-v07"/>
+                        <outlet property="redButton" destination="Abq-23-bZE" id="6ra-2w-k4K"/>
+                        <outlet property="yellowButton" destination="vDj-P1-vI2" id="Xeb-O3-dhQ"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BOT-IT-13t" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="Nqh-F2-0O3">
-                    <connections>
-                        <outlet property="delegate" destination="Cp0-ba-XFM" id="hf1-FK-ZH7"/>
-                        <outlet property="searchContentsController" destination="Cp0-ba-XFM" id="G0J-zs-EOd"/>
-                        <outlet property="searchResultsDataSource" destination="Cp0-ba-XFM" id="YdS-Pk-A3T"/>
-                        <outlet property="searchResultsDelegate" destination="Cp0-ba-XFM" id="uRN-4o-e66"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="dFn-Yx-2er">
-                    <connections>
-                        <outlet property="delegate" destination="Cp0-ba-XFM" id="rYQ-DZ-HMs"/>
-                        <outlet property="searchContentsController" destination="Cp0-ba-XFM" id="yGM-M8-Ma5"/>
-                        <outlet property="searchResultsDataSource" destination="Cp0-ba-XFM" id="eV6-Kf-g5l"/>
-                        <outlet property="searchResultsDelegate" destination="Cp0-ba-XFM" id="rVu-wo-K4h"/>
-                    </connections>
-                </searchDisplayController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gih-Bw-Zyh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="KYW-gb-lAN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1657.9710144927537" y="1062.7232142857142"/>
+            <point key="canvasLocation" x="1653.6231884057972" y="1734.375"/>
         </scene>
         <!--Search Results Screen-->
         <scene sceneID="ZH0-HG-Sc1">
@@ -558,121 +498,6 @@
                 <exit id="P5I-nc-xaT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2567" y="1063"/>
-        </scene>
-        <!--Search Results Table View Screen-->
-        <scene sceneID="VT8-V7-OU0">
-            <objects>
-                <collectionViewController storyboardIdentifier="SearchResultsTableViewScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iIm-P2-w3E" customClass="SearchResultsTableViewScreen" customModule="Chi_Transit" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" id="nxJ-O1-o22">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="JXs-gq-GoJ">
-                            <size key="itemSize" width="375" height="75"/>
-                            <size key="headerReferenceSize" width="20" height="10"/>
-                            <size key="footerReferenceSize" width="0.0" height="10"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchResultsCell" id="cy9-FR-WBv" customClass="SearchResultsCell" customModule="Chi_Transit" customModuleProvider="target">
-                                <rect key="frame" x="19.666666666666668" y="10" width="375" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dempster-Skokie" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l4v-MI-BCJ">
-                                            <rect key="frame" x="10" y="6" width="355" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="26"/>
-                                            <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="ORR-13-EGS">
-                                            <rect key="frame" x="10" y="43" width="191" height="26"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wkq-OG-KT9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="26" id="LW9-3W-HCQ"/>
-                                                        <constraint firstAttribute="width" constant="26" id="bQw-im-DlZ"/>
-                                                    </constraints>
-                                                </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hkh-xc-nxL">
-                                                    <rect key="frame" x="33" y="0.0" width="26" height="26"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="26" id="8xP-1a-2dn"/>
-                                                        <constraint firstAttribute="height" constant="26" id="xKn-6e-pBB"/>
-                                                    </constraints>
-                                                </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zju-Am-3KI">
-                                                    <rect key="frame" x="66" y="0.0" width="26" height="26"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="26" id="VLz-O4-571"/>
-                                                        <constraint firstAttribute="height" constant="26" id="ung-Jd-fwG"/>
-                                                    </constraints>
-                                                </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Boe-eZ-zur">
-                                                    <rect key="frame" x="99" y="0.0" width="26" height="26"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="26" id="Zeh-FK-ILK"/>
-                                                        <constraint firstAttribute="height" constant="26" id="hJ2-z9-Vj5"/>
-                                                    </constraints>
-                                                </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="llA-SV-hKS">
-                                                    <rect key="frame" x="132" y="0.0" width="26" height="26"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="26" id="8k5-g7-mvc"/>
-                                                        <constraint firstAttribute="width" constant="26" id="Co1-cj-1yl"/>
-                                                    </constraints>
-                                                </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ky0-Pd-I01">
-                                                    <rect key="frame" x="165" y="0.0" width="26" height="26"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="26" id="9qy-Lg-gh9"/>
-                                                        <constraint firstAttribute="width" constant="26" id="KPd-vN-vzH"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                </view>
-                                <connections>
-                                    <outlet property="fifthLineView" destination="llA-SV-hKS" id="a6u-X5-OTO"/>
-                                    <outlet property="firstLineView" destination="wkq-OG-KT9" id="iFr-Sz-PFE"/>
-                                    <outlet property="fourthLineView" destination="Boe-eZ-zur" id="sxh-xx-3Og"/>
-                                    <outlet property="secondLineView" destination="Hkh-xc-nxL" id="8XA-G0-uuG"/>
-                                    <outlet property="sixthLineView" destination="Ky0-Pd-I01" id="olC-BA-mz9"/>
-                                    <outlet property="stationLabel" destination="l4v-MI-BCJ" id="Mi7-EW-l6w"/>
-                                    <outlet property="thirdLineView" destination="zju-Am-3KI" id="Ffk-4V-eoh"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xF9-mw-7TI">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="10"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </collectionReusableView>
-                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gao-Wh-4kR">
-                            <rect key="frame" x="0.0" y="85" width="414" height="10"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </collectionReusableView>
-                        <connections>
-                            <outlet property="dataSource" destination="iIm-P2-w3E" id="v2W-LA-lch"/>
-                            <outlet property="delegate" destination="iIm-P2-w3E" id="HZJ-YB-3WD"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" id="BGB-R9-ma2"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xq1-7q-udH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2568.1159420289855" y="1762.5"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="wg7-f3-ORb">
@@ -997,31 +822,12 @@
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="B3k-Bb-URx"/>
                         <segue destination="mqw-07-pxz" kind="relationship" relationship="viewControllers" id="EWA-FX-R6g"/>
-                        <segue destination="ua1-GL-Iak" kind="relationship" relationship="viewControllers" id="YO4-iu-ZD3"/>
+                        <segue destination="9Mm-52-tfl" kind="relationship" relationship="viewControllers" id="neB-sL-RwZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
-        </scene>
-        <!--Search-->
-        <scene sceneID="XVx-4G-FHx">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ua1-GL-Iak" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="search" selectedImage="search" id="D3p-eo-rNb"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Byz-hG-zdL">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Cp0-ba-XFM" kind="relationship" relationship="rootViewController" id="G6j-dC-OfR"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="noH-du-Z7n" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="747.82608695652175" y="1062.7232142857142"/>
         </scene>
         <!--Alerts-->
         <scene sceneID="7vw-Zq-DIG">
@@ -1047,28 +853,29 @@
             <point key="canvasLocation" x="747.82608695652175" y="-314.0625"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="gTJ-H7-r5f">
+        <scene sceneID="GUu-Ou-4oK">
             <objects>
-                <navigationController storyboardIdentifier="nav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="j80-xf-Izm" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Mm-52-tfl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="hRU-se-WYV"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2bX-lC-GZu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vij-PY-Nhk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="iIm-P2-w3E" kind="relationship" relationship="rootViewController" id="ayO-gK-BSh"/>
+                        <segue destination="hdP-qN-zSL" kind="relationship" relationship="rootViewController" id="sFX-iS-Qhh"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UFe-iz-CfI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="goN-q2-fOs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1657.9710144927537" y="1762.5"/>
+            <point key="canvasLocation" x="748" y="1063"/>
         </scene>
     </scenes>
     <resources>
         <image name="attention" width="30" height="30"/>
         <image name="handicap" width="939" height="1200"/>
         <image name="marker" width="30" height="30"/>
-        <image name="search" width="30" height="30"/>
         <image name="star" width="30" height="30"/>
     </resources>
 </document>

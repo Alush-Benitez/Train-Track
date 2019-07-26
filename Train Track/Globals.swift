@@ -154,3 +154,9 @@ func parseAlertData(json: JSON?) -> String {
     }
     return alertString
 }
+
+//*********
+//VARIABLES
+//*********
+
+var selectedFilter = 8

@@ -36,7 +36,7 @@ class FollowTrainAlertView: UIView, PopUpAnimation {
         }
         //StationName, countdownTime, isApp, isDly
         
-        let runInfoLabel = UILabel(frame: CGRect(x: 8, y: 8, width: dialogViewWidth-16, height: 15))
+        let runInfoLabel = UILabel(frame: CGRect(x: 8, y: 8, width: dialogViewWidth-16, height: 17))
         runInfoLabel.text = colorString + " Line Run #" + String(runNumber) + " to"
         runInfoLabel.textAlignment = .left
         runInfoLabel.textColor = .white

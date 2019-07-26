@@ -9,17 +9,7 @@
 import UIKit
 import CoreLocation
 
-class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchResultsUpdating {
-
-    @IBOutlet weak var redFilter: UIButton!
-    @IBOutlet weak var blueFilter: UIButton!
-    @IBOutlet weak var brownFilter: UIButton!
-    @IBOutlet weak var greenFilter: UIButton!
-    @IBOutlet weak var orangeFilter: UIButton!
-    @IBOutlet weak var pinkFilter: UIButton!
-    @IBOutlet weak var purpleFilter: UIButton!
-    @IBOutlet weak var yellowFilter: UIButton!
-    @IBOutlet weak var stationsCollectionView: UICollectionView!
+class MainSearchScreen: UICollectionViewController, UISearchResultsUpdating {
     
     var filters: [UIButton] = []
     var colors: [UIColor] = [ctaRed, ctaBlue, ctaBrown, ctaGreen, ctaOrange, ctaPink, ctaPurple, ctaYellow]
@@ -43,40 +33,46 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
     var selectedLineIndex = 0
     
     var blueLineMapIds: [String] = []
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.register(UINib.init(nibName: "NearbyStationCell", bundle: nil), forCellWithReuseIdentifier: "NearbyStationCell")
         //Search Bar Setup
-        let stationSearchTable = storyboard!.instantiateViewController(withIdentifier: "SearchResultsTableViewScreen") as! SearchResultsTableViewScreen
-        resultSearchController = UISearchController(searchResultsController: stationSearchTable)
-        resultSearchController?.searchResultsUpdater = stationSearchTable as? UISearchResultsUpdating
+        
+        resultSearchController = UISearchController(searchResultsController: nil)
+        resultSearchController?.searchResultsUpdater = self
         navigationItem.titleView = resultSearchController?.searchBar
         navigationItem.hidesSearchBarWhenScrolling = false
         resultSearchController?.hidesNavigationBarDuringPresentation = false
-        resultSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
+        resultSearchController?.obscuresBackgroundDuringPresentation = false
         
         resultSearchController?.searchResultsUpdater = self
         resultSearchController?.searchBar.placeholder = "Find A Station"
-        
-        filters = [redFilter, blueFilter, brownFilter, greenFilter, orangeFilter, pinkFilter, purpleFilter, yellowFilter]
-        for i in 0..<filters.count {
-            filters[i].backgroundColor = colors[i]
-            filters[i].layer.cornerRadius = 2
-        }
-        
-        stationsCollectionView.delegate = self
-        stationsCollectionView.dataSource = self
-        
+        resultSearchController?.searchBar.setShowsCancelButton(false, animated: false)
         grabStationsInLines()
         lineInfo = [redLineStations, blueLineStations, brownLineStations, greenLineStations, orangeLineStations, pinkLineStations, purpleLineStations, yellowLineStations]
-        stationsCollectionView.reloadData()
-
+        collectionView.reloadData()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(MainSearchScreen.filtersTapped(_:)))
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
+        //collectionView.reloadData()
+    }
+    
+    //***************
+    //SHOWING FILTERS
+    //***************
+    
+    @objc func filtersTapped(_ sender:UIBarButtonItem!) {
+//        let alert = FiltersAlertView()
+//        alert.show(animated: true)
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "FiltersScreen") as! FiltersScreen
+        self.present(newViewController, animated: true, completion: nil)
     }
     
     //****************
@@ -89,7 +85,13 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
     
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         filteredStations = []
-        for station in allStations {
+        var stationList: [[Any]] = []
+        if selectedFilter == 8 {
+            stationList = allStations
+        } else {
+            stationList = lineInfo[selectedFilter]
+        }
+        for station in stationList {
             var stationName = (station[0] as! String)
             if stationName == "O'Hare" {
                 stationName = "o'hare"
@@ -99,15 +101,15 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
                 filteredStations.append(station)
             }
         }
-        
-        if let resultsController = resultSearchController?.searchResultsController as? SearchResultsTableViewScreen {
-            resultsController.filteredResults = filteredStations
-            resultsController.collectionView.reloadData()
-        }
+        collectionView.reloadData()
     }
 
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    func isFiltering() -> Bool {
+        return resultSearchController!.isActive && !searchBarIsEmpty()
     }
     
     //***********************
@@ -173,7 +175,6 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
                     }
                     if lines.count != 0 {
                         allStations.append(stationInfo)
-
                     }
                     
                     //Reset data holders
@@ -248,22 +249,42 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
     //COLLECTION VIEW SETUP
     //*********************
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(lineInfo[selectedLineIndex])
-        return lineInfo[selectedLineIndex].count
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //return lineInfo[selectedLineIndex].count
+        if isFiltering() {
+            return filteredStations.count
+        } else {
+            if selectedFilter == 8 {
+                return allStations.count
+            } else {
+                return lineInfo[selectedFilter].count
+            }
+        }
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = stationsCollectionView.dequeueReusableCell(withReuseIdentifier: "stationSearchCell", for: indexPath) as! StationCell
-        cell.stationName.text = lineInfo[selectedLineIndex][indexPath.row][0] as? String
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NearbyStationCell", for: indexPath) as! NearbyStationCell
+        var station: [Any] = []
+        if isFiltering() {
+            station = filteredStations[indexPath.row]
+        } else {
+            if selectedFilter == 8 {
+                station = allStations[indexPath.row]
+            } else {
+                station = lineInfo[selectedFilter][indexPath.row]
+            }
+        }
         
+        cell.nearbyStationLabel.text = station[0] as? String
+        cell.distanceLabel.isHidden = true
         for lineView in cell.lineViews {
-            lineView.layer.cornerRadius = 10
+            lineView.layer.cornerRadius = 13
             lineView.backgroundColor = .white
         }
         
         var count = 0
-        for color in lineInfo[selectedLineIndex][indexPath.row][2] as! [UIColor] {
+        
+        for color in station[2] as! [UIColor] {
             cell.lineViews[count].backgroundColor = color
             count += 1
         }
@@ -279,15 +300,24 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var station: [Any] = []
+        if isFiltering() {
+            station = filteredStations[indexPath.row]
+        } else {
+            if selectedFilter == 8 {
+                station = allStations[indexPath.row]
+            } else {
+                station = lineInfo[selectedFilter][indexPath.row]
+            }
+        }
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let desVC = mainStoryboard.instantiateViewController(withIdentifier: "SearchResultsScreen") as! SearchResultsScreen
-        desVC.stationName = lineInfo[selectedLineIndex][indexPath.row][0] as? String ?? "error"
-        desVC.stationColors = lineInfo[selectedLineIndex][indexPath.row][2] as? [UIColor] ?? []
-        print(lineInfo[selectedLineIndex][indexPath.row])
-        desVC.mapId = Int(lineInfo[selectedLineIndex][indexPath.row][1] as? String ?? "0") ?? 0
+        desVC.stationName = station[0] as? String ?? "error"
+        desVC.stationColors = station[2] as? [UIColor] ?? []
+        desVC.mapId = Int(station[1] as? String ?? "0") ?? 0
         self.navigationController?.pushViewController(desVC, animated: true)
-        //self.present(desVC, animated: true, completion: nil)
+        
     }
     
     
@@ -296,51 +326,9 @@ class MainSearchScreen: UIViewController, UICollectionViewDelegate, UICollection
     //*******
     
     @IBAction func searchUnwindSegue(unwindSegue: UIStoryboardSegue){
-        
+        collectionView.reloadData()
+        if isFiltering() {
+            updateSearchResults(for: resultSearchController!)
+        }
     }
-    
-    @IBAction func redSelected(_ sender: Any) {
-        selectedLineIndex = 0
-        stationsCollectionView.reloadData()
-    }
-    
-    @IBAction func blueSelected(_ sender: Any) {
-        selectedLineIndex = 1
-        stationsCollectionView.reloadData()
-    }
-    
-    @IBAction func brownSelected(_ sender: Any) {
-        selectedLineIndex = 2
-        stationsCollectionView.reloadData()
-    }
-    
-    @IBAction func greenSelected(_ sender: Any) {
-        selectedLineIndex = 3
-        stationsCollectionView.reloadData()
-    }
-    
-    @IBAction func orangeSelected(_ sender: Any) {
-        selectedLineIndex = 4
-        stationsCollectionView.reloadData()
-    }
-    
-    @IBAction func pinkSelected(_ sender: Any) {
-        selectedLineIndex = 5
-        stationsCollectionView.reloadData()
-    }
-    
-    @IBAction func purpleSelected(_ sender: Any) {
-        selectedLineIndex = 6
-        stationsCollectionView.reloadData()
-    }
-    
-    @IBAction func yellowSelected(_ sender: Any) {
-        selectedLineIndex = 7
-        stationsCollectionView.reloadData()
-    }
-    
-    
-    
-    
-    
 }

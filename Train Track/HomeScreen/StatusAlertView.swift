@@ -215,10 +215,12 @@ class StatusAlertView: UIView, PopUpAnimation {
                 } else if line == "Org" {
                     lineView.backgroundColor = ctaOrange
                     alertDataViews.append(lineView)
-                } else if (line == "P" || line == "Pexp") && !purpleFlag {
-                    lineView.backgroundColor = ctaPurple
-                    alertDataViews.append(lineView)
-                    purpleFlag = true
+                } else if (line == "P" || line == "Pexp"){
+                    if !purpleFlag {
+                        lineView.backgroundColor = ctaPurple
+                        alertDataViews.append(lineView)
+                        purpleFlag = true
+                    }
                 } else if line == "Pink" {
                     lineView.backgroundColor = ctaPink
                     alertDataViews.append(lineView)

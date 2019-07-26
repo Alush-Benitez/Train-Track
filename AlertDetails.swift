@@ -220,6 +220,9 @@ class AlertDetails: UIViewController, UICollectionViewDelegate, UICollectionView
             if alertsInfo[indexPath.row][2] as! Int >= 40 {
                 cell.colorView.backgroundColor = alertRed
                 cell.statusLabel.text = "!"
+            } else if alertsInfo[indexPath.row][2] as! Int >= 20 {
+                cell.colorView.backgroundColor = alertYellow
+                cell.statusLabel.text = "!"
             } else {
                 cell.colorView.backgroundColor = infoBlue
                 cell.statusLabel.text = "i"
