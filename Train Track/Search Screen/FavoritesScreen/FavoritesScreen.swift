@@ -11,6 +11,7 @@ import UIKit
 class FavoritesScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var favoritesCollectionView: UICollectionView!
+    @IBOutlet weak var scrollIndicator: UILabel!
     
     var lineViews: [UIView] = []
     
@@ -29,6 +30,28 @@ class FavoritesScreen: UIViewController, UICollectionViewDelegate, UICollectionV
             trainTrackerData.append(grabTrainTrackerData(mapid: Double(station[1] as! Int)))
             alertStrings.append(grabAlertData(stationid: station[1] as! Int))
         }
+        if favoriteStations.count != 0 {
+            scrollIndicator.text = "1/" + String(favoriteStations.count)
+        } else {
+            scrollIndicator.isHidden = true
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        trainTrackerData = []
+        alertStrings = []
+        for station in favoriteStations {
+            trainTrackerData.append(grabTrainTrackerData(mapid: Double(station[1] as! Int)))
+            alertStrings.append(grabAlertData(stationid: station[1] as! Int))
+        }
+        if favoriteStations.count != 0 {
+            scrollIndicator.text = "1/" + String(favoriteStations.count)
+        } else {
+            scrollIndicator.isHidden = true
+        }
+        favoritesCollectionView.reloadData()
+
+        //favoriteStations = UserDefaults.standard.array(forKey: "favoriteStations") as! [[Any]]
     }
     
     
@@ -37,7 +60,7 @@ class FavoritesScreen: UIViewController, UICollectionViewDelegate, UICollectionV
         if collectionView == favoritesCollectionView {
             return favoriteStations.count
         } else {
-            return trainTrackerData[collectionView.tag].count
+            return trainTrackerData[collectionView.tag].count + 1
         }
     }
     
@@ -65,14 +88,14 @@ class FavoritesScreen: UIViewController, UICollectionViewDelegate, UICollectionV
                 //Alert Cell
                 let firstCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlertCell", for: indexPath) as! AlertCell
                 firstCell.layer.cornerRadius = 7
-                firstCell.descriptionLabel.text = alertStrings[collectionView.tag] as? String
+                firstCell.descriptionLabel.text = alertStrings[collectionView.tag]
                 firstCell.layer.shadowColor = UIColor.gray.cgColor
                 firstCell.layer.shadowOffset = CGSize(width: 0, height: 1.2)
                 firstCell.layer.shadowRadius = 1.2
                 firstCell.layer.shadowOpacity = 1.0
                 firstCell.layer.masksToBounds = false
                 firstCell.layer.shadowPath = UIBezierPath(roundedRect:firstCell.bounds, cornerRadius: 7).cgPath
-                if alertStrings[collectionView.tag] as? String != "Normal Service" {
+                if alertStrings[collectionView.tag] != "Normal Service" {
                     firstCell.statusIcon.image = UIImage(named: "warning-icon")
                 } else {
                     firstCell.statusIcon.image = UIImage(named: "greencheck")
@@ -120,6 +143,18 @@ class FavoritesScreen: UIViewController, UICollectionViewDelegate, UICollectionV
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView != favoritesCollectionView {
+            if indexPath.row == 0 {
+                let alert = StatusAlertView(stationid: favoriteStations[collectionView.tag][1] as! Int)
+                alert.show(animated: true)
+            } else {
+                let alert = FollowTrainAlertView(runNumber: trainTrackerData[collectionView.tag][indexPath.row-1][7] as! Int, color: trainTrackerData[collectionView.tag][indexPath.row-1][0] as! UIColor, destination: trainTrackerData[collectionView.tag][indexPath.row-1][2] as! String, colorString: trainTrackerData[collectionView.tag][indexPath.row-1][1] as! String)
+                alert.show(animated: true)
+            }
+        }
+    }
+    
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //        <#code#>
 //    }
@@ -148,6 +183,10 @@ class FavoritesScreen: UIViewController, UICollectionViewDelegate, UICollectionV
         else {
             page = floor(proposedPage + 1) // 5
         }
+        
+        scrollIndicator.text = String(Int(page) + 1) + "/" + String(favoriteStations.count)
+        print(page)
+        print("^")
         
         targetContentOffset.pointee = CGPoint(
             x: CGFloat(cellWidth) * page,

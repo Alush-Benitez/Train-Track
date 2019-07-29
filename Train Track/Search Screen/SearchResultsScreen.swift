@@ -31,6 +31,8 @@ class SearchResultsScreen: UIViewController, UICollectionViewDataSource, UIColle
     var alertString = ""
     private let refreshControl = UIRefreshControl()
     
+    let defaults = UserDefaults.standard
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -152,10 +154,13 @@ class SearchResultsScreen: UIViewController, UICollectionViewDataSource, UIColle
     
     @IBAction func favoritesPressed(_ sender: Any) {
         if !favoriteMapids.contains(mapId) {
+//            if favoriteMapids.count != 0 {
+//                UserDefaults.standard.removeObject(forKey: "favoriteStations")
+//            }
+            favoriteMapids.append(mapId)
             favoriteStations.append([stationName, mapId, stationColors, accessibility])
-            print(favoriteStations)
+//            UserDefaults.standard.set(7, forKey: "int")
+//            UserDefaults.standard.set(favoriteStations, forKey: "favoriteStations")
         }
     }
-    
-
 }
