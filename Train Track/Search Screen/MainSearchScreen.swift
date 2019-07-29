@@ -140,7 +140,6 @@ class MainSearchScreen: UICollectionViewController, UISearchResultsUpdating {
             //Checking if station was already tested
             let mapId = result["map_id"].stringValue
             let accessibility = result["ada"].boolValue
-            print(accessibility)
             var name = result["station_name"].stringValue
             if name == "Harold Washington Library-State/Van Buren" {
                 name = "Harold Washington Library"
@@ -286,7 +285,6 @@ class MainSearchScreen: UICollectionViewController, UISearchResultsUpdating {
         }
         
         var count = 0
-        print(station)
         
         for color in station[3] as! [UIColor] {
             cell.lineViews[count].backgroundColor = color

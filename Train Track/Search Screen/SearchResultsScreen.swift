@@ -149,5 +149,13 @@ class SearchResultsScreen: UIViewController, UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.dataCollectionView.frame.width - 40, height: 75)
     }
+    
+    @IBAction func favoritesPressed(_ sender: Any) {
+        if !favoriteMapids.contains(mapId) {
+            favoriteStations.append([stationName, mapId, stationColors, accessibility])
+            print(favoriteStations)
+        }
+    }
+    
 
 }

@@ -27,8 +27,6 @@ func grabTrainTrackerData(mapid: Double) -> [[Any]] {
 
 func parseTrainTrackerData(json: JSON?) -> [[Any]] {
     var trainTrackerData: [[Any]] = []
-    var lastUpdatedLabelText = ""
-    
     for result in json!["ctatt"]["eta"].arrayValue {
         
         //Color, colorString, Destination, countdowntime, isApproaching, isScheduled, isDelayed, runNumber
@@ -76,24 +74,7 @@ func parseTrainTrackerData(json: JSON?) -> [[Any]] {
         index = result["arrT"].stringValue.index(result["arrT"].stringValue.startIndex, offsetBy: 11)
         index2 = result["arrT"].stringValue.index(result["arrT"].stringValue.startIndex, offsetBy: 12)
         let arrivalHour = Int(String(result["arrT"].stringValue[index...index2]))!
-        var predictionHour = Int(String(result["prdt"].stringValue[index...index2]))!
-        
-        var friendlyMin = String(predictionMin)
-        if friendlyMin.count == 1 {
-            friendlyMin = "0" + friendlyMin
-        }
-        
-        
-        
-        if predictionHour < 12 {
-            if predictionHour == 0 {
-                predictionHour = 12
-            }
-            lastUpdatedLabelText = String(predictionHour) + ":" + String(friendlyMin) + " AM"
-        } else {
-            lastUpdatedLabelText = String(predictionHour - 12) + ":" + String(friendlyMin) + " PM"
-        }
-        
+        let predictionHour = Int(String(result["prdt"].stringValue[index...index2]))!
         
         if arrivalHour == predictionHour {
             info.append(String(arrivalMin - predictionMin))
@@ -160,3 +141,5 @@ func parseAlertData(json: JSON?) -> String {
 //*********
 
 var selectedFilter = 8
+var favoriteStations: [[Any]] = []
+var favoriteMapids: [Int] = []

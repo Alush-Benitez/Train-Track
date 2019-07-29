@@ -21,7 +21,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     @IBOutlet weak var sixthLineView: UIView!
     @IBOutlet weak var accessableIcon: UIImageView!
     @IBOutlet weak var nearbyButton: UIButton!
-    @IBOutlet weak var lastUpdatedLabel: UILabel!
     
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation!
@@ -74,9 +73,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         nearbyButton.layer.cornerRadius = 7
         nearbyButton.layer.borderWidth = 2
         nearbyButton.layer.borderColor = notBlack.cgColor
-        
-        lastUpdatedLabel.layer.cornerRadius = 4
-        lastUpdatedLabel.layer.backgroundColor = notBlack.cgColor
     }
     
     @objc private func reloadTrainTrackerData(_ sender: Any) {
@@ -100,26 +96,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         if let location = locations.first {
             currentLocation = location
             if !loaded {
-                let date = Date()
-                let calendar = Calendar.current
-                var hour = calendar.component(.hour, from: date)
-                let minutes = calendar.component(.minute, from: date)
-                
-                var friendlyMin = String(minutes)
-                if friendlyMin.count == 1 {
-                    friendlyMin = "0" + friendlyMin
-                }
-                
-                if hour > 12 {
-                    lastUpdatedLabel.text = String(hour - 12) + ":" + friendlyMin + " PM"
-                } else if hour == 12 {
-                    lastUpdatedLabel.text = String(hour) + ":" + friendlyMin + " PM"
-                } else {
-                    if hour == 0 {
-                        hour = 12
-                    }
-                    lastUpdatedLabel.text = String(hour) + ":" + friendlyMin + " AM"
-                }
                 grabClosestStations()
                 
                 if firstLoad {
