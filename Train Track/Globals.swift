@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 //**********************************
 //FUNCS FOR TRAIN TRACKER DATA SETUP
@@ -143,3 +144,5 @@ func parseAlertData(json: JSON?) -> String {
 var selectedFilter = 8
 var favoriteStations: [[Any]] = []
 var favoriteMapids: [Int] = []
+
+var pleaseHelp: String = "hello"

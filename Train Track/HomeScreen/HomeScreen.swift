@@ -42,12 +42,21 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         dataCollectionView.delegate = self
         dataCollectionView.dataSource = self
         dataCollectionView.register(UINib.init(nibName: "TrainTrackerCell", bundle: nil), forCellWithReuseIdentifier: "TrainTrackerCell")
         dataCollectionView.register(UINib.init(nibName: "NearbyStationCell", bundle: nil), forCellWithReuseIdentifier: "NearbyStationCell")
         dataCollectionView.register(UINib.init(nibName: "AlertCell", bundle: nil), forCellWithReuseIdentifier: "AlertCell")
         locationManager.requestWhenInUseAuthorization()
+        
+        //FavoritesSetup
+        favoriteStations = UserDefaults.standard.array(forKey: "favoriteStations") as? [[Any]] ?? []
+        favoriteMapids = UserDefaults.standard.array(forKey: "favoriteMapids") as? [Int] ?? []
+        
+        print("l")
+        print(favoriteStations)
+        print("l")
         
         lineViews = [firstLineView, secondLineView, thirdLineView, fourthLineView, fifthLineView, sixthLineView]
         
@@ -131,7 +140,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         let userCoordinate = CLLocation(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
         nearbyStationsData = [[-1.0, -1.0, "", [], false], [-1.0, -1.0, "", [], false], [-1.0, -1.0, "", [], false], [-1.0, -1.0, "", [], false], [-1.0, -1.0, "", [], false]]
         var name = ""
-        
         //Find Closest Station Data
         for result in json![].arrayValue {
             
@@ -225,7 +233,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                     //set lines
                     if result["red"].boolValue && !lines.contains(ctaRed) {
                         lines.append(ctaRed)
-                        
                     }
                     if result["blue"].boolValue && !lines.contains(ctaBlue) {
                         lines.append(ctaBlue)

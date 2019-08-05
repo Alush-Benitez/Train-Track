@@ -153,14 +153,39 @@ class SearchResultsScreen: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     @IBAction func favoritesPressed(_ sender: Any) {
-        if !favoriteMapids.contains(mapId) {
-//            if favoriteMapids.count != 0 {
-//                UserDefaults.standard.removeObject(forKey: "favoriteStations")
-//            }
+        
+        if !((UserDefaults.standard.array(forKey: "favoriteMapids") as? [Int] ?? []).contains(mapId)) {
+            if favoriteMapids.count != 0 {
+                UserDefaults.standard.removeObject(forKey: "favoriteStations")
+                UserDefaults.standard.removeObject(forKey: "favoriteMapids")
+            }
+            var colorStrings: [String] = []
+            for color in stationColors {
+                if color == ctaRed {
+                    colorStrings.append("red")
+                } else if color == ctaBlue {
+                    colorStrings.append("blue")
+                } else if color == ctaBrown {
+                    colorStrings.append("brown")
+                } else if color == ctaGreen {
+                    colorStrings.append("green")
+                } else if color == ctaOrange {
+                    colorStrings.append("orange")
+                } else if color == ctaPink {
+                    colorStrings.append("pink")
+                } else if color == ctaPurple {
+                    colorStrings.append("purple")
+                } else {
+                    colorStrings.append("yellow")
+                }
+            }
             favoriteMapids.append(mapId)
-            favoriteStations.append([stationName, mapId, stationColors, accessibility])
-//            UserDefaults.standard.set(7, forKey: "int")
-//            UserDefaults.standard.set(favoriteStations, forKey: "favoriteStations")
+            favoriteStations.append([stationName, mapId, colorStrings, accessibility])
+            UserDefaults.standard.set(favoriteStations, forKey: "favoriteStations")
+            UserDefaults.standard.set(favoriteMapids, forKey: "favoriteMapids")
         }
+        print("")
+        print((UserDefaults.standard.array(forKey: "favoriteStations")) as! [[Any]])
+        print("")
     }
 }
