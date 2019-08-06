@@ -197,6 +197,7 @@ class StatusAlertView: UIView, PopUpAnimation {
         
         for i in 0..<array.count {
             var lineCount = 1
+            purpleFlag = false
             for line in array[i][1] as! [String] {
                 let lineView = UIView(frame: CGRect(x: ((5 * (lineCount - 1)) + 8 + (16 * (lineCount - 1))), y: heightCount, width: 16, height: 16))
                 lineView.layer.cornerRadius = 8
@@ -243,7 +244,7 @@ class StatusAlertView: UIView, PopUpAnimation {
                 }
                 lineCount += 1
             }
-            heightCount += 22
+            heightCount += 20
             let discriptionLabel = UILabel(frame: CGRect(x: 8, y: heightCount, width: Int(dialogViewWidth-16), height: 1))
             discriptionLabel.text = array[i][2] as? String
             discriptionLabel.textColor = notBlack

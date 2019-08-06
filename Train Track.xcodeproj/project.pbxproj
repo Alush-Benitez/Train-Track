@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4A04392D22E8C681002DE35B /* FiltersScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04392C22E8C681002DE35B /* FiltersScreen.swift */; };
 		4A04393022EE25E9002DE35B /* FavoritesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04392F22EE25E9002DE35B /* FavoritesScreen.swift */; };
-		4A04393222EE7109002DE35B /* FavoritesScreenStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04393122EE7109002DE35B /* FavoritesScreenStationCell.swift */; };
 		4A05AF4B22B88D1F007C29E7 /* TrainTrackerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A05AF4922B88D1F007C29E7 /* TrainTrackerCell.swift */; };
 		4A05AF4C22B88D1F007C29E7 /* TrainTrackerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A05AF4A22B88D1F007C29E7 /* TrainTrackerCell.xib */; };
 		4A05AF4F22B88D41007C29E7 /* NearbyStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A05AF4D22B88D41007C29E7 /* NearbyStationCell.swift */; };
@@ -61,7 +60,6 @@
 /* Begin PBXFileReference section */
 		4A04392C22E8C681002DE35B /* FiltersScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FiltersScreen.swift; path = ../FiltersScreen.swift; sourceTree = "<group>"; };
 		4A04392F22EE25E9002DE35B /* FavoritesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreen.swift; sourceTree = "<group>"; };
-		4A04393122EE7109002DE35B /* FavoritesScreenStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreenStationCell.swift; sourceTree = "<group>"; };
 		4A05AF4922B88D1F007C29E7 /* TrainTrackerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainTrackerCell.swift; sourceTree = "<group>"; };
 		4A05AF4A22B88D1F007C29E7 /* TrainTrackerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainTrackerCell.xib; sourceTree = "<group>"; };
 		4A05AF4D22B88D41007C29E7 /* NearbyStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyStationCell.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				4A04392F22EE25E9002DE35B /* FavoritesScreen.swift */,
-				4A04393122EE7109002DE35B /* FavoritesScreenStationCell.swift */,
 			);
 			name = FavoritesScreen;
 			path = "Search Screen/FavoritesScreen";
@@ -429,7 +426,6 @@
 				4A05AF4B22B88D1F007C29E7 /* TrainTrackerCell.swift in Sources */,
 				4A9A7BCF22DC13110009E290 /* String+Typographizer.swift in Sources */,
 				4A9A7BD122DC13190009E290 /* Typographizer.swift in Sources */,
-				4A04393222EE7109002DE35B /* FavoritesScreenStationCell.swift in Sources */,
 				4A05AF4F22B88D41007C29E7 /* NearbyStationCell.swift in Sources */,
 				4AB7D0C022A968C300A5EDFD /* SwiftyJSON.swift in Sources */,
 				4A9A7BC422D3A1790009E290 /* MainSearchScreen.swift in Sources */,
