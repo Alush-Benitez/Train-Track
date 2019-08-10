@@ -42,6 +42,10 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        accessableIcon.isHidden = true
+        nearbyButton.isHidden = true
+        
 
         dataCollectionView.delegate = self
         dataCollectionView.dataSource = self
@@ -54,15 +58,12 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         favoriteStations = UserDefaults.standard.array(forKey: "favoriteStations") as? [[Any]] ?? []
         favoriteMapids = UserDefaults.standard.array(forKey: "favoriteMapids") as? [Int] ?? []
         
-        print("l")
-        print(favoriteStations)
-        print("l")
-        
         lineViews = [firstLineView, secondLineView, thirdLineView, fourthLineView, fifthLineView, sixthLineView]
         
         for view in lineViews {
             view.layer.cornerRadius = 15
         }
+        
 
         //Location
         if CLLocationManager.locationServicesEnabled() {
@@ -70,6 +71,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
         }
+        
         
         //Refresh
         if #available(iOS 10.0, *) {
@@ -93,7 +95,7 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             trainTrackerData = grabTrainTrackerData(mapid: nearbyStationsData[selectedIndex][0] as! Double)
             alertString = grabAlertData(stationid: Int(nearbyStationsData[selectedIndex][0] as! Double))
         }
-        dataCollectionView.reloadData()
+        
         let delay = DispatchTime.now() + .milliseconds(500)
         DispatchQueue.main.asyncAfter(deadline: delay){
             self.dataCollectionView.refreshControl!.endRefreshing()
@@ -101,7 +103,6 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
         if let location = locations.first {
             currentLocation = location
             if !loaded {
@@ -112,7 +113,9 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                     alertString = grabAlertData(stationid: Int(nearbyStationsData[0][0] as! Double))
                     firstLoad = false
                 }
+                print("first")
                 dataCollectionView.reloadData()
+                print("second")
                 loaded = true
             }
             locationManager.stopUpdatingLocation()
@@ -165,6 +168,16 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                 
                 if result["station_name"].stringValue == "Harold Washington Library-State/Van Buren" {
                     name = "Harold Washington Library"
+                }
+                
+                if result["map_id"].intValue == 40670 {
+                    name = "Western (O'Hare Branch)"
+                } else if result["map_id"].intValue == 40220 {
+                    name = "Western (Forest Park Branch)"
+                } else if result["map_id"].intValue == 40750 {
+                    name = "Harlem (O'Hare Branch)"
+                } else if result["map_id"].intValue == 40980 {
+                    name = "Harlem (Forest Park Branch)"
                 }
                 
                 let distanceInMeters = stationCoordinate.distance(from: userCoordinate)
@@ -302,10 +315,15 @@ class HomeScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     //**********************
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if !nearbyPressed {
-            return trainTrackerData.count + 1
+        if alertString != "" {
+            nearbyButton.isHidden = false
+            if !nearbyPressed {
+                return trainTrackerData.count + 1
+            } else {
+                return 5
+            }
         } else {
-            return 5
+            return 0
         }
     }
     

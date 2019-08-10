@@ -190,10 +190,11 @@ class AlertDetails: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if elevatorAlertsShown {
-            return CGSize(width: 365, height: 75)
+            return CGSize(width: self.alertsCollectionView.frame.width - 40, height: 75)
         } else {
-            return CGSize(width: 365, height: 180)
+            return CGSize(width: self.alertsCollectionView.frame.width - 40, height: 180)
         }
+        
     }
     
     
@@ -257,8 +258,8 @@ class AlertDetails: UIViewController, UICollectionViewDelegate, UICollectionView
             
             //cell.startTimeLabel.text = alertsInfo[indexPath.row][3] as? String
             //cell.endTimeLabel.text = alertsInfo[indexPath.row][4] as? String
-            cell.discriptionLabel.sizeToFit()
-            cell.discriptionLabel.sizeToFit()
+            //cell.discriptionLabel.sizeToFit()
+            //cell.discriptionLabel.sizeToFit()
 
             
             cell.layer.cornerRadius = 7

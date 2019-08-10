@@ -55,7 +55,15 @@ class FollowTrainAlertView: UIView, PopUpAnimation {
         var count = 1
         for station in nextStationsData {
             let nextStationLabel = UILabel(frame: CGRect(x: 8, y: 35 + (count * 40), width: Int(dialogViewWidth-75), height: 30))
-            nextStationLabel.text = station[0] as? String
+            if station[0] as? String == "Conservatory-Central Park Drive" {
+                nextStationLabel.text = "Conservatory"
+            } else if station[0] as? String == "Western (Forest Park Branch)" {
+                nextStationLabel.text = "Western (Forest Pk Branch)"
+            } else if station[0] as? String == "Harlem (Forest Park Branch)" {
+                nextStationLabel.text = "Harlem (Forest Pk Branch)"
+            } else {
+                nextStationLabel.text = station[0] as? String
+            }
             nextStationLabel.textColor = notBlack
             nextStationLabel.font = UIFont(name: "Montserrat-SemiBold", size: 18.0)
             nextStationsDataViews.append(nextStationLabel)

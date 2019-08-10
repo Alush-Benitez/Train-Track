@@ -19,6 +19,10 @@
 		4A05AF5C22C4FD99007C29E7 /* AlertsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A05AF5B22C4FD99007C29E7 /* AlertsScreen.swift */; };
 		4A05AF5E22C50ED6007C29E7 /* AlertScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A05AF5D22C50ED6007C29E7 /* AlertScreenCell.swift */; };
 		4A34B9B622B87CDC0026B9AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A34B9B522B87CDC0026B9AC /* Main.storyboard */; };
+		4A665EE422FB137700582935 /* DeleteFavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A665EE222FB137700582935 /* DeleteFavoriteCell.swift */; };
+		4A665EE522FB137700582935 /* DeleteFavoriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A665EE322FB137700582935 /* DeleteFavoriteCell.xib */; };
+		4A665EE822FDBA4B00582935 /* MainSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A665EE622FDBA4B00582935 /* MainSearchCell.swift */; };
+		4A665EE922FDBA4B00582935 /* MainSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A665EE722FDBA4B00582935 /* MainSearchCell.xib */; };
 		4A9A7BC422D3A1790009E290 /* MainSearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A7BC322D3A1790009E290 /* MainSearchScreen.swift */; };
 		4A9A7BCA22D778B90009E290 /* SearchResultsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A7BC922D778B90009E290 /* SearchResultsScreen.swift */; };
 		4A9A7BCD22D7862D0009E290 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A7BCC22D7862D0009E290 /* Globals.swift */; };
@@ -70,6 +74,10 @@
 		4A05AF5B22C4FD99007C29E7 /* AlertsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertsScreen.swift; path = ../HomeScreen/AlertsScreen.swift; sourceTree = "<group>"; };
 		4A05AF5D22C50ED6007C29E7 /* AlertScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertScreenCell.swift; path = ../HomeScreen/AlertScreenCell.swift; sourceTree = "<group>"; };
 		4A34B9B522B87CDC0026B9AC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4A665EE222FB137700582935 /* DeleteFavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFavoriteCell.swift; sourceTree = "<group>"; };
+		4A665EE322FB137700582935 /* DeleteFavoriteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteFavoriteCell.xib; sourceTree = "<group>"; };
+		4A665EE622FDBA4B00582935 /* MainSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchCell.swift; sourceTree = "<group>"; };
+		4A665EE722FDBA4B00582935 /* MainSearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainSearchCell.xib; sourceTree = "<group>"; };
 		4A9A7BC322D3A1790009E290 /* MainSearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchScreen.swift; sourceTree = "<group>"; };
 		4A9A7BC922D778B90009E290 /* SearchResultsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsScreen.swift; sourceTree = "<group>"; };
 		4A9A7BCC22D7862D0009E290 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
@@ -124,6 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				4A04392F22EE25E9002DE35B /* FavoritesScreen.swift */,
+				4A665EE222FB137700582935 /* DeleteFavoriteCell.swift */,
+				4A665EE322FB137700582935 /* DeleteFavoriteCell.xib */,
 			);
 			name = FavoritesScreen;
 			path = "Search Screen/FavoritesScreen";
@@ -183,6 +193,8 @@
 				4A9A7BC322D3A1790009E290 /* MainSearchScreen.swift */,
 				4A9A7BC922D778B90009E290 /* SearchResultsScreen.swift */,
 				4A04392C22E8C681002DE35B /* FiltersScreen.swift */,
+				4A665EE622FDBA4B00582935 /* MainSearchCell.swift */,
+				4A665EE722FDBA4B00582935 /* MainSearchCell.xib */,
 			);
 			path = "Search Screen";
 			sourceTree = "<group>";
@@ -192,7 +204,6 @@
 			children = (
 				4AB7D0AA22A6DCD500A5EDFD /* Montserrat */,
 				4AB7D083229EFB9B00A5EDFD /* AppDelegate.swift */,
-				4AB7D08E229EFB9D00A5EDFD /* LaunchScreen.storyboard */,
 				4AB7D08C229EFB9D00A5EDFD /* Assets.xcassets */,
 				4AB7D0BF22A968C200A5EDFD /* SwiftyJSON.swift */,
 				4A9A7BCE22DC13100009E290 /* String+Typographizer.swift */,
@@ -234,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				4A34B9B522B87CDC0026B9AC /* Main.storyboard */,
+				4AB7D08E229EFB9D00A5EDFD /* LaunchScreen.storyboard */,
 				4AB7D0BD22A6DEC500A5EDFD /* Color.swift */,
 				4A9A7BCC22D7862D0009E290 /* Globals.swift */,
 				4AAA371822AFF30E0098C6CC /* PopUpAnimation.swift */,
@@ -388,9 +400,11 @@
 				4AB7D0B422A6DD4A00A5EDFD /* Montserrat-Bold.ttf in Resources */,
 				4AB7D08D229EFB9D00A5EDFD /* Assets.xcassets in Resources */,
 				4AB7D0AE22A6DD0B00A5EDFD /* Montserrat-SemiBold.ttf in Resources */,
+				4A665EE522FB137700582935 /* DeleteFavoriteCell.xib in Resources */,
 				4AB7D0B822A6DD6E00A5EDFD /* Montserrat-Medium.ttf in Resources */,
 				4A34B9B622B87CDC0026B9AC /* Main.storyboard in Resources */,
 				4AB7D0BA22A6DD7C00A5EDFD /* Montserrat-ExtraBold.ttf in Resources */,
+				4A665EE922FDBA4B00582935 /* MainSearchCell.xib in Resources */,
 				4AB7D0B622A6DD5700A5EDFD /* Montserrat-Thin.ttf in Resources */,
 				4A05AF4C22B88D1F007C29E7 /* TrainTrackerCell.xib in Resources */,
 			);
@@ -412,6 +426,7 @@
 			files = (
 				4AB7D084229EFB9B00A5EDFD /* AppDelegate.swift in Sources */,
 				4ADF227D22C54D75007679F2 /* AlertDetails.swift in Sources */,
+				4A665EE822FDBA4B00582935 /* MainSearchCell.swift in Sources */,
 				4ADF228622CABF5C007679F2 /* SystemAlertCollectionViewCell.swift in Sources */,
 				4A04393022EE25E9002DE35B /* FavoritesScreen.swift in Sources */,
 				4A05AF5A22BD2786007C29E7 /* StatusAlertView.swift in Sources */,
@@ -419,6 +434,7 @@
 				4A04392D22E8C681002DE35B /* FiltersScreen.swift in Sources */,
 				4A05AF5C22C4FD99007C29E7 /* AlertsScreen.swift in Sources */,
 				4ADF228222CAB757007679F2 /* ElevatorAlertCollectionViewCell.swift in Sources */,
+				4A665EE422FB137700582935 /* DeleteFavoriteCell.swift in Sources */,
 				4A05AF5E22C50ED6007C29E7 /* AlertScreenCell.swift in Sources */,
 				4A9A7BCD22D7862D0009E290 /* Globals.swift in Sources */,
 				4A9A7BCA22D778B90009E290 /* SearchResultsScreen.swift in Sources */,

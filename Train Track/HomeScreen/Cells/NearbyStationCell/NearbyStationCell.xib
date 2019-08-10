@@ -24,10 +24,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="365" height="75"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dempster-Skokie" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5FJ-78-jyC">
-                        <rect key="frame" x="7" y="7" width="268" height="32"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Dempster-Skokie" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5FJ-78-jyC">
+                        <rect key="frame" x="7" y="7" width="263" height="32"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="5FJ-78-jyC" secondAttribute="height" multiplier="67:8" id="DWF-XL-iaW"/>
+                            <constraint firstAttribute="width" secondItem="5FJ-78-jyC" secondAttribute="height" multiplier="267:32" constant="-4" id="2jR-5H-GtA"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="26"/>
                         <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -86,13 +86,15 @@
                             </view>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="hRt-ZJ-p9O" secondAttribute="height" multiplier="191:26" id="0td-rD-sL8"/>
+                            <constraint firstAttribute="height" constant="26" id="4ln-sM-q5f"/>
+                            <constraint firstAttribute="width" constant="191" id="f0X-0i-QaP"/>
                         </constraints>
                     </stackView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="77.9 mi" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IF9-gS-WDS">
-                        <rect key="frame" x="279" y="15.5" width="82" height="44"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99.9 mi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IF9-gS-WDS">
+                        <rect key="frame" x="274" y="20" width="85" height="35"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="IF9-gS-WDS" secondAttribute="height" multiplier="85:46" id="iFS-kH-Wjq"/>
+                            <constraint firstAttribute="width" constant="85" id="PdI-0G-1XH"/>
+                            <constraint firstAttribute="height" constant="35" id="Ya0-5N-9tK"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="22"/>
                         <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -102,12 +104,15 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="IF9-gS-WDS" secondAttribute="trailing" constant="4" id="16M-0q-cd1"/>
-                <constraint firstItem="hRt-ZJ-p9O" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="7" id="EAN-af-yMS"/>
-                <constraint firstItem="5FJ-78-jyC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="7" id="VqU-HD-uTh"/>
-                <constraint firstAttribute="bottom" secondItem="hRt-ZJ-p9O" secondAttribute="bottom" constant="6" id="Vxn-rb-Oud"/>
-                <constraint firstItem="IF9-gS-WDS" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="dUy-Gx-r42"/>
-                <constraint firstItem="5FJ-78-jyC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="7" id="gzR-YH-Dah"/>
+                <constraint firstItem="hRt-ZJ-p9O" firstAttribute="top" secondItem="5FJ-78-jyC" secondAttribute="bottom" constant="4" id="1XD-bw-5rD"/>
+                <constraint firstItem="IF9-gS-WDS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="53Y-3J-LZU"/>
+                <constraint firstItem="hRt-ZJ-p9O" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="7" id="Ifg-vB-ZkK"/>
+                <constraint firstItem="5FJ-78-jyC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="7" id="It8-TK-bzg"/>
+                <constraint firstItem="IF9-gS-WDS" firstAttribute="leading" secondItem="5FJ-78-jyC" secondAttribute="trailing" constant="4" id="JHX-rQ-ip4"/>
+                <constraint firstAttribute="bottom" secondItem="hRt-ZJ-p9O" secondAttribute="bottom" constant="6" id="N00-XR-DT4"/>
+                <constraint firstAttribute="trailing" secondItem="IF9-gS-WDS" secondAttribute="trailing" constant="6" id="alg-U7-etj"/>
+                <constraint firstItem="5FJ-78-jyC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="7" id="lY4-ny-jAX"/>
+                <constraint firstAttribute="bottom" secondItem="IF9-gS-WDS" secondAttribute="bottom" constant="20" id="w88-jA-20G"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>

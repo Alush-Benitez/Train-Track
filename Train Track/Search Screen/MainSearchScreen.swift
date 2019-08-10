@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class MainSearchScreen: UICollectionViewController, UISearchResultsUpdating {
+class MainSearchScreen: UICollectionViewController, UISearchResultsUpdating, UICollectionViewDelegateFlowLayout {
     
     var filters: [UIButton] = []
     var colors: [UIColor] = [ctaRed, ctaBlue, ctaBrown, ctaGreen, ctaOrange, ctaPink, ctaPurple, ctaYellow]
@@ -36,7 +36,7 @@ class MainSearchScreen: UICollectionViewController, UISearchResultsUpdating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.register(UINib.init(nibName: "NearbyStationCell", bundle: nil), forCellWithReuseIdentifier: "NearbyStationCell")
+        collectionView.register(UINib.init(nibName: "MainSearchCell", bundle: nil), forCellWithReuseIdentifier: "MainSearchCell")
         //Search Bar Setup
         
         resultSearchController = UISearchController(searchResultsController: nil)
@@ -55,6 +55,8 @@ class MainSearchScreen: UICollectionViewController, UISearchResultsUpdating {
         collectionView.reloadData()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(MainSearchScreen.filtersTapped(_:)))
+        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "noun_filter_1621123"), style: .plain, target: self, action: #selector(MainSearchScreen.filtersTapped(_:)))
         
     }
     
@@ -144,6 +146,17 @@ class MainSearchScreen: UICollectionViewController, UISearchResultsUpdating {
             if name == "Harold Washington Library-State/Van Buren" {
                 name = "Harold Washington Library"
             }
+            
+            if result["map_id"].intValue == 40670 {
+                name = "Western (O'Hare Branch)"
+            } else if result["map_id"].intValue == 40220 {
+                name = "Western (Forest Park Branch)"
+            } else if result["map_id"].intValue == 40750 {
+                name = "Harlem (O'Hare Branch)"
+            } else if result["map_id"].intValue == 40980 {
+                name = "Harlem (Forest Park Branch)"
+            }
+            
             
             for id in testedIds {
                 if mapId != id{
@@ -265,7 +278,7 @@ class MainSearchScreen: UICollectionViewController, UISearchResultsUpdating {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NearbyStationCell", for: indexPath) as! NearbyStationCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainSearchCell", for: indexPath) as! MainSearchCell
         var station: [Any] = []
         if isFiltering() {
             station = filteredStations[indexPath.row]
@@ -277,8 +290,7 @@ class MainSearchScreen: UICollectionViewController, UISearchResultsUpdating {
             }
         }
         
-        cell.nearbyStationLabel.text = station[0] as? String
-        cell.distanceLabel.isHidden = true
+        cell.stationTitleLabel.text = station[0] as? String
         for lineView in cell.lineViews {
             lineView.layer.cornerRadius = 13
             lineView.backgroundColor = .white
@@ -323,6 +335,9 @@ class MainSearchScreen: UICollectionViewController, UISearchResultsUpdating {
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.collectionView.frame.width - 40, height: 75)
+    }
     
     //*******
     //ACTIONS

@@ -144,5 +144,3 @@ func parseAlertData(json: JSON?) -> String {
 var selectedFilter = 8
 var favoriteStations: [[Any]] = []
 var favoriteMapids: [Int] = []
-
-var pleaseHelp: String = "hello"

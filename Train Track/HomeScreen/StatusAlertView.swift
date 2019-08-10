@@ -31,14 +31,14 @@ class StatusAlertView: UIView, PopUpAnimation {
         //CURRENT ALERTS
         //**************
         
-        let regularAlertsHeader =  UILabel(frame: CGRect(x: 8, y: 8, width: dialogViewWidth-16, height: 25))
+        let regularAlertsHeader =  UILabel(frame: CGRect(x: 8, y: 8, width: dialogViewWidth-16, height: 22))
         regularAlertsHeader.text = "Current Alerts"
         regularAlertsHeader.textColor = notBlack
-        regularAlertsHeader.font = UIFont(name: "Montserrat-Bold", size: 20.0)
+        regularAlertsHeader.font = UIFont(name: "Montserrat-Bold", size: 18.0)
         regularAlertsHeader.textAlignment = .left
     
         var noRegularAlerts = false
-        heightCount += 40
+        heightCount += 37
         var alertDataViews = addDataToViews(array: regularAlerts, dialogViewWidth: dialogViewWidth)
         
         if alertDataViews.count != 0 {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchResultsScreen: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class SearchResultsScreen: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var stationNameLabel: UILabel!
     @IBOutlet weak var accessableIcon: UIImageView!
@@ -83,6 +83,10 @@ class SearchResultsScreen: UIViewController, UICollectionViewDataSource, UIColle
         return trainTrackerData.count + 1
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.dataCollectionView.frame.width - 40, height: 75)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
             let firstCell = dataCollectionView.dequeueReusableCell(withReuseIdentifier: "AlertCell", for: indexPath) as! AlertCell
@@ -148,9 +152,7 @@ class SearchResultsScreen: UIViewController, UICollectionViewDataSource, UIColle
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.dataCollectionView.frame.width - 40, height: 75)
-    }
+    
     
     @IBAction func favoritesPressed(_ sender: Any) {
         
