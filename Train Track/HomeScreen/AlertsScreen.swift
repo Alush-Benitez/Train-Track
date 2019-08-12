@@ -40,9 +40,9 @@ class AlertsScreen: UIViewController, UICollectionViewDelegate, UICollectionView
         cell.lineLabel.text = routes[indexPath.row][0] as? String
         cell.lineLabel.textColor = routes[indexPath.row][1] as? UIColor
         if routeStatuses[indexPath.row] == "Normal Service" {
-            cell.statusIcon.image = UIImage(named: "greencheck")
+            cell.statusIcon.image = UIImage(named: "OK Icon")
         } else {
-            cell.statusIcon.image = UIImage(named: "warning-icon")
+            cell.statusIcon.image = UIImage(named: "Triangle Icon")
         }
         
         cell.backgroundColor = .white
@@ -65,9 +65,9 @@ class AlertsScreen: UIViewController, UICollectionViewDelegate, UICollectionView
         desVC.lineName = routes[indexPath.row][0] as! String
         desVC.statusInfo.append(routeStatuses[indexPath.row])
         if routeStatuses[indexPath.row] != "Normal Service" {
-            desVC.statusInfo.append(UIImage(named: "warning-icon")!)
+            desVC.statusInfo.append(UIImage(named: "Triangle Icon")!)
         } else {
-            desVC.statusInfo.append(UIImage(named: "greencheck")!)
+            desVC.statusInfo.append(UIImage(named: "OK Icon")!)
         }
         self.navigationController?.pushViewController(desVC, animated: true)
     }

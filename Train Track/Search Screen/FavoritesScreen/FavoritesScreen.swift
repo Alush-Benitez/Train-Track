@@ -273,9 +273,9 @@ class FavoritesScreen: UIViewController, UICollectionViewDelegate, UICollectionV
             firstCell.layer.masksToBounds = false
             firstCell.layer.shadowPath = UIBezierPath(roundedRect:firstCell.bounds, cornerRadius: 7).cgPath
             if alertStrings != "Normal Service" {
-                firstCell.statusIcon.image = UIImage(named: "warning-icon")
+                firstCell.statusIcon.image = UIImage(named: "Triangle Icon")
             } else {
-                firstCell.statusIcon.image = UIImage(named: "greencheck")
+                firstCell.statusIcon.image = UIImage(named: "OK Icon")
             }
             
             return firstCell

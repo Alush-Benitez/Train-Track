@@ -57,6 +57,11 @@ class SearchResultsScreen: UIViewController, UICollectionViewDataSource, UIColle
         alertString = grabAlertData(stationid: mapId)
         dataCollectionView.reloadData()
         
+        if (UserDefaults.standard.array(forKey: "favoriteMapids") as? [Int] ?? []).contains(mapId) {
+            favoritesButton.setImage(UIImage(named: "Star Icon Selected"), for: .normal)
+        } else {
+            favoritesButton.setImage(UIImage(named: "Star Icon"), for: .normal)
+        }
         
         
         //Refresh
@@ -99,9 +104,9 @@ class SearchResultsScreen: UIViewController, UICollectionViewDataSource, UIColle
             firstCell.layer.masksToBounds = false
             firstCell.layer.shadowPath = UIBezierPath(roundedRect:firstCell.bounds, cornerRadius: 7).cgPath
             if alertString != "Normal Service" {
-                firstCell.statusIcon.image = UIImage(named: "warning-icon")
+                firstCell.statusIcon.image = UIImage(named: "Triangle Icon")
             } else {
-                firstCell.statusIcon.image = UIImage(named: "greencheck")
+                firstCell.statusIcon.image = UIImage(named: "OK Icon")
             }
             return firstCell
         } else {
@@ -185,9 +190,23 @@ class SearchResultsScreen: UIViewController, UICollectionViewDataSource, UIColle
             favoriteStations.append([stationName, mapId, colorStrings, accessibility])
             UserDefaults.standard.set(favoriteStations, forKey: "favoriteStations")
             UserDefaults.standard.set(favoriteMapids, forKey: "favoriteMapids")
+            favoritesButton.setImage(UIImage(named: "Star Icon Selected"), for: .normal)
+        } else {
+            UserDefaults.standard.removeObject(forKey: "favoriteStations")
+            UserDefaults.standard.removeObject(forKey: "favoriteMapids")
+            
+            for i in 0..<favoriteMapids.count {
+                if favoriteMapids[i] == mapId {
+                    favoriteMapids.remove(at: i)
+                    favoriteStations.remove(at: i)
+                    break
+                }
+            }
+            
+            UserDefaults.standard.set(favoriteStations, forKey: "favoriteStations")
+            UserDefaults.standard.set(favoriteMapids, forKey: "favoriteMapids")
+            favoritesButton.setImage(UIImage(named: "Star Icon"), for: .normal)
+            
         }
-        print("")
-        print((UserDefaults.standard.array(forKey: "favoriteStations")) as! [[Any]])
-        print("")
     }
 }
