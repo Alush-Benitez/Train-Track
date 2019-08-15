@@ -615,7 +615,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cS7-xh-Z3T">
                                         <rect key="frame" x="0.0" y="32" width="414" height="32"/>
-                                        <color key="backgroundColor" red="0.99607843137254903" green="0.47843137254901957" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.97254902119999997" green="0.50980395079999996" blue="0.64705884459999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="CH7-Zb-Bvi"/>
                                             <constraint firstAttribute="width" secondItem="cS7-xh-Z3T" secondAttribute="height" multiplier="207:16" id="Nqv-Cq-Cf5"/>
@@ -633,7 +633,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2PL-Vo-fcZ">
                                         <rect key="frame" x="0.0" y="96" width="414" height="32"/>
-                                        <color key="backgroundColor" red="0.97254901960784312" green="0.50980392156862742" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.99607843159999998" green="0.4784313738" blue="0.21960784489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="2PL-Vo-fcZ" secondAttribute="height" multiplier="207:16" id="D1B-H7-gAN"/>
                                             <constraint firstAttribute="width" constant="414" id="I0d-TK-PR2"/>

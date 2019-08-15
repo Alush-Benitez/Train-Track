@@ -54,9 +54,9 @@ class MainSearchScreen: UICollectionViewController, UISearchResultsUpdating, UIC
         lineInfo = [redLineStations, blueLineStations, brownLineStations, greenLineStations, orangeLineStations, pinkLineStations, purpleLineStations, yellowLineStations]
         collectionView.reloadData()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(MainSearchScreen.filtersTapped(_:)))
+       // navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(MainSearchScreen.filtersTapped(_:)))
         
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "noun_filter_1621123"), style: .plain, target: self, action: #selector(MainSearchScreen.filtersTapped(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Line Logo"), style: .plain, target: self, action: #selector(MainSearchScreen.filtersTapped(_:)))
         
     }
     

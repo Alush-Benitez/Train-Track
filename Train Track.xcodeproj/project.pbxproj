@@ -250,10 +250,10 @@
 				4A9A7BCC22D7862D0009E290 /* Globals.swift */,
 				4AAA371822AFF30E0098C6CC /* PopUpAnimation.swift */,
 				4AB7D091229EFB9D00A5EDFD /* Info.plist */,
+				4AAA371622AB2F620098C6CC /* HomeScreen */,
 				4A04392E22EE23A9002DE35B /* FavoritesScreen */,
 				4A9A7BBE22D2352C0009E290 /* Search Screen */,
 				4A05AF5F22C5102E007C29E7 /* Alerts Screen */,
-				4AAA371622AB2F620098C6CC /* HomeScreen */,
 				4AAA371522AB2EA80098C6CC /* Stuff */,
 			);
 			path = "Train Track";
@@ -608,7 +608,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Chi-Transit";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.TrainTrack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -626,7 +626,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Chi-Transit";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.TrainTrack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
